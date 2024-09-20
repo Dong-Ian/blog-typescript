@@ -7,7 +7,7 @@ import { colorState, isLoggedInState } from "../Atom/Atom";
 import styles from "../Style/component.module.css";
 
 import GetAccountFunction from "../../Main/Function/GetAccountFunction";
-// import accountIcon from "../Image/person_white.png";
+import accountIcon from "../Image/person_white.png";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
@@ -29,6 +29,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     GetAccount();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -50,9 +51,13 @@ const Header: React.FC = () => {
         {title}
       </p>
       <div className={styles.right_box}>
-        {/* {isLoggedIn && (
-          <img src={accountIcon} alt="" onClick={() => navigate("/admin")} />
-        )} */}
+        {isLoggedIn && (
+          <img
+            src={accountIcon}
+            alt="account icon"
+            onClick={() => navigate("/admin")}
+          />
+        )}
       </div>
     </div>
   );
