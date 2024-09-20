@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+import styles from "../Style/account.module.css";
+
 import {
   RenderUserInfoProps,
   RenderAccountProps,
   RenderAccountRowProps,
 } from "../Type/MainType";
-
-import styles from "../Style/account.module.css";
 
 import default_profile_image from "../../Utils/Image/nullprofile.webp";
 import github_icon from "../../Utils/Image/github-mark.png";

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
+import styles from "../Style/main.module.css";
+
 import { UserInfoInterface, RenderPostListProps } from "../Type/MainType";
 import { PostInterface } from "../../PostList/Type/PostListType";
-
-import styles from "../Style/main.module.css";
 
 import Header from "../../Utils/Component/Header";
 import Account from "../Component/Account";
