@@ -15,8 +15,8 @@ export const tokenState = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-export const ColorState = atom({
-  key: "ColorState",
+export const colorState = atom({
+  key: "colorState",
   default: { background: "#000" },
   effects_UNSTABLE: [persistAtom],
 });

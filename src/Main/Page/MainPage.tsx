@@ -8,6 +8,8 @@ import { PostInterface } from "../../PostList/Type/PostListType";
 
 import styles from "../Style/main.module.css";
 
+import Header from "../../Utils/Component/Header";
+
 import GetAccountFunction from "../Function/GetAccountFunction";
 import {
   GetPinnedPostListFunction,
@@ -71,6 +73,7 @@ const MainPage: React.FC = () => {
     return (
       <>
         <Helmet title={userInfo.title} />
+        <Header />
         <div className={styles.container}>
           <p>MainPage</p>
         </div>
