@@ -21,3 +21,17 @@ export interface RenderPostListProps {
   postList: PostInterface[];
   navigate: NavigateFunction;
 }
+
+export interface RenderAccountProps {
+  userInfo: UserInfoInterface;
+}
+
+export interface RenderAccountRowProps {
+  img: string;
+  account: string | null;
+}
+
+export interface RenderUserInfoProps {
+  userInfo: UserInfoInterface;
+  profileImage: string;
+}
