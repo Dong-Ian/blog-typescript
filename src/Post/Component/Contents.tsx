@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 
 import styles from "../Style/post.module.css";
-import quill_styles from "../Style/Quill.module.css";
 
 import hljs from "highlight.js";
 import "highlight.js/styles/atom-one-dark-reasonable.css";

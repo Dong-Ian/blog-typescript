@@ -85,6 +85,7 @@ const PostPage: React.FC = () => {
   useEffect(() => {
     GetUserInfo();
     GetPost();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isChangePinnedState]);
 
   if (post) {
@@ -96,7 +97,7 @@ const PostPage: React.FC = () => {
           <HeaderTagList post={post} />
         </div>
         <div className={styles.outer_post_box}>
-          <div className={styles.account_bos}>
+          <div className={styles.account_box}>
             {userInfo && <Account userInfo={userInfo} />}
           </div>
           <div className={styles.post_box}>
