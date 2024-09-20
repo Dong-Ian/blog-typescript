@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { UserInfoInterface } from "../Type/MainType";
 
-import styles from "../Style/main.module.css";
+import styles from "../Style/account.module.css";
 
 import default_profile_image from "../../Utils/Image/nullprofile.webp";
 import github_icon from "../../Utils/Image/github-mark.png";
@@ -158,7 +158,7 @@ const Account: React.FC<AccountProps> = ({ userInfo }) => {
   }
 
   return (
-    <div className={styles.author_user_info_box}>
+    <div className={styles.user_info_box}>
       <UserInfoRender />
       <div className={styles.table}>
         <EmailRender />

@@ -1,0 +1,104 @@
+.outer_post_box {
+  flex-direction: column;
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  margin: 150px auto 0 auto;
+}
+
+.null_post {
+  margin: 0 0 0 40px;
+  font-size: 17px;
+}
+
+.postlist_box {
+  max-width: 800px;
+  margin: 10px 0;
+  cursor: pointer;
+  padding: 0 40px;
+}
+
+.box_title {
+  padding: 0 0 0 37px;
+  margin: 0 0 35px 0;
+  font-size: 25px;
+  font-weight: 700;
+  color: gray;
+}
+
+.title {
+  margin: 10px 0;
+
+  > p {
+    font-weight: 600;
+    line-height: 30px;
+    color: black;
+    transition: 0.1s ease-out;
+  }
+}
+
+.big_title {
+  > p {
+    font-size: 28px;
+  }
+}
+
+.small_title {
+  > p {
+    font-size: 20px;
+  }
+}
+
+.title:hover {
+  > p {
+    color: skyblue;
+    transition: 0.1s ease-out;
+  }
+}
+
+.contents {
+  margin: 0 0 10px 0;
+  line-height: 20px;
+  font-size: 16px;
+  max-width: 700px;
+}
+
+.more {
+  color: gray;
+  margin: 0 0 0 10px;
+  font-size: 14px;
+}
+
+.date > p {
+  font-size: 12px;
+  color: gray;
+  > span {
+    margin: 0 0 0 5px;
+  }
+}
+
+.category {
+  margin: -10px 0 0 0;
+  > p {
+    color: gray;
+    font-weight: 500;
+  }
+}
+
+.small_category {
+  > p {
+    font-size: 13px;
+  }
+}
+
+.hr {
+  margin: 30px auto 50px auto;
+  width: 95%;
+  border-top: 0.1px solid black;
+}
+
+.hr2 {
+  border: 1px solid transparent;
+  margin: 30px 0 0 0;
+  width: 95%;
+}
