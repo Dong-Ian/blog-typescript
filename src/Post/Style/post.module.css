@@ -1,0 +1,199 @@
+.outer_post_box {
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.post_box {
+  margin-top: 80px;
+  padding: 20px;
+}
+
+.back_button {
+  margin-top: 16px;
+}
+
+.category {
+  margin: 20px 0;
+  cursor: pointer;
+
+  > p {
+    font-weight: 500;
+    color: gray;
+  }
+}
+
+.small_category {
+  > p {
+    font-size: 15px;
+  }
+}
+
+.big_category {
+  > p {
+    font-size: 20px;
+  }
+}
+
+.title {
+  margin: 0 0 10px 0;
+
+  > p {
+    font-weight: 700;
+  }
+}
+
+.small_title {
+  > p {
+    font-size: 23px;
+  }
+}
+
+.big_title {
+  > p {
+    font-size: 30px;
+  }
+}
+
+.date {
+  margin: 0 0 10px 0;
+
+  > p {
+    color: gray;
+    font-size: 13px;
+  }
+}
+
+.tag {
+  margin: 0 0 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+
+  > div {
+    margin: 0 10px 10px 0;
+    cursor: pointer;
+  }
+}
+
+.contents {
+  margin: 50px 0 50px 0;
+  width: 100%;
+
+  p {
+    line-height: 30px;
+  }
+
+  img {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* bottom button */
+.button_div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bottom_back_button {
+  > button {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    color: black;
+  }
+}
+
+.btn_box {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.btn {
+  > button {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    color: black;
+  }
+}
+/* ///////////////////// */
+
+.hr {
+  margin: 20px 0 20px 0;
+  width: 100%;
+}
+
+/* heading list */
+.heading_list {
+  margin-top: 20px;
+
+  > ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  > li {
+    font-weight: 600;
+    line-height: 20px;
+  }
+}
+
+.h1Item {
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.h2Item {
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.h1Item:hover,
+.h2Item:hover {
+  color: lightblue;
+}
+
+@media (min-width: 1500px) {
+  .heading_list {
+    border-left: 1px solid black;
+    width: 320px;
+    padding: 10px 20px;
+    position: fixed;
+    margin: 400px 0 0 0;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+  }
+}
+
+@media (max-width: 1500px) {
+  .heading_list {
+    display: none;
+  }
+}
+/* ///////////////////// */
+
+.comment {
+  padding: 0 0 30px 0;
+}
+
+@media (min-width: 1500px) {
+  .account_box {
+    position: fixed;
+    margin: 80px 0 0 30px;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+  }
+}
+
+@media (max-width: 1500px) {
+  .account_box {
+    display: none;
+  }
+}
