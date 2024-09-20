@@ -1,3 +1,6 @@
+import { NavigateFunction } from "react-router-dom";
+import { PostInterface } from "../../PostList/Type/PostListType";
+
 export interface UserInfoInterface {
   userName: string;
   userId: string;
@@ -12,4 +15,9 @@ export interface UserInfoInterface {
     profileImage: string;
     backgroundImage: string;
   };
+}
+
+export interface RenderPostListProps {
+  postList: PostInterface[];
+  navigate: NavigateFunction;
 }

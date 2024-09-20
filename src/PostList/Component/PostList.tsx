@@ -4,16 +4,18 @@ import * as cheerio from "cheerio";
 
 import styles from "../Style/postlist.module.css";
 
-import { PostInterface } from "../Type/PostListType";
+import {
+  PostListProps,
+  CategoryRenderProps,
+  TitleRenderProps,
+  ContentsRenderProps,
+  DateTimeRenderProps,
+} from "../Type/PostListType";
 
-interface PostListProps {
-  postList: PostInterface[];
-}
-
-const CategoryRender: React.FC<{
-  category: string;
-  isMobileScreen: boolean;
-}> = ({ category, isMobileScreen }) => (
+const CategoryRender: React.FC<CategoryRenderProps> = ({
+  category,
+  isMobileScreen,
+}) => (
   <div
     className={
       isMobileScreen
@@ -25,10 +27,7 @@ const CategoryRender: React.FC<{
   </div>
 );
 
-const TitleRender: React.FC<{ title: string; isMobileScreen: boolean }> = ({
-  title,
-  isMobileScreen,
-}) => (
+const TitleRender: React.FC<TitleRenderProps> = ({ title, isMobileScreen }) => (
   <div
     className={
       isMobileScreen
@@ -40,7 +39,7 @@ const TitleRender: React.FC<{ title: string; isMobileScreen: boolean }> = ({
   </div>
 );
 
-const ContentsRender: React.FC<{ contents: string }> = ({ contents }) => {
+const ContentsRender: React.FC<ContentsRenderProps> = ({ contents }) => {
   const $ = cheerio.load(contents);
   let transformedText = "";
 
@@ -73,10 +72,7 @@ const ContentsRender: React.FC<{ contents: string }> = ({ contents }) => {
   );
 };
 
-const DateTimeRender: React.FC<{ reg: string; viewed: string }> = ({
-  reg,
-  viewed,
-}) => {
+const DateTimeRender: React.FC<DateTimeRenderProps> = ({ reg, viewed }) => {
   const date = new Date(reg);
   date.setHours(date.getHours() + 9);
 

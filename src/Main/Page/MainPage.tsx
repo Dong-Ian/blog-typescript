@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { NavigateFunction, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-import { UserInfoInterface } from "../Type/MainType";
+import { UserInfoInterface, RenderPostListProps } from "../Type/MainType";
 import { PostInterface } from "../../PostList/Type/PostListType";
 
 import styles from "../Style/main.module.css";
@@ -10,25 +10,25 @@ import styles from "../Style/main.module.css";
 import Header from "../../Utils/Component/Header";
 import Account from "../Component/Account";
 import PostList from "../../PostList/Component/PostList";
+import Category from "../Component/Category";
 
 import GetAccountFunction from "../Function/GetAccountFunction";
 import {
   GetPinnedPostListFunction,
   GetRecentPostListFunction,
 } from "../../PostList/Function/GetPostListFunction";
-import Category from "../Component/Category";
 
-const RenderPinnedPostList: React.FC<{
-  pinnedPostList: PostInterface[];
-  navigate: NavigateFunction;
-}> = ({ pinnedPostList, navigate }) => {
+const RenderPinnedPostList: React.FC<RenderPostListProps> = ({
+  postList,
+  navigate,
+}) => {
   return (
     <div className={styles.pinned_box}>
       <div className={styles.btn} onClick={() => navigate("/postlist/pinned")}>
         {"고정글 >"}
       </div>
-      {pinnedPostList && pinnedPostList.length !== 0 ? (
-        <PostList postList={pinnedPostList} />
+      {postList && postList.length !== 0 ? (
+        <PostList postList={postList} />
       ) : (
         <div className={styles.null_post}>등록된 게시글이 없습니다</div>
       )}
@@ -36,17 +36,17 @@ const RenderPinnedPostList: React.FC<{
   );
 };
 
-const RenderRecentPostList: React.FC<{
-  recentPostList: PostInterface[];
-  navigate: NavigateFunction;
-}> = ({ recentPostList, navigate }) => {
+const RenderRecentPostList: React.FC<RenderPostListProps> = ({
+  postList,
+  navigate,
+}) => {
   return (
     <div className={styles.unpinned_box}>
       <div className={styles.btn} onClick={() => navigate("/postlist")}>
         {"최신글 >"}
       </div>
-      {recentPostList && recentPostList.length !== 0 ? (
-        <PostList postList={recentPostList} />
+      {postList && postList.length !== 0 ? (
+        <PostList postList={postList} />
       ) : (
         <div className={styles.null_post}>등록된 게시글이 없습니다</div>
       )}
@@ -119,11 +119,11 @@ const MainPage: React.FC = () => {
           <div className={styles.box}>
             <div className={styles.outer_post_box}>
               <RenderPinnedPostList
-                pinnedPostList={pinnedPostList}
+                postList={pinnedPostList}
                 navigate={navigate}
               />
               <RenderRecentPostList
-                recentPostList={recentPostList}
+                postList={recentPostList}
                 navigate={navigate}
               />
             </div>
