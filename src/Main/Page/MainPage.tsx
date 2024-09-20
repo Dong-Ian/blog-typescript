@@ -15,6 +15,7 @@ import {
   GetPinnedPostListFunction,
   GetRecentPostListFunction,
 } from "../../PostList/Function/GetPostListFunction";
+import Account from "../Component/Account";
 
 const MainPage: React.FC = () => {
   // const navigate = useNavigate();
@@ -75,7 +76,9 @@ const MainPage: React.FC = () => {
         <Helmet title={userInfo.title} />
         <Header />
         <div className={styles.container}>
-          <p>MainPage</p>
+          <div className={styles.account_box}>
+            {userInfo && <Account userInfo={userInfo} />}
+          </div>
         </div>
       </>
     );
