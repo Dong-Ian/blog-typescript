@@ -5,6 +5,7 @@ import LoginPage from "Login/Page/LoginPage";
 
 import PostListPage from "PostList/Page/PostListPage";
 import PinnedPostListPage from "PostList/Page/PinnedPostListPage";
+import CategoryPostListPage from "PostList/Page/CategoryPostListPage";
 
 const App: React.FC = () => {
   return (
@@ -15,6 +16,10 @@ const App: React.FC = () => {
 
         <Route path="/postlist" element={<PostListPage />} />
         <Route path="/postlist/pinned" element={<PinnedPostListPage />} />
+        <Route
+          path="/postlist/category/:category"
+          element={<CategoryPostListPage />}
+        />
       </Routes>
     </Router>
   );
