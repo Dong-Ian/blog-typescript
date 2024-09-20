@@ -1,14 +1,8 @@
-interface GetPostListFunctionProps {
-  page: number;
-  size: number;
-}
-interface GetCategoryPostListFunctionProps extends GetPostListFunctionProps {
-  category: string;
-}
-
-interface GetTagPostListFunctionProps extends GetPostListFunctionProps {
-  tag: string;
-}
+import {
+  GetCategoryPostListFunctionProps,
+  GetPostListFunctionProps,
+  GetTagPostListFunctionProps,
+} from "PostList/Type/PostListType";
 
 async function fetchPostList(endpoint: string, body: object): Promise<any> {
   const result = await fetch(`${process.env.REACT_APP_API}/${endpoint}`, {
