@@ -1,4 +1,4 @@
-export interface Post {
+export interface PostInterface {
   categoryName: string;
   isPinned: "0" | "1";
   modDate: string;

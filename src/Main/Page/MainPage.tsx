@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-import { UserInfo } from "../Type/MainType";
-import { Post } from "../../PostList/Type/PostListType";
+import { UserInfoInterface } from "../Type/MainType";
+import { PostInterface } from "../../PostList/Type/PostListType";
 
 import styles from "../Style/main.module.css";
 
@@ -17,9 +17,13 @@ import {
 const MainPage: React.FC = () => {
   // const navigate = useNavigate();
 
-  const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
-  const [recentPostList, setRecentPostList] = useState<Post | null>(null);
-  const [pinnedPostList, setPinnedPostList] = useState<Post | null>(null);
+  const [userInfo, setUserInfo] = useState<UserInfoInterface | null>(null);
+  const [recentPostList, setRecentPostList] = useState<PostInterface | null>(
+    null
+  );
+  const [pinnedPostList, setPinnedPostList] = useState<PostInterface | null>(
+    null
+  );
 
   async function GetAccount() {
     const result = await GetAccountFunction();
@@ -49,7 +53,6 @@ const MainPage: React.FC = () => {
     const result = await GetPinnedPostListFunction({ page: 1, size: 5 });
 
     if (result.result) {
-      console.log(result.pinnedPostList);
       setPinnedPostList(result.pinnedPostList || []);
       return;
     }
