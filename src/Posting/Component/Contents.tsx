@@ -96,15 +96,12 @@ const Contents: React.FC<ContentsProps> = ({ content, setContent }) => {
       syntax: {
         highlight: (text: string) => hljs.highlightAuto(text).value, // text의 타입 명시
       },
-      ImageResize: {
-        parchment: Quill.import("parchment"),
-      },
     };
   }, []);
 
   return (
     <div className={styles.textForm}>
-      {/* <ReactQuill
+      <ReactQuill
         className={styles.textBox}
         placeholder="내용을 작성해주세요"
         theme="snow"
@@ -112,7 +109,7 @@ const Contents: React.FC<ContentsProps> = ({ content, setContent }) => {
         value={content}
         onChange={setContent}
         modules={modules}
-      /> */}
+      />
     </div>
   );
 };
