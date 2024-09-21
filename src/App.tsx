@@ -1,5 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import { useRecoilValue } from "recoil";
+import { isLoggedInState } from "Utils/Atom/Atom";
+
 import MainPage from "./Main/Page/MainPage";
 import LoginPage from "Login/Page/LoginPage";
 
@@ -7,9 +11,13 @@ import PostListPage from "PostList/Page/PostListPage";
 import PinnedPostListPage from "PostList/Page/PinnedPostListPage";
 import CategoryPostListPage from "PostList/Page/CategoryPostListPage";
 import TagPostListPage from "PostList/Page/TagPostListPage";
+
 import PostPage from "Post/Page/PostPage";
+import PostingPage from "Posting/Page/PostingPage";
 
 const App: React.FC = () => {
+  const isLoggedIn = useRecoilValue(isLoggedInState);
+
   return (
     <Router>
       <Routes>
@@ -24,6 +32,7 @@ const App: React.FC = () => {
         />
         <Route path="/postlist/tag/:tag" element={<TagPostListPage />} />
         <Route path="/post/:postSeq" element={<PostPage />} />
+        {isLoggedIn && <Route path="/posting" element={<PostingPage />} />}
       </Routes>
     </Router>
   );

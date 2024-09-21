@@ -27,7 +27,7 @@ const LoginPage: React.FC = () => {
     e.preventDefault();
     const result = await LoginFunction({ email, password });
 
-    if (!result.react) {
+    if (!result.result) {
       alert("이메일/비밀번호가 일치하지 않습니다.");
       return;
     }
