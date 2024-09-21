@@ -101,7 +101,7 @@ const PostingPage: React.FC = () => {
                 setCategory={setCategory}
               />
             </div>
-            <Tag tag={tags} setTag={setTags} />
+            <Tag tagList={tags} setTagList={setTags} />
             <Contents value={postContents} onChange={setPostContents} />
             <div className={styles.button}>
               <button onClick={Posting}>글 작성하기</button>

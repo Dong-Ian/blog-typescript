@@ -4,7 +4,7 @@ import styles from "../Style/posting.module.css";
 
 import { TagListFieldProps } from "Posting/Type/PostingType";
 
-const Tag: React.FC<TagListFieldProps> = ({ tag, setTag }) => {
+const Tag: React.FC<TagListFieldProps> = ({ tagList, setTagList }) => {
   const [tagElement, setTagElement] = useState("");
 
   function handleTag(event: React.ChangeEvent<HTMLInputElement>) {
@@ -19,17 +19,17 @@ const Tag: React.FC<TagListFieldProps> = ({ tag, setTag }) => {
       (event.key === "Enter" || event.key === " ") &&
       tagElement.trim() !== ""
     ) {
-      setTag((prevTags) => [...prevTags, tagElement]);
+      setTagList((prevTags) => [...prevTags, tagElement]);
       setTagElement(""); // 입력 필드 비우기
     }
   }
 
   function handleClearClick(index: number) {
-    setTag((prevTags) => prevTags.filter((_, i) => i !== index));
+    setTagList((prevTags) => prevTags.filter((_, i) => i !== index));
   }
 
   function TagRender() {
-    return tag.map((tag, index) => {
+    return tagList.map((tag, index) => {
       return (
         <div className={styles.tag_box} key={index}>
           <p>{tag}</p>

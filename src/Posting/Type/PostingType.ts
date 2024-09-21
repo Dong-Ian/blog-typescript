@@ -19,6 +19,6 @@ export interface CategoryListFieldProps {
 }
 
 export interface TagListFieldProps {
-  tag: string[];
-  setTag: React.Dispatch<React.SetStateAction<string[]>>;
+  tagList: string[];
+  setTagList: React.Dispatch<React.SetStateAction<string[]>>;
 }
