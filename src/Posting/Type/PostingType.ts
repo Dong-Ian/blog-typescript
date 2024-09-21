@@ -8,27 +8,17 @@ export interface PostingFunctionProps {
   isPinned: "0";
 }
 
-export interface TitleProps {
-  title: string;
-  setTitle: React.Dispatch<React.SetStateAction<string>>;
+export interface TextFieldProps {
+  value: string;
+  onChange: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export interface CategoryProps {
-  category: string;
-  setCategory: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export interface CategoryListProps {
+export interface CategoryListFieldProps {
   categoryList: string[];
   setCategory: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export interface ContentsProps {
-  content: string;
-  setContent: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export interface TagProps {
+export interface TagListFieldProps {
   tag: string[];
   setTag: React.Dispatch<React.SetStateAction<string[]>>;
 }

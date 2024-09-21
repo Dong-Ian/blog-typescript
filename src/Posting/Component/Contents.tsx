@@ -7,9 +7,9 @@ import hljs from "highlight.js";
 
 import styles from "../Style/posting.module.css";
 
-import { ContentsProps } from "Posting/Type/PostingType";
+import { TextFieldProps } from "Login/Type/LoginType";
 
-const Contents: React.FC<ContentsProps> = ({ content, setContent }) => {
+const Contents: React.FC<TextFieldProps> = ({ value, onChange }) => {
   const quillRef = useRef<ReactQuill | null>(null); // 초기값을 null로 설정
 
   const bold = Quill.import("formats/bold");
@@ -106,8 +106,8 @@ const Contents: React.FC<ContentsProps> = ({ content, setContent }) => {
         placeholder="내용을 작성해주세요"
         theme="snow"
         ref={quillRef}
-        value={content}
-        onChange={setContent}
+        value={value}
+        onChange={onChange}
         modules={modules}
       />
     </div>

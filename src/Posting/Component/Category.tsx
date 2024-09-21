@@ -2,14 +2,14 @@ import React from "react";
 
 import styles from "../Style/posting.module.css";
 
-import { CategoryProps } from "Posting/Type/PostingType";
+import { TextFieldProps } from "Login/Type/LoginType";
 
-const Catetory: React.FC<CategoryProps> = ({ category, setCategory }) => {
+const Catetory: React.FC<TextFieldProps> = ({ value, onChange }) => {
   function handleInput(event: React.ChangeEvent<HTMLInputElement>) {
     const {
       target: { value },
     } = event;
-    setCategory(value);
+    onChange(value);
   }
 
   return (
@@ -18,7 +18,7 @@ const Catetory: React.FC<CategoryProps> = ({ category, setCategory }) => {
         name="category"
         onChange={handleInput}
         placeholder="카테고리를 입력해주세요"
-        value={category}
+        value={value}
       />
     </div>
   );

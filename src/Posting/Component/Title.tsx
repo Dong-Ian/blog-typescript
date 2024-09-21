@@ -2,14 +2,14 @@ import React from "react";
 
 import styles from "../Style/posting.module.css";
 
-import { TitleProps } from "Posting/Type/PostingType";
+import { TextFieldProps } from "Login/Type/LoginType";
 
-const Title: React.FC<TitleProps> = ({ title, setTitle }) => {
+const Title: React.FC<TextFieldProps> = ({ value, onChange }) => {
   function handleInput(event: React.ChangeEvent<HTMLInputElement>) {
     const {
       target: { value },
     } = event;
-    setTitle(value);
+    onChange(value);
   }
 
   return (
@@ -18,7 +18,7 @@ const Title: React.FC<TitleProps> = ({ title, setTitle }) => {
         name="title"
         onChange={handleInput}
         placeholder="제목을 입력해주세요"
-        value={title}
+        value={value}
       />
     </div>
   );

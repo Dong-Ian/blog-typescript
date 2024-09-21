@@ -93,8 +93,8 @@ const PostingPage: React.FC = () => {
             <div style={{ marginLeft: "30px" }}>
               <BackButton />
             </div>
-            <Title title={postTitle} setTitle={setPostTitle} />
-            <Catetory category={category} setCategory={setCategory} />
+            <Title value={postTitle} onChange={setPostTitle} />
+            <Catetory value={category} onChange={setCategory} />
             <div className={styles.categorylist}>
               <CategoryList
                 categoryList={categoryList}
@@ -102,7 +102,7 @@ const PostingPage: React.FC = () => {
               />
             </div>
             <Tag tag={tags} setTag={setTags} />
-            <Contents content={postContents} setContent={setPostContents} />
+            <Contents value={postContents} onChange={setPostContents} />
             <div className={styles.button}>
               <button onClick={Posting}>글 작성하기</button>
             </div>

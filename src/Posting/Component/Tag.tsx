@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 import styles from "../Style/posting.module.css";
 
-import { TagProps } from "Posting/Type/PostingType";
+import { TagListFieldProps } from "Posting/Type/PostingType";
 
-const Tag: React.FC<TagProps> = ({ tag, setTag }) => {
+const Tag: React.FC<TagListFieldProps> = ({ tag, setTag }) => {
   const [tagElement, setTagElement] = useState("");
 
   function handleTag(event: React.ChangeEvent<HTMLInputElement>) {
