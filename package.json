@@ -14,6 +14,7 @@
     "firebase": "^10.13.2",
     "highlight.js": "^11.10.0",
     "react": "^18.3.1",
+    "react-color": "^2.19.3",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
     "react-js-pagination": "^3.0.3",
@@ -53,6 +54,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/crypto-js": "^4.2.2",
     "@types/css-modules": "^1.0.5",
+    "@types/react-color": "^3.0.12",
     "@types/react-helmet": "^6.1.11",
     "@types/react-js-pagination": "^3.0.7"
   }

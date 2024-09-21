@@ -1,5 +1,6 @@
 import { NavigateFunction } from "react-router-dom";
 import { PostInterface } from "../../PostList/Type/PostListType";
+import { ColorInterface } from "Admin/Type/AdminType";
 
 export interface UserInfoInterface {
   userName: string;
@@ -34,4 +35,8 @@ export interface RenderAccountRowProps {
 export interface RenderUserInfoProps {
   userInfo: UserInfoInterface;
   profileImage: string;
+}
+
+export interface AdminHeaderInterface {
+  state: ColorInterface;
 }

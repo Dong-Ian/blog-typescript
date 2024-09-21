@@ -15,6 +15,7 @@ import TagPostListPage from "PostList/Page/TagPostListPage";
 import PostPage from "Post/Page/PostPage";
 import PostingPage from "Posting/Page/PostingPage";
 import EditPostLandingPage from "EditPost/Page/EditPostLandingPage";
+import AdminLandingPage from "Admin/Page/AdminLandingPage";
 
 const App: React.FC = () => {
   const isLoggedIn = useRecoilValue(isLoggedInState);
@@ -37,6 +38,7 @@ const App: React.FC = () => {
         {isLoggedIn && (
           <Route path="/edit/:postSeq" element={<EditPostLandingPage />} />
         )}
+        {isLoggedIn && <Route path="/admin" element={<AdminLandingPage />} />}
       </Routes>
     </Router>
   );
