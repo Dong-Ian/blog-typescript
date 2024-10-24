@@ -214,7 +214,9 @@ code {
 }
 .ql-indent-2 {
   margin-left: 60px;
+  list-style: circle;
 }
 .ql-indent-3 {
   margin-left: 90px;
+  list-style: circle;
 }
