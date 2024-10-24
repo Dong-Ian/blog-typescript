@@ -87,7 +87,7 @@ const PostPage: React.FC = () => {
     GetPost();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isChangePinnedState]);
-
+  console.log(post);
   if (post) {
     return (
       <>
