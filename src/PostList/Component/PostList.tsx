@@ -56,14 +56,25 @@ const ContentsRender: React.FC<ContentsRenderProps> = ({ contents }) => {
 
   traverse($.root());
 
+  // HTML 태그로부터 텍스트 추출 후 공백 정리
   transformedText = transformedText.replace(/\s+/g, " ").trim();
+
+  // 마크다운 태그 제거 (예: **bold**, *italic*, [link](url), # Heading, - List 등)
+  transformedText = transformedText
+    .replace(/(\*\*|__)(.*?)\1/g, "$2") // **bold** or __bold__
+    .replace(/(\*|_)(.*?)\1/g, "$2") // *italic* or _italic_
+    .replace(/~~(.*?)~~/g, "$1") // ~~strikethrough~~
+    .replace(/\[(.*?)\]\((.*?)\)/g, "$1") // [text](link)
+    .replace(/(#+\s?|>\s?|\-|\*\s?|\d+\.\s?)/g, "") // # Heading, > Blockquote, - List, 1. List
+    .replace(/(```[\s\S]*?```|`.*?`)/g, ""); // ```code block``` or `inline code`
+
+  // 글자 100자 제한 및 더보기 처리
   const slicedText = transformedText.slice(0, 100);
 
   return (
     <div className={styles.contents}>
       <p className={styles.post}>
         {slicedText}
-
         {transformedText.length > 100 && (
           <span className={styles.more}> 더보기...</span>
         )}

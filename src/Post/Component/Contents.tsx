@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 
-import styles from "../Style/post.module.css";
-
 import hljs from "highlight.js";
 import "highlight.js/styles/atom-one-dark-reasonable.css";
 
 import { PostProps } from "Post/Type/PostType";
+import MDEditor from "@uiw/react-md-editor";
 
 const Contents: React.FC<PostProps> = ({ post }) => {
   const htmlString = post.postContents;
@@ -47,9 +46,9 @@ const Contents: React.FC<PostProps> = ({ post }) => {
 
   return (
     <>
-      <div
-        className={styles.contents}
-        dangerouslySetInnerHTML={{ __html: modifiedHtml }}
+      <MDEditor.Markdown
+        source={post.postContents}
+        style={{ padding: "15px", background: "#f5f5f5", borderRadius: "5px" }}
       />
     </>
   );
