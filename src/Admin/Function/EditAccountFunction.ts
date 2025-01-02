@@ -1,6 +1,6 @@
 import { EditAccountFunctionProps } from "Admin/Type/AdminType";
 
-export default async function ({
+export default async function EditAccountFunction({
   token,
   name,
   color,
