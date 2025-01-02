@@ -28,9 +28,11 @@ const AdminLandingPage: React.FC = () => {
     }
   }, [profile]);
 
-  if (profile) {
-    return <AdminPage profile={profile} />;
+  if (!profile) {
+    return <div>Loading...</div>;
   }
+
+  return <AdminPage profile={profile} />;
 };
 
 export default AdminLandingPage;
