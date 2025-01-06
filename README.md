@@ -1,6 +1,6 @@
 # Archive: 개인 블로그 플랫폼
 
-[블로그 링크: blog.minjae-dev.com]("https://blog.minjae-dev.com/")
+[블로그 링크: blog.minjae-dev.com](https://blog.minjae-dev.com/)
 
 Archive는 개인이 글을 작성하고 관리할 수 있도록 설계된 개인 전용 블로그 플랫폼입니다.
 
