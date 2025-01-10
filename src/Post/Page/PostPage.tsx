@@ -93,9 +93,9 @@ const PostPage: React.FC = () => {
       <>
         <Helmet title={post.postTitle} />
         <Header />
-        <div>
+        {/* <div>
           <HeaderTagList post={post} />
-        </div>
+        </div> */}
         <div className={styles.outer_post_box}>
           <div className={styles.account_box}>
             {userInfo && <Account userInfo={userInfo} />}
