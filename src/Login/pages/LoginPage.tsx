@@ -1,70 +1,42 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import styles from "../styles/login.module.css";
-import login from "Login/services/login.service";
-import getAccount from "Main/services/getAccount.service";
 import Email from "Login/components/Email";
 import Password from "Login/components/Password";
-import { useSetRecoilState } from "recoil";
-import { isLoggedInState } from "Utils/atom/Atom";
+import { useLogin } from "Login/hooks/useLogin";
+import { useRecoilValue } from "recoil";
+import { colorState, titleState } from "Utils/atom/Atom";
 
 const LoginPage: React.FC = () => {
-  const navigate = useNavigate();
+  const { handleLogin } = useLogin();
+  const title = useRecoilValue(titleState);
+  const color = useRecoilValue(colorState);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [title, setTitle] = useState("");
-  const [color, setColor] = useState("");
-  const isLoggedIn = useSetRecoilState(isLoggedInState);
 
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const result = await login({ email, password });
-
-    if (!result.result) {
-      alert("이메일/비밀번호가 일치하지 않습니다.");
-      return;
-    }
-    isLoggedIn(true);
-    navigate("/");
-
-    return;
+    await handleLogin(email, password);
   };
-
-  const handleGetAccount = async () => {
-    const result = await getAccount();
-
-    if (result.result) {
-      setColor(result.profileResult.color);
-      setTitle(result.profileResult.title);
-      return;
-    }
-
-    setColor("#000");
-    setTitle("Archive");
-    return;
-  };
-
-  useEffect(() => {
-    handleGetAccount();
-  }, []);
 
   return (
     <>
       <Helmet title="Login" />
-      <div className={styles.login} style={{ backgroundColor: color }}>
+      <div
+        className={styles.login}
+        style={{ backgroundColor: color.background }}
+      >
         <div className={styles.title}>
           <p>Welcome to {title}</p>
         </div>
         <div className={styles.outer_box}>
-          <form className={styles.box} method="post" onSubmit={handleLogin}>
+          <form className={styles.box} method="post" onSubmit={onSubmit}>
             <Email value={email} onChange={setEmail} />
             <Password value={password} onChange={setPassword} />
             <input
               className={styles.loginBtn}
-              style={{ backgroundColor: color }}
+              style={{ backgroundColor: color.background }}
               type="submit"
               value="로그인"
             />
