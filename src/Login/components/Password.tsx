@@ -2,12 +2,12 @@ import { TextFieldProps } from "Login/types/Login.type";
 import styles from "../styles/login.module.css";
 
 const Password = ({ value, onChange }: TextFieldProps) => {
-  function handlePassword(event: React.ChangeEvent<HTMLInputElement>) {
+  const handlePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     const {
       target: { value },
     } = event;
     onChange(value);
-  }
+  };
 
   return (
     <div className={styles.input}>

@@ -3,12 +3,12 @@ import styles from "../styles/posting.module.css";
 import { TextFieldProps } from "Login/types/Login.type";
 
 const Catetory: React.FC<TextFieldProps> = ({ value, onChange }) => {
-  function handleInput(event: React.ChangeEvent<HTMLInputElement>) {
+  const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const {
       target: { value },
     } = event;
     onChange(value);
-  }
+  };
 
   return (
     <div className={styles.category}>

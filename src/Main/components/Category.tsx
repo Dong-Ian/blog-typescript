@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/main.module.css";
-import GetCategoryFunction from "../services/getCategory.service";
+import getCategory from "../services/getCategory.service";
 import { CategoryRenderProps } from "Main/types/Main.type";
 
 const CategoryRender: React.FC<CategoryRenderProps> = ({ categoryList }) => {
@@ -34,16 +34,16 @@ const CategoryRender: React.FC<CategoryRenderProps> = ({ categoryList }) => {
 const Category: React.FC = () => {
   const [categoryList, setCategoryList] = useState(null);
 
-  async function GetCategory() {
-    const result = await GetCategoryFunction();
+  const handleGetCategory = async () => {
+    const result = await getCategory();
 
     if (result.result) {
       setCategoryList(result.categoryList || []);
     }
-  }
+  };
 
   useEffect(() => {
-    GetCategory();
+    handleGetCategory();
   }, []);
 
   if (categoryList) {

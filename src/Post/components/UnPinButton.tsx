@@ -7,7 +7,7 @@ const UnPinButton: React.FC<PostControlProps> = ({
   postSeq,
   setIsChangePinnedState,
 }) => {
-  async function handleUnPin() {
+  const handleUnPin = async () => {
     const result = await unpin({ postSeq });
 
     if (result.result) {
@@ -18,7 +18,7 @@ const UnPinButton: React.FC<PostControlProps> = ({
 
     alert("서버 오류로 게시글이 고정해제되지 않았습니다.");
     return;
-  }
+  };
 
   return (
     <div className={styles.btn}>

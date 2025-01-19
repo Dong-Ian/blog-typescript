@@ -22,7 +22,7 @@ const PostingPage: React.FC = () => {
 
   const [categoryList, setCategoryList] = useState<string[]>([]);
 
-  async function handlePosting() {
+  const handlePosting = async () => {
     if (postTitle === "") {
       alert("제목을 입력해주세요.");
       return;
@@ -55,9 +55,9 @@ const PostingPage: React.FC = () => {
 
     alert("포스팅 실패");
     return;
-  }
+  };
 
-  async function handleGetCategory() {
+  const handleGetCategory = async () => {
     const result = await getCategory();
 
     if (result.result) {
@@ -67,7 +67,7 @@ const PostingPage: React.FC = () => {
 
     alert("카테고리를 불러오는 중 오류가 발생했습니다.");
     return;
-  }
+  };
 
   useEffect(() => {
     handleGetCategory();

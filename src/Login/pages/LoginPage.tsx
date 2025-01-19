@@ -18,7 +18,7 @@ const LoginPage: React.FC = () => {
   const [color, setColor] = useState("");
   const isLoggedIn = useSetRecoilState(isLoggedInState);
 
-  async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const result = await login({ email, password });
@@ -31,9 +31,9 @@ const LoginPage: React.FC = () => {
     navigate("/");
 
     return;
-  }
+  };
 
-  async function handleGetAccount() {
+  const handleGetAccount = async () => {
     const result = await getAccount();
 
     if (result.result) {
@@ -45,7 +45,7 @@ const LoginPage: React.FC = () => {
     setColor("#000");
     setTitle("Archive");
     return;
-  }
+  };
 
   useEffect(() => {
     handleGetAccount();

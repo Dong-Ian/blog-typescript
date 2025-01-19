@@ -30,7 +30,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ profile }) => {
   );
   const [title, setTitle] = useState<string>(profile.title || "");
 
-  async function handleEditProfileImage() {
+  const handleEditProfileImage = async () => {
     const result = await editProfileImage({ formData });
 
     if (result.result) {
@@ -40,9 +40,9 @@ const AdminPage: React.FC<AdminPageProps> = ({ profile }) => {
 
     alert("프로필 사진을 변경하지 못했습니다.");
     return;
-  }
+  };
 
-  async function handleEditProfile() {
+  const handleEditProfile = async () => {
     const result = await editAccount({
       name,
       color,
@@ -61,7 +61,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ profile }) => {
 
     alert("서버 오류");
     return;
-  }
+  };
 
   if (!profile) {
     return <div>Loading...</div>;

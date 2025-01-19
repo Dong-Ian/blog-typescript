@@ -8,7 +8,7 @@ const AdminHeader: React.FC<AdminHeaderInterface> = ({ state }) => {
   const navigate = useNavigate();
   const [title, setTitle] = useState();
 
-  async function handleGetAccount() {
+  const handleGetAccount = async () => {
     const result = await getAccount();
 
     if (result.result) {
@@ -16,7 +16,7 @@ const AdminHeader: React.FC<AdminHeaderInterface> = ({ state }) => {
     }
 
     return;
-  }
+  };
 
   useEffect(() => {
     handleGetAccount();

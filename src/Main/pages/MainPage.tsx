@@ -61,7 +61,7 @@ const MainPage: React.FC = () => {
     null
   );
 
-  async function handleGetAccount() {
+  const handleGetAccount = async () => {
     const result = await getAccount();
 
     if (result.result) {
@@ -71,9 +71,9 @@ const MainPage: React.FC = () => {
 
     alert("사용자 정보를 불러오지 못했습니다.");
     return;
-  }
+  };
 
-  async function handleGetRecentPostList() {
+  const handleGetRecentPostList = async () => {
     const result = await getRecentPostList({ page: 1, size: 5 });
 
     if (result.result) {
@@ -83,9 +83,9 @@ const MainPage: React.FC = () => {
 
     alert("최근 게시글을 불러오지 못했습나다.");
     return;
-  }
+  };
 
-  async function handleGetPinnedPostList() {
+  const handleGetPinnedPostList = async () => {
     const result = await getPinnedPostList({ page: 1, size: 5 });
 
     if (result.result) {
@@ -95,7 +95,7 @@ const MainPage: React.FC = () => {
 
     alert("고정 게시글을 불러오지 못했습니다.");
     return;
-  }
+  };
 
   useEffect(() => {
     handleGetAccount();

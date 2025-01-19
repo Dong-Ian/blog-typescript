@@ -5,14 +5,14 @@ import { TagListFieldProps } from "Posting/types/Posting.type";
 const Tag: React.FC<TagListFieldProps> = ({ tagList, setTagList }) => {
   const [tagElement, setTagElement] = useState("");
 
-  function handleTag(event: React.ChangeEvent<HTMLInputElement>) {
+  const handleTag = (event: React.ChangeEvent<HTMLInputElement>) => {
     const {
       target: { value },
     } = event;
     setTagElement(value);
-  }
+  };
 
-  function handleKeyPress(event: React.KeyboardEvent<HTMLInputElement>) {
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (
       (event.key === "Enter" || event.key === " ") &&
       tagElement.trim() !== ""
@@ -20,13 +20,13 @@ const Tag: React.FC<TagListFieldProps> = ({ tagList, setTagList }) => {
       setTagList((prevTags) => [...prevTags, tagElement]);
       setTagElement(""); // 입력 필드 비우기
     }
-  }
+  };
 
-  function handleClearClick(index: number) {
+  const handleClearClick = (index: number) => {
     setTagList((prevTags) => prevTags.filter((_, i) => i !== index));
-  }
+  };
 
-  function TagRender() {
+  const TagRender: React.FC = () => {
     return tagList.map((tag, index) => {
       return (
         <div className={styles.tag_box} key={index}>
@@ -35,7 +35,7 @@ const Tag: React.FC<TagListFieldProps> = ({ tagList, setTagList }) => {
         </div>
       );
     });
-  }
+  };
 
   return (
     <div className={styles.tag}>

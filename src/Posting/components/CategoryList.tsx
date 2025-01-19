@@ -5,9 +5,9 @@ const CategoryList: React.FC<CategoryListFieldProps> = ({
   categoryList,
   setCategory,
 }) => {
-  function onClickCategory(category: string) {
+  const onClickCategory = (category: string) => {
     setCategory(category);
-  }
+  };
 
   return (
     <>

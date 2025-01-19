@@ -5,11 +5,11 @@ import editColor from "../services/editColor.service";
 import { SketchPicker, ColorResult } from "react-color";
 
 const EditColor: React.FC<EditColorProps> = ({ state, setState, setColor }) => {
-  function handleChangeComplete(color: ColorResult) {
+  const handleChangeComplete = (color: ColorResult) => {
     setState({ background: color.hex });
-  }
+  };
 
-  async function onClickEditBtn() {
+  const onClickEditBtn = async () => {
     const result = await editColor({ color: state });
 
     if (result.result) {
@@ -22,7 +22,7 @@ const EditColor: React.FC<EditColorProps> = ({ state, setState, setColor }) => {
     alert("오류가 발생했습니다.");
 
     return;
-  }
+  };
 
   return (
     <div className={styles.change_color}>

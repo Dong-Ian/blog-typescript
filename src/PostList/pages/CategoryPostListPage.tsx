@@ -23,7 +23,7 @@ const CategoryPostListPage: React.FC = () => {
   const [totalCount, setTotalCount] = useState<number>(0);
   const [activePage, setActivePage] = useState<number>(1);
 
-  async function handleGetUserInfo() {
+  const handleGetUserInfo = async () => {
     const result = await getAccount();
 
     if (result.result) {
@@ -33,9 +33,9 @@ const CategoryPostListPage: React.FC = () => {
 
     alert("사용자 정보를 불러오지 못했습니다.");
     return;
-  }
+  };
 
-  async function handleGetPostList({ page }: { page: number }) {
+  const handleGetPostList = async ({ page }: { page: number }) => {
     const result = await getCategoryPostList({
       page: page,
       size: 5,
@@ -51,13 +51,13 @@ const CategoryPostListPage: React.FC = () => {
     alert("글을 불러오지 못하였습니다.");
     navigate("/");
     return;
-  }
+  };
 
-  function handlePageChange(e: number) {
+  const handlePageChange = (e: number) => {
     handleGetPostList({ page: e });
     setActivePage(e);
     window.scrollTo(0, 0);
-  }
+  };
 
   useEffect(() => {
     handleGetUserInfo();

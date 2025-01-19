@@ -22,7 +22,7 @@ const EditPostPage: React.FC<EditPostPageProps> = ({ post, categoryList }) => {
 
   const isPinned = post.isPinned;
 
-  async function handleEditPost() {
+  const handleEditPost = async () => {
     if (window.confirm("글을 수정하시겠습니까?")) {
       const result = await editPost({
         postSeq: postSeq,
@@ -48,7 +48,7 @@ const EditPostPage: React.FC<EditPostPageProps> = ({ post, categoryList }) => {
     }
 
     return;
-  }
+  };
 
   return (
     <>

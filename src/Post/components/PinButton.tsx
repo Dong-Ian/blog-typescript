@@ -7,7 +7,7 @@ const PinButton: React.FC<PostControlProps> = ({
   postSeq,
   setIsChangePinnedState,
 }) => {
-  async function handlePin() {
+  const handlePin = async () => {
     const result = await pin({ postSeq });
 
     if (result.result) {
@@ -18,7 +18,7 @@ const PinButton: React.FC<PostControlProps> = ({
 
     alert("서버 오류로 게시글이 고정되지 않았습니다.");
     return;
-  }
+  };
 
   return (
     <div className={styles.btn}>

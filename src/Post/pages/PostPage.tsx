@@ -31,11 +31,11 @@ const PostPage: React.FC = () => {
 
   const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
 
-  function handleResize() {
+  const handleResize = () => {
     setIsMobileScreen(window.innerWidth <= 500);
-  }
+  };
 
-  async function handleGetAccount() {
+  const handleGetAccount = async () => {
     const result = await getAccount();
 
     if (result.result) {
@@ -46,9 +46,9 @@ const PostPage: React.FC = () => {
 
     alert("사용자 정보를 불러오지 못했습니다.");
     return;
-  }
+  };
 
-  async function handleGetPost() {
+  const handleGetPost = async () => {
     if (!postSeq) {
       alert("게시글 번호가 유효하지 않습니다.");
       navigate("/");
@@ -67,7 +67,7 @@ const PostPage: React.FC = () => {
     navigate("/postlist");
 
     return;
-  }
+  };
 
   useEffect(() => {
     handleResize();

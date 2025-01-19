@@ -13,7 +13,7 @@ const Header: React.FC = () => {
   const [color, setColor] = useRecoilState(colorState);
   const [isLoggedIn] = useRecoilState(isLoggedInState);
 
-  async function handleGetAccount() {
+  const handleGetAccount = async () => {
     const result = await getAccount();
 
     if (result.result) {
@@ -22,7 +22,7 @@ const Header: React.FC = () => {
     }
 
     return;
-  }
+  };
 
   useEffect(() => {
     handleGetAccount();

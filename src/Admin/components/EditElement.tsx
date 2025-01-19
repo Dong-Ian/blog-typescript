@@ -8,12 +8,12 @@ const EditElement: React.FC<EditElementProps> = ({
   value,
   onChange,
 }) => {
-  function handleInput(event: React.ChangeEvent<HTMLInputElement>) {
+  const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const {
       target: { value },
     } = event;
     onChange(value);
-  }
+  };
 
   return (
     <div className={styles.input_element}>

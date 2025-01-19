@@ -7,7 +7,7 @@ import deletePost from "Post/services/deletePost.service";
 const DeleteButton: React.FC<AuthPostProps> = ({ postSeq }) => {
   const navigate = useNavigate();
 
-  async function handleDeletePost() {
+  const handleDeletePost = async () => {
     if (window.confirm("글을 삭제하시겠습니까?")) {
       const result = await deletePost({ postSeq });
       if (result.result) {
@@ -21,7 +21,8 @@ const DeleteButton: React.FC<AuthPostProps> = ({ postSeq }) => {
     }
 
     return;
-  }
+  };
+
   return (
     <div className={styles.btn}>
       <button onClick={handleDeletePost}>삭제</button>
