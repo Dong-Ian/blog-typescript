@@ -1,14 +1,14 @@
 import React from "react";
-import styles from "../Style/post.module.css";
-import { PostControlProps } from "Post/Type/PostType";
-import UnPinFunction from "Post/Function/UnPinFunction";
+import styles from "../styles/post.module.css";
+import { PostControlProps } from "Post/types/Post.type";
+import unpin from "Post/services/unpin.service";
 
 const UnPinButton: React.FC<PostControlProps> = ({
   postSeq,
   setIsChangePinnedState,
 }) => {
-  async function UnPin() {
-    const result = await UnPinFunction({ postSeq });
+  async function handleUnPin() {
+    const result = await unpin({ postSeq });
 
     if (result.result) {
       alert("게시글이 고정해제 되었습니다.");
@@ -22,7 +22,7 @@ const UnPinButton: React.FC<PostControlProps> = ({
 
   return (
     <div className={styles.btn}>
-      <button onClick={UnPin}>고정 해제하기</button>
+      <button onClick={handleUnPin}>고정 해제하기</button>
     </div>
   );
 };

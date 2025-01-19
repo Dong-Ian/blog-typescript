@@ -5,18 +5,18 @@ import { useRecoilValue } from "recoil";
 import { isLoggedInState } from "Utils/Atom/Atom";
 import styles from "../Style/post.module.css";
 import { UserInfoInterface } from "Main/types/Main.type";
-import { PostInterface } from "Post/Type/PostType";
+import { PostInterface } from "Post/types/Post.type";
 import getAccount from "Main/services/getAccount.service";
-import GetPostFunction from "Post/Function/GetPostFunction";
+import getPost from "Post/services/getPost.service";
 import Header from "Utils/Component/Header";
 import Account from "Main/components/Account";
 import BackButton from "Utils/Component/BackButton";
-import Title from "Post/Component/Title";
-import Tag from "Post/Component/Tag";
-import DateTimeRender from "Post/Component/DateTime";
-import AdminButtonRender from "Post/Component/AdminButtonRender";
-import Contents from "Post/Component/Contents";
-import Comment from "Post/Component/Comment";
+import Title from "Post/components/Title";
+import Tag from "Post/components/Tag";
+import DateTimeRender from "Post/components/DateTime";
+import AdminButtonRender from "Post/components/AdminButtonRender";
+import Contents from "Post/components/Contents";
+import Comment from "Post/components/Comment";
 
 const PostPage: React.FC = () => {
   const { postSeq } = useParams();
@@ -35,7 +35,7 @@ const PostPage: React.FC = () => {
     setIsMobileScreen(window.innerWidth <= 500);
   }
 
-  async function getUserInfo() {
+  async function handleGetAccount() {
     const result = await getAccount();
 
     if (result.result) {
@@ -48,14 +48,14 @@ const PostPage: React.FC = () => {
     return;
   }
 
-  async function GetPost() {
+  async function handleGetPost() {
     if (!postSeq) {
       alert("게시글 번호가 유효하지 않습니다.");
       navigate("/");
       return;
     }
 
-    const result = await GetPostFunction({ postSeq: postSeq });
+    const result = await getPost({ postSeq: postSeq });
 
     if (result.result) {
       setPost(result.postList);
@@ -76,8 +76,8 @@ const PostPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    getUserInfo();
-    GetPost();
+    handleGetAccount();
+    handleGetPost();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isChangePinnedState]);
 

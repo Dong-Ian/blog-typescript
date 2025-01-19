@@ -1,6 +1,6 @@
-import { AuthPostProps } from "Post/Type/PostType";
+import { AuthPostProps } from "Post/types/Post.type";
 
-export default async function DeletePostFunction({ postSeq }: AuthPostProps) {
+export default async function deletePost({ postSeq }: AuthPostProps) {
   const result = await fetch(`${process.env.REACT_APP_API}/admin/post/delete`, {
     method: "POST",
     headers: {

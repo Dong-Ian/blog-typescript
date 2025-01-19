@@ -1,8 +1,8 @@
-import { AuthPostProps } from "Post/Type/PostType";
+import { AuthPostProps } from "Post/types/Post.type";
 
-export default async function UnPinFunction({ postSeq }: AuthPostProps) {
+export default async function pin({ postSeq }: AuthPostProps) {
   const result = await fetch(
-    `${process.env.REACT_APP_API}/admin/post/update/unpin`,
+    `${process.env.REACT_APP_API}/admin/post/update/pin`,
     {
       method: "POST",
       headers: {

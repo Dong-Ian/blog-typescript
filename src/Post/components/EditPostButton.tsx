@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "../Style/post.module.css";
-import { PostSeqProps } from "Post/Type/PostType";
+import styles from "../styles/post.module.css";
+import { PostSeqProps } from "Post/types/Post.type";
 
 const EditPostButton: React.FC<PostSeqProps> = ({ postSeq }) => {
   const navigate = useNavigate();

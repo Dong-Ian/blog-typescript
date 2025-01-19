@@ -1,4 +1,4 @@
-import { PostInterface } from "Post/Type/PostType";
+import { PostInterface } from "Post/types/Post.type";
 
 export interface EditPostFunctionProps {
   postTitle: string;

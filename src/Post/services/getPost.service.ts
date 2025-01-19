@@ -1,6 +1,6 @@
-import { PostSeqProps } from "Post/Type/PostType";
+import { PostSeqProps } from "Post/types/Post.type";
 
-export default async function GetPostFunction({ postSeq }: PostSeqProps) {
+export default async function getPost({ postSeq }: PostSeqProps) {
   const result = await fetch(`${process.env.REACT_APP_API}/post/contents`, {
     method: "POST",
     headers: {

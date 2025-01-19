@@ -12,7 +12,7 @@ import PinnedPostListPage from "PostList/Page/PinnedPostListPage";
 import CategoryPostListPage from "PostList/Page/CategoryPostListPage";
 import TagPostListPage from "PostList/Page/TagPostListPage";
 
-import PostPage from "Post/Page/PostPage";
+import PostPage from "Post/pages/PostPage";
 import PostingPage from "Posting/Page/PostingPage";
 import EditPostLandingPage from "EditPost/pages/EditPostLandingPage";
 import AdminLandingPage from "Admin/pages/AdminLandingPage";

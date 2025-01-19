@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { PostProps } from "Post/Type/PostType";
+import { PostProps } from "Post/types/Post.type";
 
 const Comment: React.FC<PostProps> = ({ post }) => {
   const commentsEl = useRef<HTMLDivElement | null>(null);
