@@ -18,6 +18,7 @@ const LoginPage: React.FC = () => {
   const [password, setPassword] = useState("");
   const [title, setTitle] = useState("");
   const [color, setColor] = useState("");
+  const isLoggedIn = useSetRecoilState(isLoggedInState);
 
   async function Login(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -27,6 +28,7 @@ const LoginPage: React.FC = () => {
       alert("이메일/비밀번호가 일치하지 않습니다.");
       return;
     }
+    isLoggedIn(true);
     // navigate("/");
 
     return;
