@@ -3,16 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styles from "../styles/main.module.css";
 import { UserInfoInterface, RenderPostListProps } from "../types/Main.type";
-import { PostInterface } from "../../PostList/Type/PostListType";
+import { PostInterface } from "../../PostList/types/PostList.type";
 import Header from "../../Utils/Component/Header";
 import Account from "../components/Account";
-import PostList from "../../PostList/Component/PostList";
+import PostList from "../../PostList/components/PostList";
 import Category from "../components/Category";
 import getAccount from "../services/getAccount.service";
 import {
   GetPinnedPostListFunction,
   GetRecentPostListFunction,
-} from "../../PostList/Function/GetPostListFunction";
+} from "../../PostList/services/getPostList.service";
 
 const RenderPinnedPostList: React.FC<RenderPostListProps> = ({
   postList,

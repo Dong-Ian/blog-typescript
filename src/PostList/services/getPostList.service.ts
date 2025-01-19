@@ -2,7 +2,7 @@ import {
   GetCategoryPostListFunctionProps,
   GetPostListFunctionProps,
   GetTagPostListFunctionProps,
-} from "PostList/Type/PostListType";
+} from "PostList/types/PostList.type";
 
 async function fetchPostList(endpoint: string, body: object): Promise<any> {
   const result = await fetch(`${process.env.REACT_APP_API}/${endpoint}`, {
@@ -20,23 +20,17 @@ async function fetchPostList(endpoint: string, body: object): Promise<any> {
 }
 
 // 최신 게시물 목록을 가져오는 함수
-async function GetRecentPostListFunction({
-  page,
-  size,
-}: GetPostListFunctionProps) {
+async function getRecentPostList({ page, size }: GetPostListFunctionProps) {
   return fetchPostList(`post/list?page=${page}&size=${size}`, {});
 }
 
 // 고정된 게시물 목록을 가져오는 함수
-async function GetPinnedPostListFunction({
-  page,
-  size,
-}: GetPostListFunctionProps) {
+async function getPinnedPostList({ page, size }: GetPostListFunctionProps) {
   return fetchPostList(`post/list/pinned?page=${page}&size=${size}`, {});
 }
 
 // 카테고리별 게시물 목록을 가져오는 함수
-async function GetCategoryPostListFunction({
+async function getCategoryPostList({
   category,
   page,
   size,
@@ -47,7 +41,7 @@ async function GetCategoryPostListFunction({
 }
 
 // 태그별 게시물 목록을 가져오는 함수
-async function GetTagPostListFunction({
+async function getTagPostList({
   tag,
   page,
   size,
@@ -56,8 +50,8 @@ async function GetTagPostListFunction({
 }
 
 export {
-  GetRecentPostListFunction,
-  GetPinnedPostListFunction,
-  GetCategoryPostListFunction,
-  GetTagPostListFunction,
+  getRecentPostList,
+  getPinnedPostList,
+  getCategoryPostList,
+  getTagPostList,
 };
