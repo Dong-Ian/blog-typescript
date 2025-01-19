@@ -18,7 +18,7 @@ export interface UserInfoInterface {
   };
 }
 
-export interface RenderPostListProps {
+export interface PostListProps {
   postList: PostInterface[];
   navigate: NavigateFunction;
 }

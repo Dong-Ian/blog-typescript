@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/main.module.css";
-import getCategory from "../services/getCategory.service";
 import { CategoryRenderProps } from "Main/types/Main.type";
+import { useCategoryList } from "Utils/hooks/useCategoryList";
 
 const CategoryRender: React.FC<CategoryRenderProps> = ({ categoryList }) => {
   const navigate = useNavigate(); // 페이지 이동을 위한 hook
@@ -32,18 +32,10 @@ const CategoryRender: React.FC<CategoryRenderProps> = ({ categoryList }) => {
 };
 
 const Category: React.FC = () => {
-  const [categoryList, setCategoryList] = useState(null);
-
-  const handleGetCategory = async () => {
-    const result = await getCategory();
-
-    if (result.result) {
-      setCategoryList(result.categoryList || []);
-    }
-  };
+  const { categoryList, fetchCategoryList } = useCategoryList();
 
   useEffect(() => {
-    handleGetCategory();
+    fetchCategoryList();
   }, []);
 
   if (categoryList) {

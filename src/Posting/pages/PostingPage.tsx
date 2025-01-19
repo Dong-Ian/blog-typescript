@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styles from "../styles/posting.module.css";
 import posting from "Posting/services/posting.service";
-import getCategory from "Posting/services/getCategory.service";
 import Title from "Posting/components/Title";
 import Contents from "Posting/components/Contents";
 import Catetory from "Posting/components/Category";
@@ -11,6 +10,7 @@ import Tag from "Posting/components/Tag";
 import CategoryList from "Posting/components/CategoryList";
 import Header from "Utils/components/Header";
 import BackButton from "Utils/components/BackButton";
+import { useCategoryList } from "Utils/hooks/useCategoryList";
 
 const PostingPage: React.FC = () => {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const PostingPage: React.FC = () => {
   const [tags, setTags] = useState<string[]>([]);
   const [category, setCategory] = useState<string>("");
 
-  const [categoryList, setCategoryList] = useState<string[]>([]);
+  const { categoryList, fetchCategoryList } = useCategoryList();
 
   const handlePosting = async () => {
     if (postTitle === "") {
@@ -57,20 +57,8 @@ const PostingPage: React.FC = () => {
     return;
   };
 
-  const handleGetCategory = async () => {
-    const result = await getCategory();
-
-    if (result.result) {
-      setCategoryList(result.categoryList || []);
-      return;
-    }
-
-    alert("카테고리를 불러오는 중 오류가 발생했습니다.");
-    return;
-  };
-
   useEffect(() => {
-    handleGetCategory();
+    fetchCategoryList();
   }, []);
 
   if (categoryList) {
