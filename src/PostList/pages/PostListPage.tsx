@@ -10,7 +10,7 @@ import { useAccount } from "Utils/hooks/useAccount";
 import { useRecentPostList } from "PostList/hooks/useRecentPostList";
 
 const PostListPage: React.FC = () => {
-  const { userInfo } = useAccount();
+  const userInfo = useAccount();
   const { postList, totalCount, handleGetRecentPostList } = useRecentPostList();
   const [activePage, setActivePage] = useState<number>(1);
 

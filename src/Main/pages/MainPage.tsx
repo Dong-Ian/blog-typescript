@@ -15,7 +15,7 @@ import { usePostList } from "Main/hooks/usePostList";
 const MainPage: React.FC = () => {
   const navigate = useNavigate();
 
-  const { userInfo } = useAccount();
+  const userInfo = useAccount();
   const { recentPostList, pinnedPostList } = usePostList();
 
   if (!userInfo || !recentPostList || !pinnedPostList) return null;

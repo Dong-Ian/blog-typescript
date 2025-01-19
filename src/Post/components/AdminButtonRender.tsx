@@ -10,7 +10,7 @@ const AdminButtonRender: React.FC<AdminProps> = ({
   isLoggedIn,
   postSeq,
   post,
-  setIsChangePinnedState,
+  togglePinnedState,
 }) => {
   return (
     <>
@@ -21,12 +21,12 @@ const AdminButtonRender: React.FC<AdminProps> = ({
           {post.isPinned === "1" ? (
             <UnPinButton
               postSeq={postSeq}
-              setIsChangePinnedState={setIsChangePinnedState}
+              togglePinnedState={togglePinnedState}
             />
           ) : (
             <PinButton
               postSeq={postSeq}
-              setIsChangePinnedState={setIsChangePinnedState}
+              togglePinnedState={togglePinnedState}
             />
           )}
         </div>

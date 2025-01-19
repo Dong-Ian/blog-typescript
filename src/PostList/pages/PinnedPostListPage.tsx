@@ -10,7 +10,7 @@ import { useAccount } from "Utils/hooks/useAccount";
 import { usePinnedPostList } from "PostList/hooks/usePinnedPostList";
 
 const PinnedPostListPage: React.FC = () => {
-  const { userInfo } = useAccount();
+  const userInfo = useAccount();
   const { postList, totalCount, handleGetPinnedPostList } = usePinnedPostList();
   const [activePage, setActivePage] = useState<number>(1);
 

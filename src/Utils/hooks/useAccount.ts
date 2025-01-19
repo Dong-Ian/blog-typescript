@@ -18,5 +18,5 @@ export function useAccount() {
     fetchAccount();
   }, []);
 
-  return { userInfo };
+  return userInfo;
 }

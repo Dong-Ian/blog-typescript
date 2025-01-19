@@ -13,7 +13,7 @@ import { useTagPostList } from "PostList/hooks/useTagPostList";
 const TagPostListPage: React.FC = () => {
   const location = useLocation();
   const { tag } = location.state || {};
-  const { userInfo } = useAccount();
+  const userInfo = useAccount();
   const { postList, totalCount, handleGetTagPostList } = useTagPostList({
     tag,
   });

@@ -13,7 +13,7 @@ import { useCategoryPostList } from "PostList/hooks/useCategoryPostList";
 const CategoryPostListPage: React.FC = () => {
   const location = useLocation();
   const { category } = location.state || {};
-  const { userInfo } = useAccount();
+  const userInfo = useAccount();
   const { postList, totalCount, handleGetCategoryPostList } =
     useCategoryPostList({ category });
   const [activePage, setActivePage] = useState<number>(1);

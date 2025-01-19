@@ -5,14 +5,14 @@ import pin from "Post/services/pin.service";
 
 const PinButton: React.FC<PostControlProps> = ({
   postSeq,
-  setIsChangePinnedState,
+  togglePinnedState,
 }) => {
   const handlePin = async () => {
     const result = await pin({ postSeq });
 
     if (result.result) {
       alert("게시글이 고정되었습니다.");
-      setIsChangePinnedState((prev) => !prev);
+      togglePinnedState();
       return;
     }
 

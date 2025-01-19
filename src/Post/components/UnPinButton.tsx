@@ -5,14 +5,14 @@ import unpin from "Post/services/unpin.service";
 
 const UnPinButton: React.FC<PostControlProps> = ({
   postSeq,
-  setIsChangePinnedState,
+  togglePinnedState,
 }) => {
   const handleUnPin = async () => {
     const result = await unpin({ postSeq });
 
     if (result.result) {
       alert("게시글이 고정해제 되었습니다.");
-      setIsChangePinnedState((prev) => !prev);
+      togglePinnedState();
       return;
     }
 

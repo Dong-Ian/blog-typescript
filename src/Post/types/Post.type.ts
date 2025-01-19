@@ -26,7 +26,7 @@ export interface AuthPostProps {
 
 export interface PostControlProps {
   postSeq: string;
-  setIsChangePinnedState: React.Dispatch<React.SetStateAction<boolean>>;
+  togglePinnedState: () => void;
 }
 
 export interface TagListProps {
@@ -48,5 +48,5 @@ export interface AdminProps {
 
   postSeq: string;
   post: PostInterface;
-  setIsChangePinnedState: React.Dispatch<React.SetStateAction<boolean>>;
+  togglePinnedState: () => void;
 }
