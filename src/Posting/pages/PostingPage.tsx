@@ -9,8 +9,8 @@ import Contents from "Posting/components/Contents";
 import Catetory from "Posting/components/Category";
 import Tag from "Posting/components/Tag";
 import CategoryList from "Posting/components/CategoryList";
-import Header from "Utils/Component/Header";
-import BackButton from "Utils/Component/BackButton";
+import Header from "Utils/components/Header";
+import BackButton from "Utils/components/BackButton";
 
 const PostingPage: React.FC = () => {
   const navigate = useNavigate();

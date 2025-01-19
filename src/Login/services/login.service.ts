@@ -1,9 +1,9 @@
 import { LoginFunctionProps } from "Login/types/Login.type";
-import EncryptFunction from "Utils/Module/EncryptFunction";
+import encrypt from "Utils/services/encrypt.service";
 
 export default async function login({ email, password }: LoginFunctionProps) {
-  const encryptedEmail = EncryptFunction({ data: email });
-  const encryptedPassword = EncryptFunction({ data: password });
+  const encryptedEmail = encrypt({ data: email });
+  const encryptedPassword = encrypt({ data: password });
 
   const result = await fetch(`${process.env.REACT_APP_API}/user/login`, {
     method: "POST",

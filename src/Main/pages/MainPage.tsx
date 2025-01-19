@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import styles from "../styles/main.module.css";
 import { UserInfoInterface, RenderPostListProps } from "../types/Main.type";
 import { PostInterface } from "../../PostList/types/PostList.type";
-import Header from "../../Utils/Component/Header";
+import Header from "../../Utils/components/Header";
 import Account from "../components/Account";
 import PostList from "../../PostList/components/PostList";
 import Category from "../components/Category";

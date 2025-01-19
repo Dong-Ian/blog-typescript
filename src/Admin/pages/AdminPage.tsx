@@ -6,11 +6,11 @@ import styles from "../Style/admin.module.css";
 import { AdminPageProps } from "Admin/types/Admin.type";
 import editProfileImage from "Admin/services/editProfileImage.service";
 import editAccount from "Admin/services/editAccount.service";
-import BackButton from "Utils/Component/BackButton";
+import BackButton from "Utils/components/BackButton";
 import EditProfileImage from "Admin/components/EditProfileImage";
 import EditElement from "Admin/components/EditElement";
 import EditColor from "Admin/components/EditColor";
-import AdminHeader from "Utils/Component/AdminHeader";
+import AdminHeader from "Utils/components/AdminHeader";
 
 const AdminPage: React.FC<AdminPageProps> = ({ profile }) => {
   const [formData, setFormData] = useState<FormData>(new FormData());

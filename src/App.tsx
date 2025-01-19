@@ -7,10 +7,10 @@ import { isLoggedInState } from "Utils/Atom/Atom";
 import MainPage from "./Main/pages/MainPage";
 import LoginPage from "Login/pages/LoginPage";
 
-import PostListPage from "PostList/Page/PostListPage";
-import PinnedPostListPage from "PostList/Page/PinnedPostListPage";
-import CategoryPostListPage from "PostList/Page/CategoryPostListPage";
-import TagPostListPage from "PostList/Page/TagPostListPage";
+import PostListPage from "PostList/pages/PostListPage";
+import PinnedPostListPage from "PostList/pages/PinnedPostListPage";
+import CategoryPostListPage from "PostList/pages/CategoryPostListPage";
+import TagPostListPage from "PostList/pages/TagPostListPage";
 
 import PostPage from "Post/pages/PostPage";
 import PostingPage from "Posting/pages/PostingPage";

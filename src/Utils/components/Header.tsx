@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { colorState, isLoggedInState } from "../Atom/Atom";
-import styles from "../Style/component.module.css";
+import styles from "../styles/component.module.css";
 import getAccount from "../../Main/services/getAccount.service";
 import accountIcon from "../Image/person_white.png";
 
