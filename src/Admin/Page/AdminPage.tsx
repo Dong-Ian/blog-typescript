@@ -1,16 +1,11 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-
-import { useRecoilState, useRecoilValue } from "recoil";
-import { colorState, tokenState } from "Utils/Atom/Atom";
-
+import { useRecoilState } from "recoil";
+import { colorState } from "Utils/Atom/Atom";
 import styles from "../Style/admin.module.css";
-
 import { AdminPageProps } from "Admin/Type/AdminType";
-
 import EditProfileImageFunction from "Admin/Function/EditProfileImageFunction";
 import EditAccountFunction from "Admin/Function/EditAccountFunction";
-
 import BackButton from "Utils/Component/BackButton";
 import EditProfileImage from "Admin/Component/EditProfileImage";
 import EditElement from "Admin/Component/EditElement";
@@ -18,8 +13,6 @@ import EditColor from "Admin/Component/EditColor";
 import AdminHeader from "Utils/Component/AdminHeader";
 
 const AdminPage: React.FC<AdminPageProps> = ({ profile }) => {
-  const token = useRecoilValue(tokenState);
-
   const [formData, setFormData] = useState<FormData>(new FormData());
   const [profileImage, setProfileImage] = useState<string>(
     profile.images.profileImage || ""
@@ -38,7 +31,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ profile }) => {
   const [title, setTitle] = useState<string>(profile.title || "");
 
   async function editProfileImage() {
-    const result = await EditProfileImageFunction({ token, formData });
+    const result = await EditProfileImageFunction({ formData });
 
     if (result.result) {
       alert("프로필 사진 변경이 완료되었습니다.");
@@ -51,7 +44,6 @@ const AdminPage: React.FC<AdminPageProps> = ({ profile }) => {
 
   async function editProfile() {
     const result = await EditAccountFunction({
-      token,
       name,
       color,
       title,

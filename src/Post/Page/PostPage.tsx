@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
-
 import { useRecoilValue } from "recoil";
-import { isLoggedInState, tokenState } from "Utils/Atom/Atom";
-
+import { isLoggedInState } from "Utils/Atom/Atom";
 import styles from "../Style/post.module.css";
-
 import { UserInfoInterface } from "Main/Type/MainType";
 import { PostInterface } from "Post/Type/PostType";
-
 import GetAccountFunction from "Main/Function/GetAccountFunction";
 import GetPostFunction from "Post/Function/GetPostFunction";
-
 import Header from "Utils/Component/Header";
-import HeaderTagList from "Post/Component/HeaderTagList";
 import Account from "Main/Component/Account";
 import BackButton from "Utils/Component/BackButton";
 import Title from "Post/Component/Title";
@@ -28,7 +22,6 @@ const PostPage: React.FC = () => {
   const { postSeq } = useParams();
   const navigate = useNavigate();
 
-  const token = useRecoilValue(tokenState);
   const isLoggedIn = useRecoilValue(isLoggedInState);
 
   const [userInfo, setUserInfo] = useState<UserInfoInterface>();
@@ -93,9 +86,7 @@ const PostPage: React.FC = () => {
       <>
         <Helmet title={post.postTitle} />
         <Header />
-        {/* <div>
-          <HeaderTagList post={post} />
-        </div> */}
+
         <div className={styles.outer_post_box}>
           <div className={styles.account_box}>
             {userInfo && <Account userInfo={userInfo} />}
@@ -128,7 +119,6 @@ const PostPage: React.FC = () => {
             {postSeq && (
               <AdminButtonRender
                 isLoggedIn={isLoggedIn}
-                token={token}
                 postSeq={postSeq}
                 post={post}
                 setIsChangePinnedState={setIsChangePinnedState}
@@ -149,7 +139,6 @@ const PostPage: React.FC = () => {
               {postSeq && (
                 <AdminButtonRender
                   isLoggedIn={isLoggedIn}
-                  token={token}
                   postSeq={postSeq}
                   post={post}
                   setIsChangePinnedState={setIsChangePinnedState}

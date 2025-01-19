@@ -1,15 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import styles from "../Style/edit_post.module.css";
-
-import { useRecoilValue } from "recoil";
-import { tokenState } from "Utils/Atom/Atom";
-
 import { EditPostPageProps } from "EditPost/Type/EditPostType";
-
 import EditPostFunction from "EditPost/Function/EditPostFunction";
-
 import Header from "Utils/Component/Header";
 import BackButton from "Utils/Component/BackButton";
 import Title from "Posting/Component/Title";
@@ -20,7 +13,6 @@ import Contents from "Posting/Component/Contents";
 
 const EditPostPage: React.FC<EditPostPageProps> = ({ post, categoryList }) => {
   const navigate = useNavigate();
-  const token = useRecoilValue(tokenState);
 
   const postSeq = post.postSeq;
   const [title, setTitle] = useState<string>(post.postTitle || "");
@@ -34,7 +26,7 @@ const EditPostPage: React.FC<EditPostPageProps> = ({ post, categoryList }) => {
     if (window.confirm("글을 수정하시겠습니까?")) {
       const result = await EditPostFunction({
         postSeq: postSeq,
-        token: token,
+
         postTitle: title,
         postContents: content,
         isPinned: isPinned,

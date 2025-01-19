@@ -1,5 +1,4 @@
 import React from "react";
-
 import { CategoryListFieldProps } from "Posting/Type/PostingType";
 
 const CategoryList: React.FC<CategoryListFieldProps> = ({

@@ -40,3 +40,7 @@ export interface RenderUserInfoProps {
 export interface AdminHeaderInterface {
   state: ColorInterface;
 }
+
+export interface CategoryRenderProps {
+  categoryList: string[];
+}

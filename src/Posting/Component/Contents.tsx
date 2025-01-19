@@ -1,5 +1,4 @@
 import React from "react";
-
 import { TextFieldProps } from "Posting/Type/PostingType";
 import MDEditor from "@uiw/react-md-editor";
 

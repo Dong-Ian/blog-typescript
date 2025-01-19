@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../Style/post.module.css";
-
 import { PostProps } from "Post/Type/PostType";
 
 const HeaderTagList: React.FC<PostProps> = ({ post }) => {

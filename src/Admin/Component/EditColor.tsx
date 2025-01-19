@@ -1,24 +1,16 @@
 import React from "react";
-import { useRecoilValue } from "recoil";
-import { tokenState } from "Utils/Atom/Atom";
-
 import styles from "../Style/admin.module.css";
-
 import { EditColorProps } from "Admin/Type/AdminType";
-
 import EditColorFunction from "../Function/EditColorFunction";
-
 import { SketchPicker, ColorResult } from "react-color";
 
 const EditColor: React.FC<EditColorProps> = ({ state, setState, setColor }) => {
-  const token = useRecoilValue(tokenState);
-
   function handleChangeComplete(color: ColorResult) {
     setState({ background: color.hex });
   }
 
   async function onClickEditBtn() {
-    const result = await EditColorFunction({ token: token, color: state });
+    const result = await EditColorFunction({ color: state });
 
     if (result.result) {
       alert("색상이 변경되었습니다.");

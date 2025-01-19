@@ -1,7 +1,5 @@
 import React, { useRef } from "react";
-
 import styles from "../Style/admin.module.css";
-
 import { EditProfileImageProps } from "Admin/Type/AdminType";
 
 const EditProfileImage: React.FC<EditProfileImageProps> = ({

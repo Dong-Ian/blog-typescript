@@ -1,7 +1,6 @@
 import { EditColorFunctionProps } from "Admin/Type/AdminType";
 
 export default async function EditColorFunction({
-  token,
   color,
 }: EditColorFunctionProps) {
   const result = await fetch(
@@ -10,8 +9,8 @@ export default async function EditColorFunction({
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
+      credentials: "include",
       body: JSON.stringify({
         color: color.background,
       }),

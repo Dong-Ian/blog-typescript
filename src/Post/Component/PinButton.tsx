@@ -1,18 +1,14 @@
 import React from "react";
-
 import styles from "../Style/post.module.css";
-
 import { PostControlProps } from "Post/Type/PostType";
-
 import PinFunction from "Post/Function/PinFunction";
 
 const PinButton: React.FC<PostControlProps> = ({
-  token,
   postSeq,
   setIsChangePinnedState,
 }) => {
   async function Pin() {
-    const result = await PinFunction({ token, postSeq });
+    const result = await PinFunction({ postSeq });
 
     if (result.result) {
       alert("게시글이 고정되었습니다.");

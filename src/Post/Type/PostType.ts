@@ -21,12 +21,10 @@ export interface PostSeqProps {
 }
 
 export interface AuthPostProps {
-  token: string;
   postSeq: string;
 }
 
 export interface PostControlProps {
-  token: string;
   postSeq: string;
   setIsChangePinnedState: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -47,7 +45,7 @@ export interface DateTimeProps {
 
 export interface AdminProps {
   isLoggedIn: boolean;
-  token: string;
+
   postSeq: string;
   post: PostInterface;
   setIsChangePinnedState: React.Dispatch<React.SetStateAction<boolean>>;

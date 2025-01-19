@@ -9,12 +9,6 @@ export const isLoggedInState = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-export const tokenState = atom({
-  key: "tokenState",
-  default: "",
-  effects_UNSTABLE: [persistAtom],
-});
-
 export const colorState = atom({
   key: "colorState",
   default: { background: "#000" },

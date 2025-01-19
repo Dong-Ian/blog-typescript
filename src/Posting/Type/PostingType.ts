@@ -1,5 +1,4 @@
 export interface PostingFunctionProps {
-  token: string;
   postTitle: string;
   postContents: string;
   imageSeqs: [];

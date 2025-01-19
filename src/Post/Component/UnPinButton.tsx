@@ -1,18 +1,14 @@
 import React from "react";
-
 import styles from "../Style/post.module.css";
-
 import { PostControlProps } from "Post/Type/PostType";
-
 import UnPinFunction from "Post/Function/UnPinFunction";
 
 const UnPinButton: React.FC<PostControlProps> = ({
-  token,
   postSeq,
   setIsChangePinnedState,
 }) => {
   async function UnPin() {
-    const result = await UnPinFunction({ token, postSeq });
+    const result = await UnPinFunction({ postSeq });
 
     if (result.result) {
       alert("게시글이 고정해제 되었습니다.");

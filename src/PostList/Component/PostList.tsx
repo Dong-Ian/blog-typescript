@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as cheerio from "cheerio";
-
 import styles from "../Style/postlist.module.css";
-
 import {
   PostListProps,
   CategoryRenderProps,
