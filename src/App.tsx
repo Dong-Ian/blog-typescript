@@ -5,7 +5,7 @@ import { useRecoilValue } from "recoil";
 import { isLoggedInState } from "Utils/Atom/Atom";
 
 import MainPage from "./Main/Page/MainPage";
-import LoginPage from "Login/Page/LoginPage";
+import LoginPage from "Login/pages/LoginPage";
 
 import PostListPage from "PostList/Page/PostListPage";
 import PinnedPostListPage from "PostList/Page/PinnedPostListPage";
@@ -14,7 +14,7 @@ import TagPostListPage from "PostList/Page/TagPostListPage";
 
 import PostPage from "Post/Page/PostPage";
 import PostingPage from "Posting/Page/PostingPage";
-import EditPostLandingPage from "EditPost/Page/EditPostLandingPage";
+import EditPostLandingPage from "EditPost/pages/EditPostLandingPage";
 import AdminLandingPage from "Admin/pages/AdminLandingPage";
 
 const App: React.FC = () => {

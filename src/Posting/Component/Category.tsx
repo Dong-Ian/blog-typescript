@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../Style/posting.module.css";
-import { TextFieldProps } from "Login/Type/LoginType";
+import { TextFieldProps } from "Login/types/Login.type";
 
 const Catetory: React.FC<TextFieldProps> = ({ value, onChange }) => {
   function handleInput(event: React.ChangeEvent<HTMLInputElement>) {

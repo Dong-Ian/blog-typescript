@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import styles from "../Style/login.module.css";
-import LoginFunction from "Login/Function/LoginFunction";
+import styles from "../styles/login.module.css";
+import login from "Login/services/login.service";
 import GetAccountFunction from "Main/Function/GetAccountFunction";
-import Email from "Login/Component/Email";
-import Password from "Login/Component/Password";
+import Email from "Login/components/Email";
+import Password from "Login/components/Password";
 import { useSetRecoilState } from "recoil";
 import { isLoggedInState } from "Utils/Atom/Atom";
 
@@ -18,10 +18,10 @@ const LoginPage: React.FC = () => {
   const [color, setColor] = useState("");
   const isLoggedIn = useSetRecoilState(isLoggedInState);
 
-  async function Login(e: React.FormEvent<HTMLFormElement>) {
+  async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const result = await LoginFunction({ email, password });
+    const result = await login({ email, password });
 
     if (!result.result) {
       alert("이메일/비밀번호가 일치하지 않습니다.");
@@ -59,7 +59,7 @@ const LoginPage: React.FC = () => {
           <p>Welcome to {title}</p>
         </div>
         <div className={styles.outer_box}>
-          <form className={styles.box} method="post" onSubmit={Login}>
+          <form className={styles.box} method="post" onSubmit={handleLogin}>
             <Email value={email} onChange={setEmail} />
             <Password value={password} onChange={setPassword} />
             <input
