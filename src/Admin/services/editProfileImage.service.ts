@@ -1,6 +1,6 @@
 import { EditProfileImageFunctionProps } from "Admin/types/Admin.type";
 
-export default async function EditProfileImageFunction({
+export default async function editProfileImage({
   formData,
 }: EditProfileImageFunctionProps) {
   const result = await fetch(

@@ -1,8 +1,6 @@
 import { EditColorFunctionProps } from "Admin/types/Admin.type";
 
-export default async function EditColorFunction({
-  color,
-}: EditColorFunctionProps) {
+export default async function editColor({ color }: EditColorFunctionProps) {
   const result = await fetch(
     `${process.env.REACT_APP_API}/admin/user/profile/color`,
     {

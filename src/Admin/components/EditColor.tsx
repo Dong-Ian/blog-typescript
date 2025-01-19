@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../Style/admin.module.css";
 import { EditColorProps } from "Admin/types/Admin.type";
-import EditColorFunction from "../services/EditColorFunction";
+import editColor from "../services/editColor.service";
 import { SketchPicker, ColorResult } from "react-color";
 
 const EditColor: React.FC<EditColorProps> = ({ state, setState, setColor }) => {
@@ -10,7 +10,7 @@ const EditColor: React.FC<EditColorProps> = ({ state, setState, setColor }) => {
   }
 
   async function onClickEditBtn() {
-    const result = await EditColorFunction({ color: state });
+    const result = await editColor({ color: state });
 
     if (result.result) {
       alert("색상이 변경되었습니다.");

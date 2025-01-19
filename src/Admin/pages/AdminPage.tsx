@@ -4,8 +4,8 @@ import { useRecoilState } from "recoil";
 import { colorState } from "Utils/Atom/Atom";
 import styles from "../Style/admin.module.css";
 import { AdminPageProps } from "Admin/types/Admin.type";
-import EditProfileImageFunction from "Admin/services/EditProfileImageFunction";
-import EditAccountFunction from "Admin/services/EditAccountFunction";
+import editProfileImage from "Admin/services/editProfileImage.service";
+import editAccount from "Admin/services/editAccount.service";
 import BackButton from "Utils/Component/BackButton";
 import EditProfileImage from "Admin/components/EditProfileImage";
 import EditElement from "Admin/components/EditElement";
@@ -30,8 +30,8 @@ const AdminPage: React.FC<AdminPageProps> = ({ profile }) => {
   );
   const [title, setTitle] = useState<string>(profile.title || "");
 
-  async function editProfileImage() {
-    const result = await EditProfileImageFunction({ formData });
+  async function handleEditProfileImage() {
+    const result = await editProfileImage({ formData });
 
     if (result.result) {
       alert("프로필 사진 변경이 완료되었습니다.");
@@ -42,8 +42,8 @@ const AdminPage: React.FC<AdminPageProps> = ({ profile }) => {
     return;
   }
 
-  async function editProfile() {
-    const result = await EditAccountFunction({
+  async function handleEditProfile() {
+    const result = await editAccount({
       name,
       color,
       title,
@@ -82,7 +82,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ profile }) => {
           setFormData={setFormData}
         />
         <div className={styles.change_button}>
-          <button onClick={editProfileImage}>프로필 사진 변경</button>
+          <button onClick={handleEditProfileImage}>프로필 사진 변경</button>
         </div>
 
         <hr className={styles.hr} />
@@ -125,7 +125,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ profile }) => {
           onChange={setPersonalUrl}
         />
         <div className={styles.change_button}>
-          <button onClick={editProfile}>회원 정보 변경</button>
+          <button onClick={handleEditProfile}>회원 정보 변경</button>
         </div>
         <hr className={styles.hr} />
         <p className={styles.title}>대표 색상 변경</p>
