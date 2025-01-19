@@ -1,67 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
-import { useRecoilState } from "recoil";
-import { colorState } from "Utils/atom/Atom";
 import styles from "../styles/admin.module.css";
 import { AdminPageProps } from "Admin/types/Admin.type";
-import editProfileImage from "Admin/services/editProfileImage.service";
-import editAccount from "Admin/services/editAccount.service";
 import BackButton from "Utils/components/BackButton";
 import EditProfileImage from "Admin/components/EditProfileImage";
 import EditElement from "Admin/components/EditElement";
 import EditColor from "Admin/components/EditColor";
 import AdminHeader from "Utils/components/AdminHeader";
+import { useEditProfileImage } from "Admin/hooks/useEditProfileImage";
+import { useEditProfile } from "Admin/hooks/useEditProfile";
 
 const AdminPage: React.FC<AdminPageProps> = ({ profile }) => {
-  const [formData, setFormData] = useState<FormData>(new FormData());
-  const [profileImage, setProfileImage] = useState<string>(
-    profile.images.profileImage || ""
-  );
+  const { profileImage, setProfileImage, setFormData, handleEditProfileImage } =
+    useEditProfileImage(profile.images.profileImage || "");
 
-  const [color, setColor] = useRecoilState(colorState);
-  const [state, setState] = useState(color);
-
-  const [name, setName] = useState<string>(profile.userName || "");
-  const [memo, setMemo] = useState<string>(profile.memo || "");
-  const [githubUrl, setGithubUrl] = useState<string>(profile.githubUrl || "");
-  const [instagram, setInstagram] = useState<string>(profile.instagram || "");
-  const [personalUrl, setPersonalUrl] = useState<string>(
-    profile.personalUrl || ""
-  );
-  const [title, setTitle] = useState<string>(profile.title || "");
-
-  const handleEditProfileImage = async () => {
-    const result = await editProfileImage({ formData });
-
-    if (result.result) {
-      alert("프로필 사진 변경이 완료되었습니다.");
-      return;
-    }
-
-    alert("프로필 사진을 변경하지 못했습니다.");
-    return;
-  };
-
-  const handleEditProfile = async () => {
-    const result = await editAccount({
-      name,
-      color,
-      title,
-      memo,
-      instagram,
-      githubUrl,
-      personalUrl,
-    });
-
-    if (result.result) {
-      setColor({ background: state });
-      alert("성공적으로 프로필이 수정되었습니다.");
-      return;
-    }
-
-    alert("서버 오류");
-    return;
-  };
+  const {
+    name,
+    setName,
+    title,
+    setTitle,
+    memo,
+    setMemo,
+    githubUrl,
+    setGithubUrl,
+    instagram,
+    setInstagram,
+    personalUrl,
+    setPersonalUrl,
+    state,
+    setState,
+    handleEditProfile,
+    setColor,
+  } = useEditProfile(profile);
 
   if (!profile) {
     return <div>Loading...</div>;

@@ -1,35 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { UserInfoInterface } from "Main/types/Main.type";
-import getAccount from "Main/services/getAccount.service";
+import React from "react";
+
 import AdminPage from "./AdminPage";
+import { useAccount } from "Utils/hooks/useAccount";
 
 const AdminLandingPage: React.FC = () => {
-  const [profile, setProfile] = useState<UserInfoInterface | null>(null);
+  const userInfo = useAccount();
 
-  const handleGetAccount = async () => {
-    const result = await getAccount();
-
-    if (result.result) {
-      setProfile(result.profileResult);
-      return;
-    }
-
-    alert("프로필을 불러오는 중 오류가 발생했습니다.");
-
-    return;
-  };
-
-  useEffect(() => {
-    if (!profile) {
-      handleGetAccount();
-    }
-  }, [profile]);
-
-  if (!profile) {
+  if (!userInfo) {
     return <div>Loading...</div>;
   }
 
-  return <AdminPage profile={profile} />;
+  return <AdminPage profile={userInfo} />;
 };
 
 export default AdminLandingPage;
