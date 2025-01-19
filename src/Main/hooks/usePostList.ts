@@ -46,10 +46,10 @@ export function usePostList(): UsePostListResult {
     }
   };
 
-  // 데이터를 초기화하는 useEffect
   useEffect(() => {
     fetchRecentPostList();
     fetchPinnedPostList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return {

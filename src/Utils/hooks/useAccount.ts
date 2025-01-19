@@ -16,7 +16,7 @@ export function useAccount() {
 
   useEffect(() => {
     fetchAccount();
-  });
+  }, []);
 
   return { userInfo };
 }

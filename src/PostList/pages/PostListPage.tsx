@@ -1,48 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import styles from "../styles/postlist.module.css";
-import { PostInterface } from "PostList/types/PostList.type";
-import { getRecentPostList } from "PostList/services/getPostList.service";
 import Header from "Utils/components/Header";
 import BackButton from "Utils/components/BackButton";
 import Account from "Main/components/Account";
 import PostList from "PostList/components/PostList";
 import PaginationComponent from "PostList/components/PaginationComponent";
 import { useAccount } from "Utils/hooks/useAccount";
+import { useRecentPostList } from "PostList/hooks/useRecentPostList";
 
 const PostListPage: React.FC = () => {
-  const navigate = useNavigate();
-
   const { userInfo } = useAccount();
-  const [postList, setPostList] = useState<PostInterface[] | null>(null);
-  const [totalCount, setTotalCount] = useState<number>(0);
+  const { postList, totalCount, handleGetRecentPostList } = useRecentPostList();
   const [activePage, setActivePage] = useState<number>(1);
 
-  const handleGetPostList = async ({ page }: { page: number }) => {
-    const result = await getRecentPostList({ page: page, size: 5 });
-
-    if (result.result) {
-      setPostList(result.unpinnedPostList);
-      setTotalCount(Number(result.postCount));
-      return;
-    }
-
-    alert("전체 글을 불러오지 못하였습니다.");
-    navigate("/");
-    return;
-  };
-
   const handlePageChange = (e: number) => {
-    handleGetPostList({ page: e });
+    handleGetRecentPostList({ page: e });
     setActivePage(e);
     window.scrollTo(0, 0);
   };
-
-  useEffect(() => {
-    handleGetPostList({ page: 1 });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   if (userInfo && postList) {
     return (
