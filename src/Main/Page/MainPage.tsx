@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import styles from "../Style/main.module.css";
+import styles from "../styles/main.module.css";
 import { UserInfoInterface, RenderPostListProps } from "../Type/MainType";
 import { PostInterface } from "../../PostList/Type/PostListType";
 import Header from "../../Utils/Component/Header";
-import Account from "../Component/Account";
+import Account from "../components/Account";
 import PostList from "../../PostList/Component/PostList";
-import Category from "../Component/Category";
-import GetAccountFunction from "../Function/GetAccountFunction";
+import Category from "../components/Category";
+import getAccount from "../services/getAccount.service";
 import {
   GetPinnedPostListFunction,
   GetRecentPostListFunction,
@@ -61,8 +61,8 @@ const MainPage: React.FC = () => {
     null
   );
 
-  async function GetAccount() {
-    const result = await GetAccountFunction();
+  async function handleGetAccount() {
+    const result = await getAccount();
 
     if (result.result) {
       setUserInfo(result.profileResult);
@@ -98,7 +98,7 @@ const MainPage: React.FC = () => {
   }
 
   useEffect(() => {
-    GetAccount();
+    handleGetAccount();
     GetRecentPostList();
     GetPinnedPostList();
   }, []);

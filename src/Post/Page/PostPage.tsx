@@ -6,10 +6,10 @@ import { isLoggedInState } from "Utils/Atom/Atom";
 import styles from "../Style/post.module.css";
 import { UserInfoInterface } from "Main/Type/MainType";
 import { PostInterface } from "Post/Type/PostType";
-import GetAccountFunction from "Main/Function/GetAccountFunction";
+import getAccount from "Main/services/getAccount.service";
 import GetPostFunction from "Post/Function/GetPostFunction";
 import Header from "Utils/Component/Header";
-import Account from "Main/Component/Account";
+import Account from "Main/components/Account";
 import BackButton from "Utils/Component/BackButton";
 import Title from "Post/Component/Title";
 import Tag from "Post/Component/Tag";
@@ -35,8 +35,8 @@ const PostPage: React.FC = () => {
     setIsMobileScreen(window.innerWidth <= 500);
   }
 
-  async function GetUserInfo() {
-    const result = await GetAccountFunction();
+  async function getUserInfo() {
+    const result = await getAccount();
 
     if (result.result) {
       setUserInfo(result.profileResult);
@@ -76,7 +76,7 @@ const PostPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    GetUserInfo();
+    getUserInfo();
     GetPost();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isChangePinnedState]);

@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../Style/component.module.css";
 import { AdminHeaderInterface } from "Main/Type/MainType";
-import GetAccountFunction from "../../Main/Function/GetAccountFunction";
+import getAccount from "../../Main/services/getAccount.service";
 
 const AdminHeader: React.FC<AdminHeaderInterface> = ({ state }) => {
   const navigate = useNavigate();
   const [title, setTitle] = useState();
 
-  async function GetAccount() {
-    const result = await GetAccountFunction();
+  async function handleGetAccount() {
+    const result = await getAccount();
 
     if (result.result) {
       setTitle(result.profileResult.title);
@@ -19,7 +19,7 @@ const AdminHeader: React.FC<AdminHeaderInterface> = ({ state }) => {
   }
 
   useEffect(() => {
-    GetAccount();
+    handleGetAccount();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

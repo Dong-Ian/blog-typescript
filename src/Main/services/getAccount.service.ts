@@ -1,4 +1,4 @@
-export default async function GetAccountFunction() {
+export default async function getAccount() {
   const result = await fetch(`${process.env.REACT_APP_API}/user/profile`, {
     method: "POST",
     headers: {

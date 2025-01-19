@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styles from "../styles/login.module.css";
 import login from "Login/services/login.service";
-import GetAccountFunction from "Main/Function/GetAccountFunction";
+import getAccount from "Main/services/getAccount.service";
 import Email from "Login/components/Email";
 import Password from "Login/components/Password";
 import { useSetRecoilState } from "recoil";
@@ -33,8 +33,8 @@ const LoginPage: React.FC = () => {
     return;
   }
 
-  async function GetAccount() {
-    const result = await GetAccountFunction();
+  async function handleGetAccount() {
+    const result = await getAccount();
 
     if (result.result) {
       setColor(result.profileResult.color);
@@ -48,7 +48,7 @@ const LoginPage: React.FC = () => {
   }
 
   useEffect(() => {
-    GetAccount();
+    handleGetAccount();
   }, []);
 
   return (

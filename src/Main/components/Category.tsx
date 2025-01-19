@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "../Style/main.module.css";
-import GetCategoryFunction from "../Function/GetCategoryFunction";
+import styles from "../styels/main.module.css";
+import GetCategoryFunction from "../services/getCategory.service";
 import { CategoryRenderProps } from "Main/Type/MainType";
 
 const CategoryRender: React.FC<CategoryRenderProps> = ({ categoryList }) => {

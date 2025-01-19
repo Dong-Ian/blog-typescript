@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { colorState, isLoggedInState } from "../Atom/Atom";
 import styles from "../Style/component.module.css";
-import GetAccountFunction from "../../Main/Function/GetAccountFunction";
+import getAccount from "../../Main/services/getAccount.service";
 import accountIcon from "../Image/person_white.png";
 
 const Header: React.FC = () => {
@@ -13,8 +13,8 @@ const Header: React.FC = () => {
   const [color, setColor] = useRecoilState(colorState);
   const [isLoggedIn] = useRecoilState(isLoggedInState);
 
-  async function GetAccount() {
-    const result = await GetAccountFunction();
+  async function handleGetAccount() {
+    const result = await getAccount();
 
     if (result.result) {
       setTitle(result.profileResult.title);
@@ -25,7 +25,7 @@ const Header: React.FC = () => {
   }
 
   useEffect(() => {
-    GetAccount();
+    handleGetAccount();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

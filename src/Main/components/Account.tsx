@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "../Style/account.module.css";
+import styles from "../styles/account.module.css";
 import {
   RenderUserInfoProps,
   RenderAccountProps,

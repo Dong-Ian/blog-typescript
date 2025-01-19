@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { UserInfoInterface } from "Main/Type/MainType";
-import GetAccountFunction from "Main/Function/GetAccountFunction";
+import getAccount from "Main/services/getAccount.service";
 import AdminPage from "./AdminPage";
 
 const AdminLandingPage: React.FC = () => {
   const [profile, setProfile] = useState<UserInfoInterface | null>(null);
 
-  async function GetAccount() {
-    const result = await GetAccountFunction();
+  async function handleGetAccount() {
+    const result = await getAccount();
 
     if (result.result) {
       setProfile(result.profileResult);
@@ -21,7 +21,7 @@ const AdminLandingPage: React.FC = () => {
 
   useEffect(() => {
     if (!profile) {
-      GetAccount();
+      handleGetAccount();
     }
   }, [profile]);
 

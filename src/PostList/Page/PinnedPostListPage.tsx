@@ -4,11 +4,11 @@ import { Helmet } from "react-helmet";
 import styles from "../Style/postlist.module.css";
 import { UserInfoInterface } from "Main/Type/MainType";
 import { PostInterface } from "PostList/Type/PostListType";
-import GetAccountFunction from "Main/Function/GetAccountFunction";
+import getAccount from "Main/services/getAccount.service";
 import { GetPinnedPostListFunction } from "PostList/Function/GetPostListFunction";
 import Header from "Utils/Component/Header";
 import BackButton from "Utils/Component/BackButton";
-import Account from "Main/Component/Account";
+import Account from "Main/components/Account";
 import PostList from "PostList/Component/PostList";
 import PaginationComponent from "PostList/Component/PaginationComponent";
 
@@ -20,8 +20,8 @@ const PinnedPostListPage: React.FC = () => {
   const [totalCount, setTotalCount] = useState<number>(0);
   const [activePage, setActivePage] = useState<number>(1);
 
-  async function GetUserInfo() {
-    const result = await GetAccountFunction();
+  async function handleGetUserInfo() {
+    const result = await getAccount();
 
     if (result.result) {
       setUserInfo(result.profileResult);
@@ -53,7 +53,7 @@ const PinnedPostListPage: React.FC = () => {
   }
 
   useEffect(() => {
-    GetUserInfo();
+    handleGetUserInfo();
     GetPostList({ page: 1 });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
