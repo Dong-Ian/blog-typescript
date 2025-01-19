@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../Style/admin.module.css";
+import styles from "../styles/admin.module.css";
 import { EditColorProps } from "Admin/types/Admin.type";
 import editColor from "../services/editColor.service";
 import { SketchPicker, ColorResult } from "react-color";

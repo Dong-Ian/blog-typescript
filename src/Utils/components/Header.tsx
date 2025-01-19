@@ -4,7 +4,7 @@ import { useRecoilState } from "recoil";
 import { colorState, isLoggedInState } from "../Atom/Atom";
 import styles from "../styles/component.module.css";
 import getAccount from "../../Main/services/getAccount.service";
-import accountIcon from "../Image/person_white.png";
+import accountIcon from "../images/person_white.png";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();

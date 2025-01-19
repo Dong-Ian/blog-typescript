@@ -10,8 +10,8 @@ import PostList from "../../PostList/components/PostList";
 import Category from "../components/Category";
 import getAccount from "../services/getAccount.service";
 import {
-  GetPinnedPostListFunction,
-  GetRecentPostListFunction,
+  getPinnedPostList,
+  getRecentPostList,
 } from "../../PostList/services/getPostList.service";
 
 const RenderPinnedPostList: React.FC<RenderPostListProps> = ({
@@ -73,8 +73,8 @@ const MainPage: React.FC = () => {
     return;
   }
 
-  async function GetRecentPostList() {
-    const result = await GetRecentPostListFunction({ page: 1, size: 5 });
+  async function handleGetRecentPostList() {
+    const result = await getRecentPostList({ page: 1, size: 5 });
 
     if (result.result) {
       setRecentPostList(result.unpinnedPostList || []);
@@ -85,8 +85,8 @@ const MainPage: React.FC = () => {
     return;
   }
 
-  async function GetPinnedPostList() {
-    const result = await GetPinnedPostListFunction({ page: 1, size: 5 });
+  async function handleGetPinnedPostList() {
+    const result = await getPinnedPostList({ page: 1, size: 5 });
 
     if (result.result) {
       setPinnedPostList(result.pinnedPostList || []);
@@ -99,8 +99,8 @@ const MainPage: React.FC = () => {
 
   useEffect(() => {
     handleGetAccount();
-    GetRecentPostList();
-    GetPinnedPostList();
+    handleGetRecentPostList();
+    handleGetPinnedPostList();
   }, []);
 
   if (userInfo && recentPostList && pinnedPostList) {

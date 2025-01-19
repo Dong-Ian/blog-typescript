@@ -6,9 +6,9 @@ import {
   RenderAccountProps,
   RenderAccountRowProps,
 } from "../types/Main.type";
-import default_profile_image from "../../Utils/Image/nullprofile.webp";
-import github_icon from "../../Utils/Image/github-mark.png";
-import instagram_icon from "../../Utils/Image/instagram.webp";
+import default_profile_image from "../../Utils/images/nullprofile.webp";
+import github_icon from "../../Utils/images/github-mark.png";
+import instagram_icon from "../../Utils/images/instagram.webp";
 
 const RenderUserInfo: React.FC<RenderUserInfoProps> = ({
   userInfo,
