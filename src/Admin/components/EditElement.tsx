@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../Style/admin.module.css";
-import { EditElementProps } from "Admin/Type/AdminType";
+import { EditElementProps } from "Admin/types/Admin.type";
 
 const EditElement: React.FC<EditElementProps> = ({
   placeholder,

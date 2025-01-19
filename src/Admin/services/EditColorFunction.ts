@@ -1,4 +1,4 @@
-import { EditColorFunctionProps } from "Admin/Type/AdminType";
+import { EditColorFunctionProps } from "Admin/types/Admin.type";
 
 export default async function EditColorFunction({
   color,

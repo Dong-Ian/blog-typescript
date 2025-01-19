@@ -1,4 +1,4 @@
-import { EditProfileImageFunctionProps } from "Admin/Type/AdminType";
+import { EditProfileImageFunctionProps } from "Admin/types/Admin.type";
 
 export default async function EditProfileImageFunction({
   formData,

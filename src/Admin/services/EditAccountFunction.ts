@@ -1,4 +1,4 @@
-import { EditAccountFunctionProps } from "Admin/Type/AdminType";
+import { EditAccountFunctionProps } from "Admin/types/Admin.type";
 
 export default async function EditAccountFunction({
   name,

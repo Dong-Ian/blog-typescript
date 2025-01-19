@@ -3,13 +3,13 @@ import { Helmet } from "react-helmet";
 import { useRecoilState } from "recoil";
 import { colorState } from "Utils/Atom/Atom";
 import styles from "../Style/admin.module.css";
-import { AdminPageProps } from "Admin/Type/AdminType";
-import EditProfileImageFunction from "Admin/Function/EditProfileImageFunction";
-import EditAccountFunction from "Admin/Function/EditAccountFunction";
+import { AdminPageProps } from "Admin/types/Admin.type";
+import EditProfileImageFunction from "Admin/services/EditProfileImageFunction";
+import EditAccountFunction from "Admin/services/EditAccountFunction";
 import BackButton from "Utils/Component/BackButton";
-import EditProfileImage from "Admin/Component/EditProfileImage";
-import EditElement from "Admin/Component/EditElement";
-import EditColor from "Admin/Component/EditColor";
+import EditProfileImage from "Admin/components/EditProfileImage";
+import EditElement from "Admin/components/EditElement";
+import EditColor from "Admin/components/EditColor";
 import AdminHeader from "Utils/Component/AdminHeader";
 
 const AdminPage: React.FC<AdminPageProps> = ({ profile }) => {

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../Style/admin.module.css";
-import { EditColorProps } from "Admin/Type/AdminType";
-import EditColorFunction from "../Function/EditColorFunction";
+import { EditColorProps } from "Admin/types/Admin.type";
+import EditColorFunction from "../services/EditColorFunction";
 import { SketchPicker, ColorResult } from "react-color";
 
 const EditColor: React.FC<EditColorProps> = ({ state, setState, setColor }) => {

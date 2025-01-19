@@ -1,6 +1,6 @@
 import { NavigateFunction } from "react-router-dom";
 import { PostInterface } from "../../PostList/Type/PostListType";
-import { ColorInterface } from "Admin/Type/AdminType";
+import { ColorInterface } from "Admin/types/Admin.type";
 
 export interface UserInfoInterface {
   userName: string;
