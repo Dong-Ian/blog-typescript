@@ -15,7 +15,7 @@ import TagPostListPage from "PostList/Page/TagPostListPage";
 import PostPage from "Post/Page/PostPage";
 import PostingPage from "Posting/Page/PostingPage";
 import EditPostLandingPage from "EditPost/Page/EditPostLandingPage";
-import AdminLandingPage from "Admin/Page/AdminLandingPage";
+import AdminLandingPage from "Admin/pages/AdminLandingPage";
 
 const App: React.FC = () => {
   const isLoggedIn = useRecoilValue(isLoggedInState);

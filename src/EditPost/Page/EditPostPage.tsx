@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "../Style/edit_post.module.css";
-import { EditPostPageProps } from "EditPost/Type/EditPostType";
-import EditPostFunction from "EditPost/Function/EditPostFunction";
+import styles from "../Style/editpost.module.css";
+import { EditPostPageProps } from "EditPost/Type/EditPost.type";
+import editPost from "EditPost/services/editPost.service";
 import Header from "Utils/Component/Header";
 import BackButton from "Utils/Component/BackButton";
 import Title from "Posting/Component/Title";
@@ -22,9 +22,9 @@ const EditPostPage: React.FC<EditPostPageProps> = ({ post, categoryList }) => {
 
   const isPinned = post.isPinned;
 
-  async function EditPost() {
+  async function handleEditPost() {
     if (window.confirm("글을 수정하시겠습니까?")) {
-      const result = await EditPostFunction({
+      const result = await editPost({
         postSeq: postSeq,
 
         postTitle: title,
@@ -71,7 +71,7 @@ const EditPostPage: React.FC<EditPostPageProps> = ({ post, categoryList }) => {
         <Contents value={content} onChange={setContent} />
 
         <div className={styles.button}>
-          <button onClick={EditPost}>글 수정하기</button>
+          <button onClick={handleEditPost}>글 수정하기</button>
         </div>
       </div>
     </>
