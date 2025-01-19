@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "../Style/editpost.module.css";
-import { EditPostPageProps } from "EditPost/Type/EditPost.type";
+import styles from "../styles/editpost.module.css";
+import { EditPostPageProps } from "EditPost/types/EditPost.type";
 import editPost from "EditPost/services/editPost.service";
 import Header from "Utils/Component/Header";
 import BackButton from "Utils/Component/BackButton";

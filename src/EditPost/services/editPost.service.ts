@@ -1,4 +1,4 @@
-import { EditPostFunctionProps } from "EditPost/Type/EditPost.type";
+import { EditPostFunctionProps } from "EditPost/types/EditPost.type";
 
 export default async function editPost({
   postSeq,
