@@ -14,3 +14,9 @@ export const colorState = atom({
   default: { background: "#000" },
   effects_UNSTABLE: [persistAtom],
 });
+
+export const titleState = atom({
+  key: "titleState",
+  default: "Archive",
+  effects_UNSTABLE: [persistAtom],
+});
