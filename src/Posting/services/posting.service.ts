@@ -28,6 +28,6 @@ export default async function posting({
   );
 
   const res = await result.json();
-  console.log(res);
+
   return res;
 }
