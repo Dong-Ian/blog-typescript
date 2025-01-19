@@ -1,8 +1,10 @@
 import React from "react";
-import styles from "../Style/posting.module.css";
+
+import styles from "../styles/posting.module.css";
+
 import { TextFieldProps } from "Login/types/Login.type";
 
-const Catetory: React.FC<TextFieldProps> = ({ value, onChange }) => {
+const Title: React.FC<TextFieldProps> = ({ value, onChange }) => {
   function handleInput(event: React.ChangeEvent<HTMLInputElement>) {
     const {
       target: { value },
@@ -11,15 +13,15 @@ const Catetory: React.FC<TextFieldProps> = ({ value, onChange }) => {
   }
 
   return (
-    <div className={styles.category}>
+    <div className={styles.title}>
       <input
-        name="category"
+        name="title"
         onChange={handleInput}
-        placeholder="카테고리를 입력해주세요"
+        placeholder="제목을 입력해주세요"
         value={value}
       />
     </div>
   );
 };
 
-export default Catetory;
+export default Title;

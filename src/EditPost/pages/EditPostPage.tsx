@@ -5,11 +5,11 @@ import { EditPostPageProps } from "EditPost/types/EditPost.type";
 import editPost from "EditPost/services/editPost.service";
 import Header from "Utils/Component/Header";
 import BackButton from "Utils/Component/BackButton";
-import Title from "Posting/Component/Title";
-import CategoryList from "Posting/Component/CategoryList";
-import Catetory from "Posting/Component/Category";
-import Tag from "Posting/Component/Tag";
-import Contents from "Posting/Component/Contents";
+import Title from "Posting/components/Title";
+import CategoryList from "Posting/components/CategoryList";
+import Catetory from "Posting/components/Category";
+import Tag from "Posting/components/Tag";
+import Contents from "Posting/components/Contents";
 
 const EditPostPage: React.FC<EditPostPageProps> = ({ post, categoryList }) => {
   const navigate = useNavigate();

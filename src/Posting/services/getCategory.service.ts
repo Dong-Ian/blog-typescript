@@ -1,4 +1,4 @@
-export default async function GetCategoryFunction() {
+export default async function getCategory() {
   const result = await fetch(
     `${process.env.REACT_APP_API}/post/category/list`,
     {

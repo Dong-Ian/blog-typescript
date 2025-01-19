@@ -13,7 +13,7 @@ import CategoryPostListPage from "PostList/Page/CategoryPostListPage";
 import TagPostListPage from "PostList/Page/TagPostListPage";
 
 import PostPage from "Post/pages/PostPage";
-import PostingPage from "Posting/Page/PostingPage";
+import PostingPage from "Posting/pages/PostingPage";
 import EditPostLandingPage from "EditPost/pages/EditPostLandingPage";
 import AdminLandingPage from "Admin/pages/AdminLandingPage";
 

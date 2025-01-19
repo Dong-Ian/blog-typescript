@@ -1,6 +1,6 @@
-import { PostingFunctionProps } from "Posting/Type/PostingType";
+import { PostingFunctionProps } from "Posting/types/Posting.type";
 
-export default async function PostingFunction({
+export default async function posting({
   postTitle,
   postContents,
   imageSeqs,

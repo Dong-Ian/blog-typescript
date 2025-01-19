@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import styles from "../Style/posting.module.css";
-import PostingFunction from "Posting/Function/PostingFunction";
-import GetCategoryFunction from "Posting/Function/GetCategoryFunction";
-import Title from "Posting/Component/Title";
-import Contents from "Posting/Component/Contents";
-import Catetory from "Posting/Component/Category";
-import Tag from "Posting/Component/Tag";
-import CategoryList from "Posting/Component/CategoryList";
+import styles from "../styles/posting.module.css";
+import posting from "Posting/services/posting.service";
+import getCategory from "Posting/services/getCategory.service";
+import Title from "Posting/components/Title";
+import Contents from "Posting/components/Contents";
+import Catetory from "Posting/components/Category";
+import Tag from "Posting/components/Tag";
+import CategoryList from "Posting/components/CategoryList";
 import Header from "Utils/Component/Header";
 import BackButton from "Utils/Component/BackButton";
 
@@ -22,7 +22,7 @@ const PostingPage: React.FC = () => {
 
   const [categoryList, setCategoryList] = useState<string[]>([]);
 
-  async function Posting() {
+  async function handlePosting() {
     if (postTitle === "") {
       alert("제목을 입력해주세요.");
       return;
@@ -38,7 +38,7 @@ const PostingPage: React.FC = () => {
       return;
     }
 
-    const result = await PostingFunction({
+    const result = await posting({
       postTitle: postTitle,
       postContents: postContents,
       imageSeqs: [],
@@ -57,8 +57,8 @@ const PostingPage: React.FC = () => {
     return;
   }
 
-  async function GetCategory() {
-    const result = await GetCategoryFunction();
+  async function handleGetCategory() {
+    const result = await getCategory();
 
     if (result.result) {
       setCategoryList(result.categoryList || []);
@@ -70,7 +70,7 @@ const PostingPage: React.FC = () => {
   }
 
   useEffect(() => {
-    GetCategory();
+    handleGetCategory();
   }, []);
 
   if (categoryList) {
@@ -94,7 +94,7 @@ const PostingPage: React.FC = () => {
             <Tag tagList={tags} setTagList={setTags} />
             <Contents value={postContents} onChange={setPostContents} />
             <div className={styles.button}>
-              <button onClick={Posting}>글 작성하기</button>
+              <button onClick={handlePosting}>글 작성하기</button>
             </div>
           </div>
         </div>

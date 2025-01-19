@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { PostInterface } from "Post/types/Post.type";
 import GetPostFunction from "Post/services/getPost.service";
-import GetCategoryFunction from "Posting/Function/GetCategoryFunction";
+import GetCategoryFunction from "Posting/services/getCategory.service";
 import EditPostPage from "./EditPostPage";
 
 const EditPostLandingPage: React.FC = () => {
