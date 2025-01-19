@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useRecoilValue } from "recoil";
-import { isLoggedInState } from "Utils/Atom/Atom";
+import { isLoggedInState } from "Utils/atom/Atom";
 import styles from "../styles/post.module.css";
 import { UserInfoInterface } from "Main/types/Main.type";
 import { PostInterface } from "Post/types/Post.type";

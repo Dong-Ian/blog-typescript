@@ -7,7 +7,7 @@ import getAccount from "Main/services/getAccount.service";
 import Email from "Login/components/Email";
 import Password from "Login/components/Password";
 import { useSetRecoilState } from "recoil";
-import { isLoggedInState } from "Utils/Atom/Atom";
+import { isLoggedInState } from "Utils/atom/Atom";
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();

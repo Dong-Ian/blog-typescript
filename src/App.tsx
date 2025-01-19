@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { useRecoilValue } from "recoil";
-import { isLoggedInState } from "Utils/Atom/Atom";
+import { isLoggedInState } from "Utils/atom/Atom";
 
 import MainPage from "./Main/pages/MainPage";
 import LoginPage from "Login/pages/LoginPage";

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { useRecoilState } from "recoil";
-import { colorState } from "Utils/Atom/Atom";
+import { colorState } from "Utils/atom/Atom";
 import styles from "../styles/admin.module.css";
 import { AdminPageProps } from "Admin/types/Admin.type";
 import editProfileImage from "Admin/services/editProfileImage.service";

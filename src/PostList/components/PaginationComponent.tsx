@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useRecoilValue } from "recoil";
-import { colorState } from "Utils/Atom/Atom";
+import { colorState } from "Utils/atom/Atom";
 import styles from "../styles/pagination.module.css";
 import Pagination from "react-js-pagination";
 import { PaginationComponentProps } from "PostList/types/PostList.type";
