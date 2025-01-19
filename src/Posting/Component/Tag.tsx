@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-
 import styles from "../Style/posting.module.css";
-
 import { TagListFieldProps } from "Posting/Type/PostingType";
 
 const Tag: React.FC<TagListFieldProps> = ({ tagList, setTagList }) => {

@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-
 import styles from "../Style/postlist.module.css";
-
 import { UserInfoInterface } from "Main/Type/MainType";
 import { PostInterface } from "PostList/Type/PostListType";
-
 import GetAccountFunction from "Main/Function/GetAccountFunction";
 import { GetTagPostListFunction } from "PostList/Function/GetPostListFunction";
-
 import Header from "Utils/Component/Header";
 import BackButton from "Utils/Component/BackButton";
 import Account from "Main/Component/Account";

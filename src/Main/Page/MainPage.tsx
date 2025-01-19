@@ -1,23 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-
 import styles from "../Style/main.module.css";
-
 import { UserInfoInterface, RenderPostListProps } from "../Type/MainType";
 import { PostInterface } from "../../PostList/Type/PostListType";
-
 import Header from "../../Utils/Component/Header";
 import Account from "../Component/Account";
 import PostList from "../../PostList/Component/PostList";
 import Category from "../Component/Category";
-
 import GetAccountFunction from "../Function/GetAccountFunction";
 import {
   GetPinnedPostListFunction,
   GetRecentPostListFunction,
 } from "../../PostList/Function/GetPostListFunction";
-import RefreshTokenFunction from "Utils/Function/RefreshTokenFunction";
 
 const RenderPinnedPostList: React.FC<RenderPostListProps> = ({
   postList,
@@ -106,7 +101,6 @@ const MainPage: React.FC = () => {
     GetAccount();
     GetRecentPostList();
     GetPinnedPostList();
-    // RefreshTokenFunction();
   }, []);
 
   if (userInfo && recentPostList && pinnedPostList) {

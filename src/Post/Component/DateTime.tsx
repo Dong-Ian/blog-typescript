@@ -1,7 +1,5 @@
 import React from "react";
-
 import styles from "../Style/post.module.css";
-
 import { DateTimeProps } from "Post/Type/PostType";
 
 const DateTimeRender: React.FC<DateTimeProps> = ({ reg, viewed }) => {

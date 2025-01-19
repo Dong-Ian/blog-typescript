@@ -10,10 +10,10 @@ export default async function EditColorFunction({
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({
         color: color.background,
       }),
-      credentials: "include",
     }
   );
 

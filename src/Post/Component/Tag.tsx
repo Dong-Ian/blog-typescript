@@ -1,8 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
 import styles from "../Style/post.module.css";
-
 import { TagListProps } from "Post/Type/PostType";
 
 const Tag: React.FC<TagListProps> = ({ tagList }) => {

@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
-
 import hljs from "highlight.js";
 import "highlight.js/styles/atom-one-dark-reasonable.css";
-
 import { PostProps } from "Post/Type/PostType";
 import MDEditor from "@uiw/react-md-editor";
 

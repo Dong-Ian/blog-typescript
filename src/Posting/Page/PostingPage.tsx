@@ -1,28 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-
-import { useRecoilValue } from "recoil";
-import { tokenState } from "Utils/Atom/Atom";
-
 import styles from "../Style/posting.module.css";
-
 import PostingFunction from "Posting/Function/PostingFunction";
 import GetCategoryFunction from "Posting/Function/GetCategoryFunction";
-
 import Title from "Posting/Component/Title";
 import Contents from "Posting/Component/Contents";
 import Catetory from "Posting/Component/Category";
 import Tag from "Posting/Component/Tag";
 import CategoryList from "Posting/Component/CategoryList";
-
 import Header from "Utils/Component/Header";
 import BackButton from "Utils/Component/BackButton";
 
 const PostingPage: React.FC = () => {
   const navigate = useNavigate();
-
-  const token = useRecoilValue(tokenState);
 
   const [postTitle, setPostTitle] = useState<string>("");
   const [postContents, setPostContents] = useState<string>("");
@@ -48,7 +39,6 @@ const PostingPage: React.FC = () => {
     }
 
     const result = await PostingFunction({
-      token: token,
       postTitle: postTitle,
       postContents: postContents,
       imageSeqs: [],

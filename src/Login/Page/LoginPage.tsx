@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-
 import styles from "../Style/login.module.css";
-
 import LoginFunction from "Login/Function/LoginFunction";
 import GetAccountFunction from "Main/Function/GetAccountFunction";
 import Email from "Login/Component/Email";
@@ -22,14 +20,15 @@ const LoginPage: React.FC = () => {
 
   async function Login(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
     const result = await LoginFunction({ email, password });
-    console.log(result);
+
     if (!result.result) {
       alert("이메일/비밀번호가 일치하지 않습니다.");
       return;
     }
     isLoggedIn(true);
-    // navigate("/");
+    navigate("/");
 
     return;
   }

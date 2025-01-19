@@ -1,7 +1,6 @@
 import { PostInterface } from "Post/Type/PostType";
 
 export interface EditPostFunctionProps {
-  token: string;
   postTitle: string;
   postContents: string;
   imageSeqs: [];

@@ -16,6 +16,7 @@ export default async function EditAccountFunction({
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({
         name: name,
         color: color.background,
@@ -25,7 +26,6 @@ export default async function EditAccountFunction({
         githubUrl: githubUrl,
         personalUrl: personalUrl,
       }),
-      credentials: "include",
     }
   );
 

@@ -5,7 +5,6 @@ export interface ColorInterface {
 }
 
 export interface EditAccountFunctionProps {
-  token: string;
   name: string;
   color: ColorInterface;
   title: string;
@@ -16,7 +15,6 @@ export interface EditAccountFunctionProps {
 }
 
 export interface EditColorFunctionProps {
-  token: string;
   color: ColorInterface;
 }
 
@@ -27,7 +25,6 @@ export interface EditColorProps {
 }
 
 export interface EditProfileImageFunctionProps {
-  token: string;
   formData: FormData;
 }
 

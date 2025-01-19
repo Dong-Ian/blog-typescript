@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
-
 import { UserInfoInterface } from "Main/Type/MainType";
-
 import GetAccountFunction from "Main/Function/GetAccountFunction";
-
 import AdminPage from "./AdminPage";
 
 const AdminLandingPage: React.FC = () => {

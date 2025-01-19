@@ -13,6 +13,7 @@ export default async function EditPostFunction({
     headers: {
       "Content-Type": "application/json",
     },
+    credentials: "include",
     body: JSON.stringify({
       postSeq: postSeq,
       postTitle: postTitle,
@@ -21,7 +22,6 @@ export default async function EditPostFunction({
       tags: tags,
       category: category,
     }),
-    credentials: "include",
   });
 
   const res = await result.json();
