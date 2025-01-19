@@ -2,38 +2,24 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styles from "../styles/postlist.module.css";
-import { UserInfoInterface } from "Main/types/Main.type";
 import { PostInterface } from "PostList/types/PostList.type";
-import getAccount from "Main/services/getAccount.service";
 import { getTagPostList } from "PostList/services/getPostList.service";
 import Header from "Utils/components/Header";
 import BackButton from "Utils/components/BackButton";
 import Account from "Main/components/Account";
 import PostList from "PostList/components/PostList";
 import PaginationComponent from "PostList/components/PaginationComponent";
+import { useAccount } from "Utils/hooks/useAccount";
 
 const TagPostListPage: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
   const { tag } = location.state || {};
-
-  const [userInfo, setUserInfo] = useState<UserInfoInterface | null>(null);
+  const { userInfo } = useAccount();
   const [postList, setPostList] = useState<PostInterface[] | null>(null);
   const [totalCount, setTotalCount] = useState<number>(0);
   const [activePage, setActivePage] = useState<number>(1);
-
-  const handleGetUserInfo = async () => {
-    const result = await getAccount();
-
-    if (result.result) {
-      setUserInfo(result.profileResult);
-      return;
-    }
-
-    alert("사용자 정보를 불러오지 못했습니다.");
-    return;
-  };
 
   const handleGetPostList = async ({ page }: { page: number }) => {
     const result = await getTagPostList({
@@ -60,7 +46,6 @@ const TagPostListPage: React.FC = () => {
   };
 
   useEffect(() => {
-    handleGetUserInfo();
     handleGetPostList({ page: 1 });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
