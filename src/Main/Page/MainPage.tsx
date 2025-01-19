@@ -17,6 +17,7 @@ import {
   GetPinnedPostListFunction,
   GetRecentPostListFunction,
 } from "../../PostList/Function/GetPostListFunction";
+import RefreshTokenFunction from "Utils/Function/RefreshTokenFunction";
 
 const RenderPinnedPostList: React.FC<RenderPostListProps> = ({
   postList,
@@ -105,6 +106,7 @@ const MainPage: React.FC = () => {
     GetAccount();
     GetRecentPostList();
     GetPinnedPostList();
+    // RefreshTokenFunction();
   }, []);
 
   if (userInfo && recentPostList && pinnedPostList) {

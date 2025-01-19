@@ -1,7 +1,6 @@
 import { EditPostFunctionProps } from "EditPost/Type/EditPostType";
 
 export default async function EditPostFunction({
-  token,
   postSeq,
   postTitle,
   postContents,
@@ -13,7 +12,6 @@ export default async function EditPostFunction({
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
       postSeq: postSeq,
@@ -23,6 +21,7 @@ export default async function EditPostFunction({
       tags: tags,
       category: category,
     }),
+    credentials: "include",
   });
 
   const res = await result.json();

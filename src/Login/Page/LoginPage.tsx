@@ -2,15 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-import { useSetRecoilState } from "recoil";
-import { isLoggedInState, tokenState } from "Utils/Atom/Atom";
-
 import styles from "../Style/login.module.css";
 
 import LoginFunction from "Login/Function/LoginFunction";
 import GetAccountFunction from "Main/Function/GetAccountFunction";
 import Email from "Login/Component/Email";
 import Password from "Login/Component/Password";
+import { useSetRecoilState } from "recoil";
+import { isLoggedInState } from "Utils/Atom/Atom";
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -20,21 +19,15 @@ const LoginPage: React.FC = () => {
   const [title, setTitle] = useState("");
   const [color, setColor] = useState("");
 
-  const setToken = useSetRecoilState(tokenState);
-  const setIsLoggedIn = useSetRecoilState(isLoggedInState);
-
   async function Login(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const result = await LoginFunction({ email, password });
-
+    console.log(result);
     if (!result.result) {
       alert("이메일/비밀번호가 일치하지 않습니다.");
       return;
     }
-
-    setToken(result.token);
-    setIsLoggedIn(true);
-    navigate("/");
+    // navigate("/");
 
     return;
   }

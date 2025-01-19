@@ -1,7 +1,6 @@
 import { PostingFunctionProps } from "Posting/Type/PostingType";
 
 export default async function PostingFunction({
-  token,
   postTitle,
   postContents,
   imageSeqs,
@@ -15,8 +14,8 @@ export default async function PostingFunction({
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
+      credentials: "include",
       body: JSON.stringify({
         postTitle: postTitle,
         postContents: postContents,
@@ -29,6 +28,6 @@ export default async function PostingFunction({
   );
 
   const res = await result.json();
-
+  console.log(res);
   return res;
 }

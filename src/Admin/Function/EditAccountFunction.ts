@@ -1,7 +1,6 @@
 import { EditAccountFunctionProps } from "Admin/Type/AdminType";
 
 export default async function EditAccountFunction({
-  token,
   name,
   color,
   title,
@@ -16,7 +15,6 @@ export default async function EditAccountFunction({
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         name: name,
@@ -27,6 +25,7 @@ export default async function EditAccountFunction({
         githubUrl: githubUrl,
         personalUrl: personalUrl,
       }),
+      credentials: "include",
     }
   );
 

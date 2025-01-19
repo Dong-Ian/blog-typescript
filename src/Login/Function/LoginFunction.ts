@@ -13,6 +13,7 @@ export default async function LoginFunction({
     headers: {
       "Content-Type": "application/json",
     },
+    credentials: "include",
     body: JSON.stringify({
       email: encryptedEmail,
       password: encryptedPassword,
