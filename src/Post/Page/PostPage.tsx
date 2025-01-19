@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { useRecoilValue } from "recoil";
 import { isLoggedInState } from "Utils/Atom/Atom";
 import styles from "../Style/post.module.css";
-import { UserInfoInterface } from "Main/Type/MainType";
+import { UserInfoInterface } from "Main/types/Main.type";
 import { PostInterface } from "Post/Type/PostType";
 import getAccount from "Main/services/getAccount.service";
 import GetPostFunction from "Post/Function/GetPostFunction";

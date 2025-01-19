@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styles from "../styles/main.module.css";
-import { UserInfoInterface, RenderPostListProps } from "../Type/MainType";
+import { UserInfoInterface, RenderPostListProps } from "../types/Main.type";
 import { PostInterface } from "../../PostList/Type/PostListType";
 import Header from "../../Utils/Component/Header";
 import Account from "../components/Account";

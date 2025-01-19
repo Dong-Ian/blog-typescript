@@ -1,4 +1,4 @@
-import { UserInfoInterface } from "Main/Type/MainType";
+import { UserInfoInterface } from "Main/types/Main.type";
 
 export interface ColorInterface {
   background: string;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { UserInfoInterface } from "Main/Type/MainType";
+import { UserInfoInterface } from "Main/types/Main.type";
 import getAccount from "Main/services/getAccount.service";
 import AdminPage from "./AdminPage";
 

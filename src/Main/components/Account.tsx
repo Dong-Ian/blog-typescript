@@ -5,7 +5,7 @@ import {
   RenderUserInfoProps,
   RenderAccountProps,
   RenderAccountRowProps,
-} from "../Type/MainType";
+} from "../types/Main.type";
 import default_profile_image from "../../Utils/Image/nullprofile.webp";
 import github_icon from "../../Utils/Image/github-mark.png";
 import instagram_icon from "../../Utils/Image/instagram.webp";

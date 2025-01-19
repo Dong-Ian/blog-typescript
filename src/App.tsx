@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { isLoggedInState } from "Utils/Atom/Atom";
 
-import MainPage from "./Main/Page/MainPage";
+import MainPage from "./Main/pages/MainPage";
 import LoginPage from "Login/pages/LoginPage";
 
 import PostListPage from "PostList/Page/PostListPage";

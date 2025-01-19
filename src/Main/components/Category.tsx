@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../styels/main.module.css";
 import GetCategoryFunction from "../services/getCategory.service";
-import { CategoryRenderProps } from "Main/Type/MainType";
+import { CategoryRenderProps } from "Main/types/Main.type";
 
 const CategoryRender: React.FC<CategoryRenderProps> = ({ categoryList }) => {
   const navigate = useNavigate(); // 페이지 이동을 위한 hook

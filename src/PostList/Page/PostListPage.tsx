@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styles from "../Style/postlist.module.css";
-import { UserInfoInterface } from "Main/Type/MainType";
+import { UserInfoInterface } from "Main/types/Main.type";
 import { PostInterface } from "PostList/Type/PostListType";
 import getAccount from "Main/services/getAccount.service";
 import { GetRecentPostListFunction } from "PostList/Function/GetPostListFunction";
