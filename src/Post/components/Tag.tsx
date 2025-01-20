@@ -7,24 +7,27 @@ const Tag: React.FC<TagListProps> = ({ tagList }) => {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.tag}>
+    <ul className={styles.tag}>
       {tagList.map((tag) => {
         const trimmedStr = tag.trim();
 
         return (
-          <div
+          <li
+            key={tag}
+            className={styles.tagItem}
             onClick={() =>
               navigate(`/postlist/tag/${tag}`, {
                 state: { tag: tag },
               })
             }
-            key={tag}
           >
-            <p># {trimmedStr}</p>
-          </div>
+            <a href={`/postlist/tag/${tag}`} className={styles.tagLink}>
+              # {trimmedStr}
+            </a>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 };
 

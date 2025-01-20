@@ -16,10 +16,16 @@ const DateTimeRender: React.FC<DateTimeProps> = ({ reg, viewed }) => {
   const paddedHour = String(hour).padStart(2, "0");
   const paddedMin = String(min).padStart(2, "0");
 
+  const formattedDate = `${year}-${String(month).padStart(2, "0")}-${String(
+    day
+  ).padStart(2, "0")}`;
+
   return (
     <div className={styles.date}>
       <p>
-        {year}년 {month}월 {day}일 {paddedHour}:{paddedMin}
+        <time dateTime={`${formattedDate}T${paddedHour}:${paddedMin}:00+09:00`}>
+          {year}년 {month}월 {day}일 {paddedHour}:{paddedMin}
+        </time>
         <span> | 조회수 {viewed}</span>
       </p>
     </div>

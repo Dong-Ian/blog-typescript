@@ -11,7 +11,7 @@ const Title: React.FC<TitleProps> = ({ title, isMobileScreen }) => {
           : `${styles.title} ${styles.big_title}`
       }
     >
-      <p>{title}</p>
+      <h1 className="post-title">{title}</h1>
     </div>
   );
 };
