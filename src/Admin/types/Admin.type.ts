@@ -1,12 +1,8 @@
 import { UserInfoInterface } from "Main/types/Main.type";
 
-export interface ColorInterface {
-  background: string;
-}
-
 export interface EditAccountFunctionProps {
   name: string;
-  color: ColorInterface;
+  color: string;
   title: string;
   memo: string;
   instagram: string;
@@ -15,13 +11,13 @@ export interface EditAccountFunctionProps {
 }
 
 export interface EditColorFunctionProps {
-  color: ColorInterface;
+  color: string;
 }
 
 export interface EditColorProps {
-  state: ColorInterface;
-  setState: React.Dispatch<React.SetStateAction<ColorInterface>>;
-  setColor: React.Dispatch<React.SetStateAction<ColorInterface>>;
+  state: string;
+  setState: React.Dispatch<React.SetStateAction<string>>;
+  setColor: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface EditProfileImageFunctionProps {

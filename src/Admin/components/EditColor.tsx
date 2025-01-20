@@ -3,10 +3,12 @@ import styles from "../styles/admin.module.css";
 import { EditColorProps } from "Admin/types/Admin.type";
 import editColor from "../services/editColor.service";
 import { SketchPicker, ColorResult } from "react-color";
+import { useFetchUser } from "Utils/hooks/useFetchUser";
 
-const EditColor: React.FC<EditColorProps> = ({ state, setState, setColor }) => {
+const EditColor: React.FC<EditColorProps> = ({ state, setState }) => {
+  const { refetch } = useFetchUser();
   const handleChangeComplete = (color: ColorResult) => {
-    setState({ background: color.hex });
+    setState(color.hex);
   };
 
   const onClickEditBtn = async () => {
@@ -14,8 +16,7 @@ const EditColor: React.FC<EditColorProps> = ({ state, setState, setColor }) => {
 
     if (result.result) {
       alert("색상이 변경되었습니다.");
-      setColor(state);
-
+      refetch();
       return;
     }
 
@@ -27,10 +28,7 @@ const EditColor: React.FC<EditColorProps> = ({ state, setState, setColor }) => {
   return (
     <div className={styles.change_color}>
       <div>
-        <SketchPicker
-          color={state.background}
-          onChangeComplete={handleChangeComplete}
-        />
+        <SketchPicker color={state} onChangeComplete={handleChangeComplete} />
       </div>
       <div className={styles.change_button}>
         <button onClick={onClickEditBtn}>대표 색상 수정</button>

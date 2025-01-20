@@ -1,10 +1,9 @@
 import { useState } from "react";
 import editAccount from "Admin/services/editAccount.service";
-import { useRecoilState } from "recoil";
-import { colorState } from "Utils/atom/Atom";
+import { useFetchUser } from "Utils/hooks/useFetchUser";
 
 export function useEditProfile(profile: any) {
-  const [color, setColor] = useRecoilState(colorState);
+  const [color, setColor] = useState<string>(profile.color);
   const [state, setState] = useState(color);
 
   const [name, setName] = useState<string>(profile.userName || "");
@@ -15,7 +14,7 @@ export function useEditProfile(profile: any) {
     profile.personalUrl || ""
   );
   const [title, setTitle] = useState<string>(profile.title || "");
-
+  const { refetch } = useFetchUser();
   const handleEditProfile = async () => {
     const result = await editAccount({
       name,
@@ -28,8 +27,8 @@ export function useEditProfile(profile: any) {
     });
 
     if (result.result) {
-      setColor({ background: state });
       alert("성공적으로 프로필이 수정되었습니다.");
+      refetch();
       return;
     }
 

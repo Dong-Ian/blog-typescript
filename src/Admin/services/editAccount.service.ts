@@ -20,7 +20,7 @@ export default async function editAccount({
       credentials: "include",
       body: JSON.stringify({
         name: name,
-        color: color.background,
+        color: color,
         title: title,
         memo: memo,
         instagram: instagram,

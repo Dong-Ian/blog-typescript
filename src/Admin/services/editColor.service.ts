@@ -10,7 +10,7 @@ export default async function editColor({ color }: EditColorFunctionProps) {
       },
       credentials: "include",
       body: JSON.stringify({
-        color: color.background,
+        color: color,
       }),
     }
   );

@@ -24,10 +24,7 @@ const AdminHeader: React.FC<AdminHeaderInterface> = ({ state }) => {
   }, []);
 
   return (
-    <div
-      className={styles.header}
-      style={{ backgroundColor: state.background }}
-    >
+    <div className={styles.header} style={{ backgroundColor: state }}>
       <p onClick={() => navigate("/")}>{title}</p>
     </div>
   );
