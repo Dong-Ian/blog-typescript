@@ -40,7 +40,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ profile }) => {
   return (
     <>
       <Helmet title="Admin" />
-      <AdminHeader state={state} />
+      <AdminHeader state={state.background} />
       <div className={styles.outer_post_box}>
         <BackButton />
         <p className={styles.main_title}>관리자 페이지</p>

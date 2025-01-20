@@ -46,6 +46,11 @@ const Category: React.FC = () => {
       </div>
     );
   }
+  return (
+    <div className={styles.category}>
+      <p>카테고리</p>
+    </div>
+  );
 };
 
 export default Category;

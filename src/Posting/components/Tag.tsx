@@ -27,14 +27,18 @@ const Tag: React.FC<TagListFieldProps> = ({ tagList, setTagList }) => {
   };
 
   const TagRender: React.FC = () => {
-    return tagList.map((tag, index) => {
-      return (
-        <div className={styles.tag_box} key={index}>
-          <p>{tag}</p>
-          <button onClick={() => handleClearClick(index)}>x</button>
-        </div>
-      );
-    });
+    return (
+      <>
+        {tagList.map((tag, index) => {
+          return (
+            <div className={styles.tag_box} key={index}>
+              <p>{tag}</p>
+              <button onClick={() => handleClearClick(index)}>x</button>
+            </div>
+          );
+        })}
+      </>
+    );
   };
 
   return (

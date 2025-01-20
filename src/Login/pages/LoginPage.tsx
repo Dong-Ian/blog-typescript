@@ -4,13 +4,11 @@ import styles from "../styles/login.module.css";
 import Email from "Login/components/Email";
 import Password from "Login/components/Password";
 import { useLogin } from "Login/hooks/useLogin";
-import { useRecoilValue } from "recoil";
-import { colorState, titleState } from "Utils/atom/Atom";
+import { useFetchUser } from "Utils/hooks/useFetchUser";
 
 const LoginPage: React.FC = () => {
   const { handleLogin } = useLogin();
-  const title = useRecoilValue(titleState);
-  const color = useRecoilValue(colorState);
+  const { userInfo, isLoading } = useFetchUser();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,15 +18,19 @@ const LoginPage: React.FC = () => {
     await handleLogin(email, password);
   };
 
+  if (isLoading || !userInfo) {
+    return <p></p>;
+  }
+
   return (
     <>
       <Helmet title="Login" />
       <div
         className={styles.login}
-        style={{ backgroundColor: color.background }}
+        style={{ backgroundColor: userInfo ? userInfo.color : "#000" }}
       >
         <div className={styles.title}>
-          <p>Welcome to {title}</p>
+          <p>Welcome to {userInfo ? userInfo.title : "Archive"}</p>
         </div>
         <div className={styles.outer_box}>
           <form className={styles.box} method="post" onSubmit={onSubmit}>
@@ -36,7 +38,7 @@ const LoginPage: React.FC = () => {
             <Password value={password} onChange={setPassword} />
             <input
               className={styles.loginBtn}
-              style={{ backgroundColor: color.background }}
+              style={{ backgroundColor: userInfo ? userInfo.color : "#000" }}
               type="submit"
               value="로그인"
             />

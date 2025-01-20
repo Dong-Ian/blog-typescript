@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
-import { useRecoilValue } from "recoil";
-import { colorState } from "Utils/atom/Atom";
 import styles from "../styles/pagination.module.css";
 import Pagination from "react-js-pagination";
 import { PaginationComponentProps } from "PostList/types/PostList.type";
+import { useFetchUser } from "Utils/hooks/useFetchUser";
 
 const PaginationComponent: React.FC<PaginationComponentProps> = ({
   totalCount,
@@ -11,7 +10,7 @@ const PaginationComponent: React.FC<PaginationComponentProps> = ({
   activePage,
   itemsCountPerPage,
 }) => {
-  const color = useRecoilValue(colorState);
+  const { userInfo, isLoading } = useFetchUser();
 
   useEffect(() => {
     const allElements = document.querySelectorAll(`.${styles.pagination} li`);
@@ -19,7 +18,7 @@ const PaginationComponent: React.FC<PaginationComponentProps> = ({
       const htmlElement = element as HTMLElement;
 
       htmlElement.style.backgroundColor = "white";
-      htmlElement.style.border = `1px solid ${color.background}`;
+      htmlElement.style.border = `1px solid ${userInfo?.color}`;
 
       const link = htmlElement.querySelector("a");
       if (link) {
@@ -35,8 +34,8 @@ const PaginationComponent: React.FC<PaginationComponentProps> = ({
       `.${styles.pagination} .disabled`
     );
 
-    if (activeElement) {
-      activeElement.style.backgroundColor = color.background;
+    if (activeElement && userInfo) {
+      activeElement.style.backgroundColor = userInfo.color;
       const link = activeElement.querySelector("a");
       if (link) {
         link.style.color = "white";
@@ -52,8 +51,11 @@ const PaginationComponent: React.FC<PaginationComponentProps> = ({
         link.style.color = "white";
       }
     });
-  }, [activePage, color.background]);
+  }, [activePage, userInfo]);
 
+  if (isLoading) {
+    return null;
+  }
   return (
     <div className={styles.pagination}>
       <Pagination

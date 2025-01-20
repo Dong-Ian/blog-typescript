@@ -8,10 +8,9 @@ export const useCheckUser = () => {
 
     if (result.result) {
       setIsValidUser(true);
+    } else {
+      setIsValidUser(false);
     }
-
-    setIsValidUser(false);
   };
-
   return { isValidUser, handleCheckUser };
 };

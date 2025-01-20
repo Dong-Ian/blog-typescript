@@ -6,11 +6,11 @@ import BackButton from "Utils/components/BackButton";
 import Account from "Main/components/Account";
 import PostList from "PostList/components/PostList";
 import PaginationComponent from "PostList/components/PaginationComponent";
-import { useAccount } from "Utils/hooks/useAccount";
 import { usePinnedPostList } from "PostList/hooks/usePinnedPostList";
+import { useFetchUser } from "Utils/hooks/useFetchUser";
 
 const PinnedPostListPage: React.FC = () => {
-  const userInfo = useAccount();
+  const { userInfo } = useFetchUser();
   const { postList, totalCount, handleGetPinnedPostList } = usePinnedPostList();
   const [activePage, setActivePage] = useState<number>(1);
 
@@ -52,6 +52,7 @@ const PinnedPostListPage: React.FC = () => {
       </>
     );
   }
+  return <div>Loading...</div>;
 };
 
 export default PinnedPostListPage;

@@ -1,41 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
-import { colorState } from "../atom/Atom";
 import styles from "../styles/component.module.css";
-import getAccount from "../../Main/services/getAccount.service";
 import accountIcon from "../images/person_white.png";
 import { useCheckUser } from "Utils/hooks/useChcekUser";
+import { useFetchUser } from "Utils/hooks/useFetchUser";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
-
-  const [title, setTitle] = useState();
-  const [color, setColor] = useRecoilState(colorState);
+  const { userInfo } = useFetchUser();
   const { isValidUser, handleCheckUser } = useCheckUser();
 
-  const handleGetAccount = async () => {
-    const result = await getAccount();
-
-    if (result.result) {
-      setTitle(result.profileResult.title);
-      setColor({ background: result.profileResult.color });
-    }
-
-    return;
-  };
-
   useEffect(() => {
-    handleGetAccount();
     handleCheckUser();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  if (!userInfo) return <div>Loading</div>;
   return (
-    <div
-      className={styles.header}
-      style={{ backgroundColor: color.background }}
-    >
+    <div className={styles.header} style={{ backgroundColor: userInfo.color }}>
       <div className={styles.left_box}>
         {isValidUser && (
           <div onClick={() => navigate("/posting")}>
@@ -47,7 +29,7 @@ const Header: React.FC = () => {
         style={{ fontFamily: "Times New Roman" }}
         onClick={() => navigate("/")}
       >
-        {title}
+        {userInfo.title}
       </p>
       <div className={styles.right_box}>
         {isValidUser && (

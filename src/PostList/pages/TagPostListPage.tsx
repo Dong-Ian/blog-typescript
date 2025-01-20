@@ -7,13 +7,13 @@ import BackButton from "Utils/components/BackButton";
 import Account from "Main/components/Account";
 import PostList from "PostList/components/PostList";
 import PaginationComponent from "PostList/components/PaginationComponent";
-import { useAccount } from "Utils/hooks/useAccount";
 import { useTagPostList } from "PostList/hooks/useTagPostList";
+import { useFetchUser } from "Utils/hooks/useFetchUser";
 
 const TagPostListPage: React.FC = () => {
   const location = useLocation();
   const { tag } = location.state || {};
-  const userInfo = useAccount();
+  const { userInfo } = useFetchUser();
   const { postList, totalCount, handleGetTagPostList } = useTagPostList({
     tag,
   });
@@ -51,6 +51,7 @@ const TagPostListPage: React.FC = () => {
       </>
     );
   }
+  return <div>Loading...</div>;
 };
 
 export default TagPostListPage;

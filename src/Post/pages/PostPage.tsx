@@ -12,16 +12,16 @@ import DateTimeRender from "Post/components/DateTime";
 import AdminButtonRender from "Post/components/AdminButtonRender";
 import Contents from "Post/components/Contents";
 import Comment from "Post/components/Comment";
-import { useAccount } from "Utils/hooks/useAccount";
 import { useGetPost } from "Post/hooks/useGetPost";
 import { useResize } from "Post/hooks/useResize";
 import { usePinnedState } from "Post/hooks/usePinnedState";
 import { useCheckUser } from "Utils/hooks/useChcekUser";
+import { useFetchUser } from "Utils/hooks/useFetchUser";
 
 const PostPage: React.FC = () => {
   const { postSeq } = useParams();
   const navigate = useNavigate();
-  const userInfo = useAccount();
+  const { userInfo } = useFetchUser();
   const { post, fetchGetPost } = useGetPost({ postSeq });
   const isMobileScreen = useResize(500);
   const { isChangePinnedState, togglePinnedState } = usePinnedState();

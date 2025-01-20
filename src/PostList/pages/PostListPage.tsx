@@ -6,11 +6,11 @@ import BackButton from "Utils/components/BackButton";
 import Account from "Main/components/Account";
 import PostList from "PostList/components/PostList";
 import PaginationComponent from "PostList/components/PaginationComponent";
-import { useAccount } from "Utils/hooks/useAccount";
 import { useRecentPostList } from "PostList/hooks/useRecentPostList";
+import { useFetchUser } from "Utils/hooks/useFetchUser";
 
 const PostListPage: React.FC = () => {
-  const userInfo = useAccount();
+  const { userInfo } = useFetchUser();
   const { postList, totalCount, handleGetRecentPostList } = useRecentPostList();
   const [activePage, setActivePage] = useState<number>(1);
 
@@ -52,6 +52,7 @@ const PostListPage: React.FC = () => {
       </>
     );
   }
+  return <div>Loading...</div>;
 };
 
 export default PostListPage;
