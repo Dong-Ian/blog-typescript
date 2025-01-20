@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { colorState, isLoggedInState } from "../atom/Atom";
+import { colorState } from "../atom/Atom";
 import styles from "../styles/component.module.css";
 import getAccount from "../../Main/services/getAccount.service";
 import accountIcon from "../images/person_white.png";
+import { useCheckUser } from "Utils/hooks/useChcekUser";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
 
   const [title, setTitle] = useState();
   const [color, setColor] = useRecoilState(colorState);
-  const [isLoggedIn] = useRecoilState(isLoggedInState);
+  const { isValidUser, handleCheckUser } = useCheckUser();
 
   const handleGetAccount = async () => {
     const result = await getAccount();
@@ -26,6 +27,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     handleGetAccount();
+    handleCheckUser();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -35,7 +37,7 @@ const Header: React.FC = () => {
       style={{ backgroundColor: color.background }}
     >
       <div className={styles.left_box}>
-        {isLoggedIn && (
+        {isValidUser && (
           <div onClick={() => navigate("/posting")}>
             <p>Posting</p>{" "}
           </div>
@@ -48,7 +50,7 @@ const Header: React.FC = () => {
         {title}
       </p>
       <div className={styles.right_box}>
-        {isLoggedIn && (
+        {isValidUser && (
           <img
             src={accountIcon}
             alt="account icon"

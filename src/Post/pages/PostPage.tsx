@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { useRecoilValue } from "recoil";
-import { isLoggedInState } from "Utils/atom/Atom";
 import styles from "../styles/post.module.css";
 import Header from "Utils/components/Header";
 import Account from "Main/components/Account";
@@ -18,18 +16,20 @@ import { useAccount } from "Utils/hooks/useAccount";
 import { useGetPost } from "Post/hooks/useGetPost";
 import { useResize } from "Post/hooks/useResize";
 import { usePinnedState } from "Post/hooks/usePinnedState";
+import { useCheckUser } from "Utils/hooks/useChcekUser";
 
 const PostPage: React.FC = () => {
   const { postSeq } = useParams();
   const navigate = useNavigate();
-  const isLoggedIn = useRecoilValue(isLoggedInState);
   const userInfo = useAccount();
   const { post, fetchGetPost } = useGetPost({ postSeq });
   const isMobileScreen = useResize(500);
   const { isChangePinnedState, togglePinnedState } = usePinnedState();
+  const { isValidUser, handleCheckUser } = useCheckUser();
 
   useEffect(() => {
     fetchGetPost();
+    handleCheckUser();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isChangePinnedState]);
 
@@ -54,7 +54,7 @@ const PostPage: React.FC = () => {
           <Tag tagList={post.tags} />
           <DateTimeRender reg={post.regDate} viewed={post.viewed} />
           <AdminButtonRender
-            isLoggedIn={isLoggedIn}
+            isLoggedIn={isValidUser}
             postSeq={postSeq}
             post={post}
             togglePinnedState={togglePinnedState}
@@ -72,7 +72,7 @@ const PostPage: React.FC = () => {
               <button>목록으로</button>
             </div>
             <AdminButtonRender
-              isLoggedIn={isLoggedIn}
+              isLoggedIn={isValidUser}
               postSeq={postSeq}
               post={post}
               togglePinnedState={togglePinnedState}
