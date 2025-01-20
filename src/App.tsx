@@ -1,9 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { useRecoilValue } from "recoil";
-import { isLoggedInState } from "Utils/atom/Atom";
-
 import MainPage from "./Main/pages/MainPage";
 import LoginPage from "Login/pages/LoginPage";
 
@@ -16,10 +13,9 @@ import PostPage from "Post/pages/PostPage";
 import PostingPage from "Posting/pages/PostingPage";
 import EditPostLandingPage from "EditPost/pages/EditPostLandingPage";
 import AdminLandingPage from "Admin/pages/AdminLandingPage";
+import VerifyUserRoute from "Utils/components/VerifyUserRoute";
 
 const App: React.FC = () => {
-  const isLoggedIn = useRecoilValue(isLoggedInState);
-
   return (
     <Router>
       <Routes>
@@ -34,11 +30,31 @@ const App: React.FC = () => {
         />
         <Route path="/postlist/tag/:tag" element={<TagPostListPage />} />
         <Route path="/post/:postSeq" element={<PostPage />} />
-        {isLoggedIn && <Route path="/posting" element={<PostingPage />} />}
-        {isLoggedIn && (
-          <Route path="/edit/:postSeq" element={<EditPostLandingPage />} />
-        )}
-        {isLoggedIn && <Route path="/admin" element={<AdminLandingPage />} />}
+
+        <Route
+          path="/posting"
+          element={
+            <VerifyUserRoute>
+              <PostingPage />
+            </VerifyUserRoute>
+          }
+        />
+        <Route
+          path="/edit/:postSeq"
+          element={
+            <VerifyUserRoute>
+              <EditPostLandingPage />
+            </VerifyUserRoute>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <VerifyUserRoute>
+              <AdminLandingPage />
+            </VerifyUserRoute>
+          }
+        />
       </Routes>
     </Router>
   );
