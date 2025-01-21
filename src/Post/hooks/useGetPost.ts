@@ -18,11 +18,16 @@ export function useGetPost({ postSeq }: UseGetPostProps) {
     queryKey: ["post", postSeq],
     queryFn: async () => {
       if (!postSeq) {
-        throw new Error("게시글 번호가 유효하지 않습니다.");
+        alert("게시글 번호가 유효하지 않습니다.");
+        navigate("/postlist");
+        return {};
       }
+
       const result = await getPost({ postSeq });
-      if (!result.result) {
-        throw new Error("포스트를 불러오는 중 오류가 발생하였습니다.");
+      if (!result.result || result.postList.postSeq === "") {
+        alert("포스트를 불러오는 중 오류가 발생하였습니다.");
+        navigate("/postlist");
+        return {};
       }
 
       return result.postList;
@@ -30,13 +35,10 @@ export function useGetPost({ postSeq }: UseGetPostProps) {
     staleTime: 10 * 60 * 1000,
     cacheTime: 20 * 60 * 1000,
     enabled: !!postSeq,
-    onError: () => {
-      navigate("/postlist");
-    },
   });
 
   if (isLoading) {
-    return { post: null, isLoading, error: null };
+    return { post: null, isLoading, error: null, refetch };
   }
 
   return { post, isLoading, error, refetch };

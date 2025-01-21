@@ -22,13 +22,12 @@ const PostPage: React.FC = () => {
   const { postSeq } = useParams();
   const navigate = useNavigate();
   const { userInfo } = useFetchUser();
-  const { post, isLoading, error, refetch } = useGetPost({ postSeq });
+  const { post } = useGetPost({ postSeq });
   const isMobileScreen = useResize(500);
   const { isChangePinnedState, togglePinnedState } = usePinnedState();
   const { isValidUser, handleCheckUser } = useCheckUser();
 
   useEffect(() => {
-    // fetchGetPost();
     handleCheckUser();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isChangePinnedState]);

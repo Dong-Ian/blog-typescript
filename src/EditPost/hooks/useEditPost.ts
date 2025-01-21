@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import editPost from "EditPost/services/editPost.service";
 import { PostInterface } from "Post/types/Post.type";
+import { useGetPost } from "Post/hooks/useGetPost";
 
 interface UseEditPostProps {
   post: PostInterface;
@@ -13,6 +14,7 @@ export function useEditPost({ post }: UseEditPostProps) {
   const [content, setContent] = useState<string>(post.postContents || "");
   const [category, setCategory] = useState<string>(post.category || "");
   const [tags, setTags] = useState<string[]>(post.tags);
+  const { refetch } = useGetPost({ postSeq: post.postSeq });
 
   const handleEditPost = async () => {
     if (window.confirm("글을 수정하시겠습니까?")) {
@@ -28,6 +30,7 @@ export function useEditPost({ post }: UseEditPostProps) {
 
       if (result.result) {
         alert("수정이 완료되었습니다.");
+        refetch();
         navigate(`/post/${post.postSeq}`);
         return;
       }
