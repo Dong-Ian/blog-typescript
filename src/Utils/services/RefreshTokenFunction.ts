@@ -5,6 +5,6 @@ export default async function RefreshTokenFunction() {
   });
 
   const res = await result.json();
-  console.log(res);
+
   return res;
 }

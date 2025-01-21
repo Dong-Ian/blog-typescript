@@ -9,7 +9,6 @@ export default async function editAccount({
   githubUrl,
   personalUrl,
 }: EditAccountFunctionProps) {
-  console.log(name, color, title, memo, instagram, githubUrl, personalUrl);
   const result = await fetch(
     `${process.env.REACT_APP_API}/admin/user/profile/update`,
     {
@@ -31,6 +30,6 @@ export default async function editAccount({
   );
 
   const res = await result.json();
-  console.log(res);
+
   return res;
 }
