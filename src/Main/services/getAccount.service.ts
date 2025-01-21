@@ -10,6 +10,6 @@ export default async function getAccount() {
   });
 
   const res = await result.json();
-  console.log(res);
+
   return res;
 }
