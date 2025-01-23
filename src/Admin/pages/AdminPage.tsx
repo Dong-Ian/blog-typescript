@@ -1,15 +1,15 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import styles from "../styles/admin.module.css";
-import { AdminPageProps } from "Admin/types/Admin.type";
+import styles from "Admin/styles/admin.module.css";
 import BackButton from "Utils/components/BackButton";
 import EditProfileImage from "Admin/components/EditProfileImage";
 import EditElement from "Admin/components/EditElement";
 import EditColor from "Admin/components/EditColor";
 import AdminHeader from "Utils/components/AdminHeader";
+import Loading from "Utils/components/Loading";
+import { AdminPageProps } from "Admin/types/Admin.type";
 import { useEditProfileImage } from "Admin/hooks/useEditProfileImage";
 import { useEditProfile } from "Admin/hooks/useEditProfile";
-import Loading from "Utils/components/Loading";
 
 const AdminPage: React.FC<AdminPageProps> = ({ profile }) => {
   const { profileImage, setProfileImage, setFormData, handleEditProfileImage } =

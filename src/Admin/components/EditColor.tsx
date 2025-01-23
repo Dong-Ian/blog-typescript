@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "../styles/admin.module.css";
+import styles from "Admin/styles/admin.module.css";
+import editColor from "Admin/services/editColor.service";
 import { EditColorProps } from "Admin/types/Admin.type";
-import editColor from "../services/editColor.service";
-import { SketchPicker, ColorResult } from "react-color";
 import { useFetchUser } from "Utils/hooks/useFetchUser";
+import { SketchPicker, ColorResult } from "react-color";
 
 const EditColor: React.FC<EditColorProps> = ({ state, setState }) => {
   const { refetch } = useFetchUser();
