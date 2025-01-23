@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useCheckToken } from "Utils/hooks/useCheckToken";
-import { chcekToken } from "Utils/services/checkToken.service";
+
+import Loading from "./Loading";
 interface VerifyUserRouteProps {
   children: React.ReactElement;
 }
@@ -17,10 +18,11 @@ const VerifyUserRoute: React.FC<VerifyUserRouteProps> = ({ children }) => {
 
   useEffect(() => {
     validToken();
-  }, [chcekToken]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (isAuthorized === null) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (!isAuthorized) {

@@ -5,6 +5,7 @@ import Email from "Login/components/Email";
 import Password from "Login/components/Password";
 import { useLogin } from "Login/hooks/useLogin";
 import { useFetchUser } from "Utils/hooks/useFetchUser";
+import Loading from "Utils/components/Loading";
 
 const LoginPage: React.FC = () => {
   const { handleLogin } = useLogin();
@@ -19,7 +20,7 @@ const LoginPage: React.FC = () => {
   };
 
   if (isLoading || !userInfo) {
-    return <p></p>;
+    return <Loading />;
   }
 
   return (

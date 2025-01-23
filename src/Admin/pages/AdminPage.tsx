@@ -9,6 +9,7 @@ import EditColor from "Admin/components/EditColor";
 import AdminHeader from "Utils/components/AdminHeader";
 import { useEditProfileImage } from "Admin/hooks/useEditProfileImage";
 import { useEditProfile } from "Admin/hooks/useEditProfile";
+import Loading from "Utils/components/Loading";
 
 const AdminPage: React.FC<AdminPageProps> = ({ profile }) => {
   const { profileImage, setProfileImage, setFormData, handleEditProfileImage } =
@@ -34,7 +35,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ profile }) => {
   } = useEditProfile(profile);
 
   if (!profile) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (

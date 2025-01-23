@@ -11,6 +11,7 @@ import CategoryList from "Posting/components/CategoryList";
 import Header from "Utils/components/Header";
 import BackButton from "Utils/components/BackButton";
 import { useCategoryList } from "Utils/hooks/useCategoryList";
+import Loading from "Utils/components/Loading";
 
 const PostingPage: React.FC = () => {
   const navigate = useNavigate();
@@ -89,7 +90,7 @@ const PostingPage: React.FC = () => {
       </>
     );
   }
-  return <div>Loading...</div>;
+  return <Loading />;
 };
 
 export default PostingPage;
