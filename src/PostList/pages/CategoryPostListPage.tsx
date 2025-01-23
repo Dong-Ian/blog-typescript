@@ -9,6 +9,7 @@ import PostList from "PostList/components/PostList";
 import PaginationComponent from "PostList/components/PaginationComponent";
 import { useFetchUser } from "Utils/hooks/useFetchUser";
 import { useCagtegoryPostList } from "PostList/hooks/useCategoryPostList";
+import Loading from "Utils/components/Loading";
 
 const CategoryPostListPage: React.FC = () => {
   const location = useLocation();
@@ -47,7 +48,7 @@ const CategoryPostListPage: React.FC = () => {
 
           <p className={styles.box_title}>{category}</p>
           {isCategoryPostLoading ? (
-            <div>Loading</div>
+            <Loading />
           ) : (
             <>
               <PostList postList={categoryPostList} />
@@ -63,7 +64,7 @@ const CategoryPostListPage: React.FC = () => {
       </>
     );
   }
-  return <div>Loading...</div>;
+  return <Loading />;
 };
 
 export default CategoryPostListPage;

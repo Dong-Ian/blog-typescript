@@ -8,6 +8,7 @@ import PostList from "PostList/components/PostList";
 import PaginationComponent from "PostList/components/PaginationComponent";
 import { useRecentPostList } from "PostList/hooks/useRecentPostList";
 import { useFetchUser } from "Utils/hooks/useFetchUser";
+import Loading from "Utils/components/Loading";
 
 const PostListPage: React.FC = () => {
   const { userInfo } = useFetchUser();
@@ -46,7 +47,7 @@ const PostListPage: React.FC = () => {
           <p className={styles.box_title}>전체 게시글</p>
 
           {isRecentPostLoading ? (
-            <div>Loading</div>
+            <Loading />
           ) : recentPostList.length !== 0 ? (
             <>
               <PostList postList={recentPostList} />
@@ -64,7 +65,7 @@ const PostListPage: React.FC = () => {
       </>
     );
   }
-  return <div>Loading...</div>;
+  return <Loading />;
 };
 
 export default PostListPage;

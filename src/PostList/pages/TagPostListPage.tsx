@@ -9,6 +9,7 @@ import PostList from "PostList/components/PostList";
 import PaginationComponent from "PostList/components/PaginationComponent";
 import { useTagPostList } from "PostList/hooks/useTagPostList";
 import { useFetchUser } from "Utils/hooks/useFetchUser";
+import Loading from "Utils/components/Loading";
 
 const TagPostListPage: React.FC = () => {
   const location = useLocation();
@@ -44,7 +45,7 @@ const TagPostListPage: React.FC = () => {
 
           <p className={styles.box_title}>{tag}</p>
           {isTagPostLoading ? (
-            <div>Loading</div>
+            <Loading />
           ) : (
             <>
               <PostList postList={tagPostList} />
@@ -60,7 +61,7 @@ const TagPostListPage: React.FC = () => {
       </>
     );
   }
-  return <div>Loading...</div>;
+  return <Loading />;
 };
 
 export default TagPostListPage;

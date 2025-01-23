@@ -8,6 +8,7 @@ import PostList from "PostList/components/PostList";
 import PaginationComponent from "PostList/components/PaginationComponent";
 import { usePinnedPostList } from "PostList/hooks/usePinnedPostList";
 import { useFetchUser } from "Utils/hooks/useFetchUser";
+import Loading from "Utils/components/Loading";
 
 const PinnedPostListPage: React.FC = () => {
   const { userInfo } = useFetchUser();
@@ -44,7 +45,7 @@ const PinnedPostListPage: React.FC = () => {
 
           <p className={styles.box_title}>고정 게시글</p>
           {isPinnedPostLoading ? (
-            <div>Loading</div>
+            <Loading />
           ) : pinnedPostList.length !== 0 ? (
             <>
               <PostList postList={pinnedPostList} />
@@ -62,7 +63,7 @@ const PinnedPostListPage: React.FC = () => {
       </>
     );
   }
-  return <div>Loading...</div>;
+  return <Loading />;
 };
 
 export default PinnedPostListPage;
