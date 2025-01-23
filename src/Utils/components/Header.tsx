@@ -34,6 +34,7 @@ const Header: React.FC = () => {
       <div className={styles.right_box}>
         {isValidUser && (
           <img
+            style={{ cursor: "pointer" }}
             src={accountIcon}
             alt="account icon"
             onClick={() => navigate("/admin")}
