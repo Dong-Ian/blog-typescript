@@ -59,3 +59,16 @@ export function usePostList(): UsePostListResult {
     fetchPinnedPostList,
   };
 }
+
+// export function usePostList() {
+//   const {data: recentPostList,
+//     error: recentPostError,
+//     isLoading: isRecentPostLoading,
+//     refetch: refetchRecentPostList,
+//   } = useQuery({
+//     queryKey: ["recentPostList"],
+//     queryFn: async () => {
+//       const result =
+//     }
+//   })
+// }

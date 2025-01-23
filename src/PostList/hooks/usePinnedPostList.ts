@@ -1,31 +1,41 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { PostInterface } from "PostList/types/PostList.type";
-import { getPinnedPostList } from "PostList/services/getPostList.service";
+import { getPinnedPostList } from "../../PostList/services/getPostList.service";
+import { useQuery } from "@tanstack/react-query";
 
-export function usePinnedPostList() {
-  const navigate = useNavigate();
-  const [postList, setPostList] = useState<PostInterface[] | null>(null);
-  const [totalCount, setTotalCount] = useState<number>(0);
+export function usePinnedPostList({
+  page,
+  size,
+}: {
+  page: number;
+  size: number;
+}) {
+  const {
+    data: postData,
+    error: pinnedPosError,
+    isLoading: isPinnedPostLoading,
+    refetch: refetchPinnedPostList,
+  } = useQuery({
+    queryKey: ["pinnedPostList", page, size],
+    queryFn: async () => {
+      const result = await getPinnedPostList({ page, size });
+      if (result.result) {
+        return {
+          postList: result.pinnedPostList || [],
+          totalCount: Number(result.postCount),
+        };
+      } else {
+        alert("고정 게시글을 불러오지 못했습니다.");
+        return { postList: [], totalCount: 0 };
+      }
+    },
+    staleTime: 10 * 60 * 1000,
+    cacheTime: 20 * 60 * 1000,
+  });
 
-  const handleGetPinnedPostList = async ({ page }: { page: number }) => {
-    const result = await getPinnedPostList({ page: page, size: 5 });
-
-    if (result.result) {
-      setPostList(result.pinnedPostList);
-      setTotalCount(Number(result.postCount));
-      return;
-    }
-
-    alert("고정 글을 불러오지 못하였습니다.");
-    navigate("/");
-    return;
+  return {
+    pinnedPostList: postData?.postList || [],
+    totalCount: postData?.totalCount || 0,
+    isPinnedPostLoading,
+    pinnedPosError,
+    refetchPinnedPostList,
   };
-
-  useEffect(() => {
-    handleGetPinnedPostList({ page: 1 });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return { postList, totalCount, handleGetPinnedPostList };
 }

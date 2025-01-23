@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import styles from "../styles/postlist.module.css";
 import Header from "Utils/components/Header";
@@ -11,16 +11,24 @@ import { useFetchUser } from "Utils/hooks/useFetchUser";
 
 const PinnedPostListPage: React.FC = () => {
   const { userInfo } = useFetchUser();
-  const { postList, totalCount, handleGetPinnedPostList } = usePinnedPostList();
   const [activePage, setActivePage] = useState<number>(1);
+  const {
+    pinnedPostList,
+    totalCount,
+    isPinnedPostLoading,
+    refetchPinnedPostList,
+  } = usePinnedPostList({ page: activePage, size: 5 });
 
   const handlePageChange = (e: number) => {
-    handleGetPinnedPostList({ page: e });
     setActivePage(e);
-    window.scrollTo(0, 0);
   };
 
-  if (userInfo && postList) {
+  useEffect(() => {
+    refetchPinnedPostList();
+    window.scrollTo(0, 0);
+  }, [activePage, refetchPinnedPostList]);
+
+  if (userInfo && pinnedPostList) {
     return (
       <>
         <Helmet title={userInfo.title} />
@@ -35,9 +43,11 @@ const PinnedPostListPage: React.FC = () => {
           </div>
 
           <p className={styles.box_title}>고정 게시글</p>
-          {postList.length !== 0 ? (
+          {isPinnedPostLoading ? (
+            <div>Loading</div>
+          ) : pinnedPostList.length !== 0 ? (
             <>
-              <PostList postList={postList} />
+              <PostList postList={pinnedPostList} />
               <PaginationComponent
                 totalCount={totalCount}
                 onChange={handlePageChange}

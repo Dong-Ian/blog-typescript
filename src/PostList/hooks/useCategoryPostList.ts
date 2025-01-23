@@ -1,39 +1,43 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { getCategoryPostList } from "PostList/services/getPostList.service";
-import { PostInterface } from "PostList/types/PostList.type";
+import { getCategoryPostList } from "../../PostList/services/getPostList.service";
+import { useQuery } from "@tanstack/react-query";
 
-interface UseCategoryPostListProps {
+export function useCagtegoryPostList({
+  page,
+  size,
+  category,
+}: {
+  page: number;
+  size: number;
   category: string;
-}
+}) {
+  const {
+    data: postData,
+    error: cagetoryPosError,
+    isLoading: isCategoryPostLoading,
+    refetch: refetchCategoryPostList,
+  } = useQuery({
+    queryKey: ["categoryPostList", page, size, category],
+    queryFn: async () => {
+      const result = await getCategoryPostList({ page, size, category });
+      if (result.result) {
+        return {
+          postList: result.postList || [],
+          totalCount: Number(result.postCount),
+        };
+      } else {
+        alert("게시글을 불러오지 못했습니다.");
+        return { postList: [], totalCount: 0 };
+      }
+    },
+    staleTime: 10 * 60 * 1000,
+    cacheTime: 20 * 60 * 1000,
+  });
 
-export function useCategoryPostList({ category }: UseCategoryPostListProps) {
-  const navigate = useNavigate();
-  const [postList, setPostList] = useState<PostInterface[] | null>(null);
-  const [totalCount, setTotalCount] = useState<number>(0);
-
-  const handleGetCategoryPostList = async ({ page }: { page: number }) => {
-    const result = await getCategoryPostList({
-      page: page,
-      size: 5,
-      category: category,
-    });
-
-    if (result.result) {
-      setPostList(result.postList);
-      setTotalCount(Number(result.postCount));
-      return;
-    }
-
-    alert("글을 불러오지 못하였습니다.");
-    navigate("/");
-    return;
+  return {
+    categoryPostList: postData?.postList || [],
+    totalCount: postData?.totalCount || 0,
+    isCategoryPostLoading,
+    cagetoryPosError,
+    refetchCategoryPostList,
   };
-
-  useEffect(() => {
-    handleGetCategoryPostList({ page: 1 });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return { postList, totalCount, handleGetCategoryPostList };
 }

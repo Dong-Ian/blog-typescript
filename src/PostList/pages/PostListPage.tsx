@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import styles from "../styles/postlist.module.css";
 import Header from "Utils/components/Header";
@@ -11,16 +11,25 @@ import { useFetchUser } from "Utils/hooks/useFetchUser";
 
 const PostListPage: React.FC = () => {
   const { userInfo } = useFetchUser();
-  const { postList, totalCount, handleGetRecentPostList } = useRecentPostList();
   const [activePage, setActivePage] = useState<number>(1);
 
+  const {
+    recentPostList,
+    totalCount,
+    isRecentPostLoading,
+    refetchRecentPostList,
+  } = useRecentPostList({ page: activePage, size: 5 });
+
   const handlePageChange = (e: number) => {
-    handleGetRecentPostList({ page: e });
     setActivePage(e);
-    window.scrollTo(0, 0);
   };
 
-  if (userInfo && postList) {
+  useEffect(() => {
+    refetchRecentPostList();
+    window.scrollTo(0, 0);
+  }, [activePage, refetchRecentPostList]);
+
+  if (userInfo && recentPostList) {
     return (
       <>
         <Helmet title={userInfo.title} />
@@ -35,9 +44,12 @@ const PostListPage: React.FC = () => {
           </div>
 
           <p className={styles.box_title}>전체 게시글</p>
-          {postList.length !== 0 ? (
+
+          {isRecentPostLoading ? (
+            <div>Loading</div>
+          ) : recentPostList.length !== 0 ? (
             <>
-              <PostList postList={postList} />
+              <PostList postList={recentPostList} />
               <PaginationComponent
                 totalCount={totalCount}
                 onChange={handlePageChange}
@@ -46,7 +58,7 @@ const PostListPage: React.FC = () => {
               />
             </>
           ) : (
-            <div className={styles.null_post}>등록된 게시글이 없습니다</div>
+            <div className={styles.null_post}>고정된 게시글이 없습니다</div>
           )}
         </div>
       </>

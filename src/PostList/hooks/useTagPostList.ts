@@ -1,39 +1,44 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { getTagPostList } from "PostList/services/getPostList.service";
-import { PostInterface } from "PostList/types/PostList.type";
+import { getTagPostList } from "../../PostList/services/getPostList.service";
+import { useQuery } from "@tanstack/react-query";
 
-interface UseTagyPostListProps {
+export function useTagPostList({
+  page,
+  size,
+  tag,
+}: {
+  page: number;
+  size: number;
   tag: string;
-}
+}) {
+  const {
+    data: postData,
+    error: tagPostError,
+    isLoading: isTagPostLoading,
+    refetch: refetchTagPostList,
+  } = useQuery({
+    queryKey: ["tagPostList", page, size, tag],
+    queryFn: async () => {
+      const result = await getTagPostList({ page, size, tag });
+      if (result.result) {
+        return {
+          postList: result.postList || [],
+          totalCount: Number(result.postCount),
+        };
+      } else {
+        alert("게시글을 불러오지 못했습니다.");
 
-export function useTagPostList({ tag }: UseTagyPostListProps) {
-  const navigate = useNavigate();
-  const [postList, setPostList] = useState<PostInterface[] | null>(null);
-  const [totalCount, setTotalCount] = useState<number>(0);
+        return { postList: [], totalCount: 0 };
+      }
+    },
+    staleTime: 10 * 60 * 1000,
+    cacheTime: 20 * 60 * 1000,
+  });
 
-  const handleGetTagPostList = async ({ page }: { page: number }) => {
-    const result = await getTagPostList({
-      page: page,
-      size: 5,
-      tag: tag,
-    });
-
-    if (result.result) {
-      setPostList(result.postList);
-      setTotalCount(Number(result.postCount));
-      return;
-    }
-
-    alert("글을 불러오지 못하였습니다.");
-    navigate("/");
-    return;
+  return {
+    tagPostList: postData?.postList || [],
+    totalCount: postData?.totalCount || 0,
+    isTagPostLoading,
+    tagPostError,
+    refetchTagPostList,
   };
-
-  useEffect(() => {
-    handleGetTagPostList({ page: 1 });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return { postList, totalCount, handleGetTagPostList };
 }

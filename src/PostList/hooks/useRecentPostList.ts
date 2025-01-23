@@ -1,31 +1,41 @@
-import { useEffect, useState } from "react";
-import { PostInterface } from "PostList/types/PostList.type";
-import { getRecentPostList } from "PostList/services/getPostList.service";
-import { useNavigate } from "react-router-dom";
+import { getRecentPostList } from "../../PostList/services/getPostList.service";
+import { useQuery } from "@tanstack/react-query";
 
-export function useRecentPostList() {
-  const navigate = useNavigate();
-  const [postList, setPostList] = useState<PostInterface[] | null>(null);
-  const [totalCount, setTotalCount] = useState<number>(0);
+export function useRecentPostList({
+  page,
+  size,
+}: {
+  page: number;
+  size: number;
+}) {
+  const {
+    data: postData,
+    error: recentPostError,
+    isLoading: isRecentPostLoading,
+    refetch: refetchRecentPostList,
+  } = useQuery({
+    queryKey: ["recentPostList", page, size],
+    queryFn: async () => {
+      const result = await getRecentPostList({ page, size });
+      if (result.result) {
+        return {
+          postList: result.unpinnedPostList || [],
+          totalCount: Number(result.postCount),
+        };
+      } else {
+        alert("최근 게시글 요청 중 에러가 발생했습니다.");
+        return { postList: [], totalCount: 0 };
+      }
+    },
+    staleTime: 10 * 60 * 1000,
+    cacheTime: 20 * 60 * 1000,
+  });
 
-  const handleGetRecentPostList = async ({ page }: { page: number }) => {
-    const result = await getRecentPostList({ page: page, size: 5 });
-
-    if (result.result) {
-      setPostList(result.unpinnedPostList);
-      setTotalCount(Number(result.postCount));
-      return;
-    }
-
-    alert("전체 글을 불러오지 못하였습니다.");
-    navigate("/");
-    return;
+  return {
+    recentPostList: postData?.postList || [],
+    totalCount: postData?.totalCount || 0,
+    isRecentPostLoading,
+    recentPostError,
+    refetchRecentPostList,
   };
-
-  useEffect(() => {
-    handleGetRecentPostList({ page: 1 });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return { postList, totalCount, handleGetRecentPostList };
 }

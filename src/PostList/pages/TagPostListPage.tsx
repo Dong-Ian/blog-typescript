@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styles from "../styles/postlist.module.css";
@@ -14,18 +14,21 @@ const TagPostListPage: React.FC = () => {
   const location = useLocation();
   const { tag } = location.state || {};
   const { userInfo } = useFetchUser();
-  const { postList, totalCount, handleGetTagPostList } = useTagPostList({
-    tag,
-  });
   const [activePage, setActivePage] = useState<number>(1);
 
+  const { tagPostList, totalCount, isTagPostLoading, refetchTagPostList } =
+    useTagPostList({ page: activePage, size: 5, tag });
+
   const handlePageChange = (e: number) => {
-    handleGetTagPostList({ page: e });
     setActivePage(e);
-    window.scrollTo(0, 0);
   };
 
-  if (userInfo && postList) {
+  useEffect(() => {
+    refetchTagPostList();
+    window.scrollTo(0, 0);
+  }, [activePage, refetchTagPostList]);
+
+  if (userInfo && tagPostList) {
     return (
       <>
         <Helmet title={userInfo.title} />
@@ -40,13 +43,19 @@ const TagPostListPage: React.FC = () => {
           </div>
 
           <p className={styles.box_title}>{tag}</p>
-          <PostList postList={postList} />
-          <PaginationComponent
-            totalCount={totalCount}
-            onChange={handlePageChange}
-            itemsCountPerPage={5}
-            activePage={activePage}
-          />
+          {isTagPostLoading ? (
+            <div>Loading</div>
+          ) : (
+            <>
+              <PostList postList={tagPostList} />
+              <PaginationComponent
+                totalCount={totalCount}
+                onChange={handlePageChange}
+                itemsCountPerPage={5}
+                activePage={activePage}
+              />
+            </>
+          )}
         </div>
       </>
     );

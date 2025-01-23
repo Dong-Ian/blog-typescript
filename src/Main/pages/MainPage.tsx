@@ -9,14 +9,17 @@ import Category from "../components/Category";
 import PinnedPostList from "Main/components/PinnedPostList";
 import RecentPostList from "Main/components/RecentPostList";
 
-import { usePostList } from "Main/hooks/usePostList";
 import { useFetchUser } from "Utils/hooks/useFetchUser";
+import { useRecentPostList } from "PostList/hooks/useRecentPostList";
+import { usePinnedPostList } from "PostList/hooks/usePinnedPostList";
 
 const MainPage: React.FC = () => {
   const navigate = useNavigate();
 
   const { userInfo } = useFetchUser();
-  const { recentPostList, pinnedPostList } = usePostList();
+
+  const { recentPostList } = useRecentPostList({ page: 1, size: 5 });
+  const { pinnedPostList } = usePinnedPostList({ page: 1, size: 5 });
 
   if (!userInfo || !recentPostList || !pinnedPostList) return null;
 
