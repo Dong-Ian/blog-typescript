@@ -1,6 +1,6 @@
 import { useState } from "react";
-import getCategory from "Main/services/getCategory.service";
 import { useNavigate } from "react-router-dom";
+import getCategory from "Main/services/getCategory.service";
 
 export function useCategoryList(postSeq?: string) {
   const navigate = useNavigate();

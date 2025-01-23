@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-
 import EditPostPage from "./EditPostPage";
 import { useGetPost } from "EditPost/hooks/useGetPost";
 import { useCategoryList } from "EditPost/hooks/useCategoryList";
