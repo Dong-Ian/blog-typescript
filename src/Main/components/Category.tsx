@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/main.module.css";
 import { CategoryRenderProps } from "Main/types/Main.type";
@@ -32,11 +32,7 @@ const CategoryRender: React.FC<CategoryRenderProps> = ({ categoryList }) => {
 };
 
 const Category: React.FC = () => {
-  const { categoryList, fetchCategoryList } = useCategoryList();
-
-  useEffect(() => {
-    fetchCategoryList();
-  }, []);
+  const { categoryList } = useCategoryList();
 
   if (categoryList) {
     return (
@@ -46,6 +42,7 @@ const Category: React.FC = () => {
       </div>
     );
   }
+
   return (
     <div className={styles.category}>
       <p>카테고리</p>

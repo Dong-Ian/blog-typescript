@@ -1,18 +1,25 @@
-import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import getCategory from "Main/services/getCategory.service";
 
 export function useCategoryList() {
-  const [categoryList, setCategoryList] = useState(null);
+  const {
+    data: categoryList,
+    error,
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["categoryList"],
+    queryFn: async () => {
+      const result = await getCategory();
+      if (result.result) {
+        return result.categoryList;
+      } else {
+        alert("카테고리를 불러오는 중 오류가 발생했습니다.");
+      }
+    },
+    staleTime: 10 * 60 * 1000,
+    cacheTime: 20 * 60 * 1000,
+  });
 
-  const fetchCategoryList = async () => {
-    const result = await getCategory();
-
-    if (result.result) {
-      setCategoryList(result.categoryList || []);
-    } else {
-      alert("카테고리를 불러오는 중 오류가 발생했습니다.");
-    }
-  };
-
-  return { categoryList, fetchCategoryList };
+  return { categoryList, error, isLoading, refetch };
 }

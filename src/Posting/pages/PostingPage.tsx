@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styles from "../styles/posting.module.css";
@@ -10,8 +10,8 @@ import Tag from "Posting/components/Tag";
 import CategoryList from "Posting/components/CategoryList";
 import Header from "Utils/components/Header";
 import BackButton from "Utils/components/BackButton";
-import { useCategoryList } from "Utils/hooks/useCategoryList";
 import Loading from "Utils/components/Loading";
+import { useCategoryList } from "Utils/hooks/useCategoryList";
 
 const PostingPage: React.FC = () => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const PostingPage: React.FC = () => {
   const [tags, setTags] = useState<string[]>([]);
   const [category, setCategory] = useState<string>("");
 
-  const { categoryList, fetchCategoryList } = useCategoryList();
+  const { categoryList } = useCategoryList();
 
   const handlePosting = async () => {
     if (postTitle === "") {
@@ -57,10 +57,6 @@ const PostingPage: React.FC = () => {
     alert("포스팅 실패");
     return;
   };
-
-  useEffect(() => {
-    fetchCategoryList();
-  }, []);
 
   if (categoryList) {
     return (
