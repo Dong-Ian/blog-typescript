@@ -4,12 +4,16 @@ import MDEditor from "@uiw/react-md-editor";
 
 const Contents: React.FC<PostProps> = ({ post }) => {
   return (
-    <>
+    <div data-color-mode="light">
       <MDEditor.Markdown
         source={post.postContents}
-        style={{ padding: "15px", background: "#f5f5f5", borderRadius: "5px" }}
+        style={{
+          padding: "15px",
+          borderRadius: "5px",
+          lineHeight: "30px",
+        }}
       />
-    </>
+    </div>
   );
 };
 
