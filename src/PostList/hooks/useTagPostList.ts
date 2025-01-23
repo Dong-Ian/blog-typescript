@@ -1,5 +1,5 @@
-import { getTagPostList } from "../../PostList/services/getPostList.service";
 import { useQuery } from "@tanstack/react-query";
+import { getTagPostList } from "PostList/services/getPostList.service";
 
 export function useTagPostList({
   page,

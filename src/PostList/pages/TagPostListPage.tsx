@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import styles from "../styles/postlist.module.css";
-import Header from "Utils/components/Header";
-import BackButton from "Utils/components/BackButton";
+import styles from "PostList/styles/postlist.module.css";
 import Account from "Main/components/Account";
 import PostList from "PostList/components/PostList";
 import PaginationComponent from "PostList/components/PaginationComponent";
+import Header from "Utils/components/Header";
+import BackButton from "Utils/components/BackButton";
+import Loading from "Utils/components/Loading";
 import { useTagPostList } from "PostList/hooks/useTagPostList";
 import { useFetchUser } from "Utils/hooks/useFetchUser";
-import Loading from "Utils/components/Loading";
 
 const TagPostListPage: React.FC = () => {
   const location = useLocation();

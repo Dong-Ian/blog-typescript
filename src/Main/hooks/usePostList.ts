@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import {
   getPinnedPostList,
   getRecentPostList,
-} from "../../PostList/services/getPostList.service";
-import { PostInterface } from "../../PostList/types/PostList.type";
+} from "PostList/services/getPostList.service";
+import { PostInterface } from "PostList/types/PostList.type";
 
 interface UsePostListResult {
   pinnedPostList: PostInterface[] | null;

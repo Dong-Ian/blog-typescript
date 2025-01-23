@@ -1,5 +1,4 @@
 import React from "react";
-
 import { PostProps } from "Post/types/Post.type";
 import MDEditor from "@uiw/react-md-editor";
 

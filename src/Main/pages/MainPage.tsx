@@ -1,17 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import styles from "../styles/main.module.css";
-
-import Header from "../../Utils/components/Header";
-import Account from "../components/Account";
-import Category from "../components/Category";
+import styles from "Main/styles/main.module.css";
+import Account from "Main/components/Account";
+import Category from "Main/components/Category";
 import PinnedPostList from "Main/components/PinnedPostList";
 import RecentPostList from "Main/components/RecentPostList";
-
-import { useFetchUser } from "Utils/hooks/useFetchUser";
+import Header from "Utils/components/Header";
 import { useRecentPostList } from "PostList/hooks/useRecentPostList";
 import { usePinnedPostList } from "PostList/hooks/usePinnedPostList";
+import { useFetchUser } from "Utils/hooks/useFetchUser";
 
 const MainPage: React.FC = () => {
   const navigate = useNavigate();

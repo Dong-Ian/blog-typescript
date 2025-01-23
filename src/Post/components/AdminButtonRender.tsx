@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "../styles/post.module.css";
+import styles from "Post/styles/post.module.css";
+import DeleteButton from "Post/components/DeleteButton";
+import EditPostButton from "Post/components/EditPostButton";
+import UnPinButton from "Post/components/UnPinButton";
+import PinButton from "Post/components/PinButton";
 import { AdminProps } from "Post/types/Post.type";
-import DeleteButton from "./DeleteButton";
-import EditPostButton from "./EditPostButton";
-import UnPinButton from "./UnPinButton";
-import PinButton from "./PinButton";
 
 const AdminButtonRender: React.FC<AdminProps> = ({
   isLoggedIn,

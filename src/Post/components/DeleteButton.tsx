@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/post.module.css";
+import styles from "Post/styles/post.module.css";
 import { AuthPostProps } from "Post/types/Post.type";
 import { useDeletePost } from "Post/hooks/useDeletePost";
 

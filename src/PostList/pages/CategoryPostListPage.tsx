@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import styles from "../styles/postlist.module.css";
-import Header from "Utils/components/Header";
-import BackButton from "Utils/components/BackButton";
+import styles from "PostList/styles/postlist.module.css";
 import Account from "Main/components/Account";
 import PostList from "PostList/components/PostList";
 import PaginationComponent from "PostList/components/PaginationComponent";
+import Header from "Utils/components/Header";
+import Loading from "Utils/components/Loading";
+import BackButton from "Utils/components/BackButton";
 import { useFetchUser } from "Utils/hooks/useFetchUser";
 import { useCagtegoryPostList } from "PostList/hooks/useCategoryPostList";
-import Loading from "Utils/components/Loading";
 
 const CategoryPostListPage: React.FC = () => {
   const location = useLocation();

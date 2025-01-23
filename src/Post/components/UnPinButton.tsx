@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../styles/post.module.css";
-import { PostControlProps } from "Post/types/Post.type";
+import styles from "Post/styles/post.module.css";
 import unpin from "Post/services/unpin.service";
+import { PostControlProps } from "Post/types/Post.type";
 
 const UnPinButton: React.FC<PostControlProps> = ({
   postSeq,

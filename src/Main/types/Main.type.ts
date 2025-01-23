@@ -1,5 +1,5 @@
 import { NavigateFunction } from "react-router-dom";
-import { PostInterface } from "../../PostList/types/PostList.type";
+import { PostInterface } from "PostList/types/PostList.type";
 
 export interface UserInfoInterface {
   userName: string;

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "../styles/post.module.css";
+import styles from "Post/styles/post.module.css";
 
 interface CategoryProps {
   category: string;

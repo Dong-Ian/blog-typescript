@@ -1,4 +1,4 @@
-import styles from "../styles/component.module.css";
+import styles from "Utils/styles/component.module.css";
 
 const Loading: React.FC = () => {
   return (

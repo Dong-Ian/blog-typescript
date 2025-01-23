@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as cheerio from "cheerio";
-import styles from "../styles/postlist.module.css";
+import styles from "PostList/styles/postlist.module.css";
 import {
   PostListProps,
   CategoryRenderProps,
   TitleRenderProps,
   ContentsRenderProps,
   DateTimeRenderProps,
-} from "../types/PostList.type";
+} from "PostList/types/PostList.type";
 
 const CategoryRender: React.FC<CategoryRenderProps> = ({
   category,

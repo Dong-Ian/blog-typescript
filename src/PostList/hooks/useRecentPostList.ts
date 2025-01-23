@@ -1,5 +1,5 @@
-import { getRecentPostList } from "../../PostList/services/getPostList.service";
 import { useQuery } from "@tanstack/react-query";
+import { getRecentPostList } from "PostList/services/getPostList.service";
 
 export function useRecentPostList({
   page,

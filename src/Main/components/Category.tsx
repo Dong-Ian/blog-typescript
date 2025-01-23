@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "../styles/main.module.css";
+import styles from "Main/styles/main.module.css";
 import { CategoryRenderProps } from "Main/types/Main.type";
 import { useCategoryList } from "Utils/hooks/useCategoryList";
 

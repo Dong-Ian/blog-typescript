@@ -1,5 +1,5 @@
-import { getCategoryPostList } from "../../PostList/services/getPostList.service";
 import { useQuery } from "@tanstack/react-query";
+import { getCategoryPostList } from "PostList/services/getPostList.service";
 
 export function useCagtegoryPostList({
   page,

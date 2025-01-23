@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import styles from "../styles/postlist.module.css";
-import Header from "Utils/components/Header";
-import BackButton from "Utils/components/BackButton";
+import styles from "PostList/styles/postlist.module.css";
 import Account from "Main/components/Account";
 import PostList from "PostList/components/PostList";
 import PaginationComponent from "PostList/components/PaginationComponent";
+import Header from "Utils/components/Header";
+import BackButton from "Utils/components/BackButton";
+import Loading from "Utils/components/Loading";
 import { usePinnedPostList } from "PostList/hooks/usePinnedPostList";
 import { useFetchUser } from "Utils/hooks/useFetchUser";
-import Loading from "Utils/components/Loading";
 
 const PinnedPostListPage: React.FC = () => {
   const { userInfo } = useFetchUser();

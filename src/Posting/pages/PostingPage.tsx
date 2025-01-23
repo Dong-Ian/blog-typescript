@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import styles from "../styles/posting.module.css";
-import posting from "Posting/services/posting.service";
+import styles from "Posting/styles/posting.module.css";
 import Title from "Posting/components/Title";
 import Contents from "Posting/components/Contents";
 import Catetory from "Posting/components/Category";
@@ -11,6 +10,7 @@ import CategoryList from "Posting/components/CategoryList";
 import Header from "Utils/components/Header";
 import BackButton from "Utils/components/BackButton";
 import Loading from "Utils/components/Loading";
+import posting from "Posting/services/posting.service";
 import { useCategoryList } from "Utils/hooks/useCategoryList";
 
 const PostingPage: React.FC = () => {

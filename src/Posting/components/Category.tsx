@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/posting.module.css";
+import styles from "Posting/styles/posting.module.css";
 import { TextFieldProps } from "Login/types/Login.type";
 
 const Catetory: React.FC<TextFieldProps> = ({ value, onChange }) => {

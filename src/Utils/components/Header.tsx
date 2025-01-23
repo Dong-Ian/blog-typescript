@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "../styles/component.module.css";
-import accountIcon from "../images/person_white.png";
+import styles from "Utils/styles/component.module.css";
+import accountIcon from "Utils/images/person_white.png";
 import { useCheckUser } from "Utils/hooks/useChcekUser";
 import { useFetchUser } from "Utils/hooks/useFetchUser";
 
