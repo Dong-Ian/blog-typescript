@@ -58,9 +58,10 @@
 
 .contents {
   margin: 0 0 10px 0;
-  line-height: 20px;
+  line-height: 25px;
   font-size: 16px;
   max-width: 700px;
+  color: gray;
 }
 
 .more {

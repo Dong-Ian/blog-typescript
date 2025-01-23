@@ -67,13 +67,13 @@ const ContentsRender: React.FC<ContentsRenderProps> = ({ contents }) => {
     .replace(/(```[\s\S]*?```|`.*?`)/g, ""); // ```code block``` or `inline code`
 
   // 글자 100자 제한 및 더보기 처리
-  const slicedText = transformedText.slice(0, 100);
+  const slicedText = transformedText.slice(0, 200);
 
   return (
     <div className={styles.contents}>
-      <p className={styles.post}>
+      <p>
         {slicedText}
-        {transformedText.length > 100 && (
+        {transformedText.length > 200 && (
           <span className={styles.more}> 더보기...</span>
         )}
       </p>
