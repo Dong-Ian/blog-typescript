@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import styles from "Main/styles/main.module.css";
+import styles from "../styles/main.module.css";
 import Account from "Main/components/Account";
 import Category from "Main/components/Category";
 import PinnedPostList from "Main/components/PinnedPostList";

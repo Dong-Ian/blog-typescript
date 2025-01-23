@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "Post/styles/post.module.css";
+import styles from "../styles/post.module.css";
 import DeleteButton from "Post/components/DeleteButton";
 import EditPostButton from "Post/components/EditPostButton";
 import UnPinButton from "Post/components/UnPinButton";

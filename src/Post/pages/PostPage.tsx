@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import styles from "Post/styles/post.module.css";
+import styles from "../styles/post.module.css";
 import Account from "Main/components/Account";
 import Category from "Post/components/Category";
 import Title from "Post/components/Title";

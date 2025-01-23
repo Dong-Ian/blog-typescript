@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import styles from "Login/styles/login.module.css";
+import styles from "../styles/login.module.css";
 import Email from "Login/components/Email";
 import Password from "Login/components/Password";
 import Loading from "Utils/components/Loading";

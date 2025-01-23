@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styles from "PostList/styles/pagination.module.css";
+import styles from "../styles/pagination.module.css";
 import { PaginationComponentProps } from "PostList/types/PostList.type";
 import { useFetchUser } from "Utils/hooks/useFetchUser";
 import Pagination from "react-js-pagination";

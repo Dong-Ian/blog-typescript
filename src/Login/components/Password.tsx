@@ -1,4 +1,4 @@
-import styles from "Login/styles/login.module.css";
+import styles from "../styles/login.module.css";
 import { TextFieldProps } from "Login/types/Login.type";
 
 const Password = ({ value, onChange }: TextFieldProps) => {

@@ -1,4 +1,4 @@
-import styles from "Main/styles/main.module.css";
+import styles from "../styles/main.module.css";
 import PostList from "PostList/components/PostList";
 import { PostListProps } from "Main/types/Main.type";
 

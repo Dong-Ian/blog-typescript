@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "Post/styles/post.module.css";
+import styles from "../styles/post.module.css";
 import { PostControlProps } from "Post/types/Post.type";
 import pin from "Post/services/pin.service";
 

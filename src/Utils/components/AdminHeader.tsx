@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "Utils/styles/component.module.css";
+import styles from "../styles/component.module.css";
 import getAccount from "Main/services/getAccount.service";
 import { AdminHeaderInterface } from "Main/types/Main.type";
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import styles from "Posting/styles/posting.module.css";
+import styles from "../styles/posting.module.css";
 import Title from "Posting/components/Title";
 import Contents from "Posting/components/Contents";
 import Catetory from "Posting/components/Category";

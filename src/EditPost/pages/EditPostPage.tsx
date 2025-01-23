@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "EditPost/styles/editpost.module.css";
+import styles from "../styles/editpost.module.css";
 import Header from "Utils/components/Header";
 import BackButton from "Utils/components/BackButton";
 import Title from "Posting/components/Title";

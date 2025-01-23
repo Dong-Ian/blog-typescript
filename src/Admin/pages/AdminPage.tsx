@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import styles from "Admin/styles/admin.module.css";
+import styles from "../styles/admin.module.css";
 import BackButton from "Utils/components/BackButton";
 import EditProfileImage from "Admin/components/EditProfileImage";
 import EditElement from "Admin/components/EditElement";
