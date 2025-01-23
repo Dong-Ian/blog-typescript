@@ -10,6 +10,7 @@ import CategoryList from "Posting/components/CategoryList";
 import Header from "Utils/components/Header";
 import BackButton from "Utils/components/BackButton";
 import Loading from "Utils/components/Loading";
+import Button from "Utils/components/Button";
 import posting from "Posting/services/posting.service";
 import { useCategoryList } from "Utils/hooks/useCategoryList";
 
@@ -79,7 +80,7 @@ const PostingPage: React.FC = () => {
             <Tag tagList={tags} setTagList={setTags} />
             <Contents value={postContents} onChange={setPostContents} />
             <div className={styles.button}>
-              <button onClick={handlePosting}>글 작성하기</button>
+              <Button onClick={handlePosting} text="글 작성하기" />
             </div>
           </div>
         </div>

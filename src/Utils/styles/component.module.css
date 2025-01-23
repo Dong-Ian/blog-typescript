@@ -93,3 +93,21 @@
     transform: rotate(360deg);
   }
 }
+
+.button {
+  > button {
+    border: 0.5px solid black;
+    border-radius: 8px;
+    padding: 10px 15px;
+    background-color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  > button:hover {
+    background-color: rgb(242, 242, 242);
+    border-color: rgb(242, 242, 242);
+    transition: 0.2s ease;
+  }
+}

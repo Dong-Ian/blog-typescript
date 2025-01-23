@@ -5,14 +5,14 @@ import { CategoryRenderProps } from "Main/types/Main.type";
 import { useCategoryList } from "Utils/hooks/useCategoryList";
 
 const CategoryRender: React.FC<CategoryRenderProps> = ({ categoryList }) => {
-  const navigate = useNavigate(); // 페이지 이동을 위한 hook
+  const navigate = useNavigate();
 
   if (categoryList.length !== 0) {
     // 카테고리 목록이 존재할 경우
     return (
-      <div>
+      <ul>
         {categoryList.map((category: string) => (
-          <p
+          <li
             key={category}
             onClick={() =>
               navigate(`/postlist/category/${category}`, {
@@ -21,9 +21,9 @@ const CategoryRender: React.FC<CategoryRenderProps> = ({ categoryList }) => {
             }
           >
             {category}
-          </p>
+          </li>
         ))}
-      </div>
+      </ul>
     );
   } else {
     // 카테고리 목록이 없을 경우
