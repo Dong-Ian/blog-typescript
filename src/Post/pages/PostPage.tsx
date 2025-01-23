@@ -12,6 +12,7 @@ import Contents from "Post/components/Contents";
 import Comment from "Post/components/Comment";
 import Header from "Utils/components/Header";
 import BackButton from "Utils/components/BackButton";
+import Loading from "Utils/components/Loading";
 import { useGetPost } from "Post/hooks/useGetPost";
 import { useResize } from "Post/hooks/useResize";
 import { usePinnedState } from "Post/hooks/usePinnedState";
@@ -22,17 +23,18 @@ const PostPage: React.FC = () => {
   const { postSeq } = useParams();
   const navigate = useNavigate();
   const { userInfo } = useFetchUser();
-  const { post } = useGetPost({ postSeq });
+  const { post, isLoading } = useGetPost({ postSeq });
   const isMobileScreen = useResize(500);
   const { isChangePinnedState, togglePinnedState } = usePinnedState();
   const { isValidUser, handleCheckUser } = useCheckUser();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     handleCheckUser();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isChangePinnedState]);
 
-  if (!post || !postSeq || !userInfo) return null;
+  if (!post || !postSeq || !userInfo || isLoading) return <Loading />;
 
   return (
     <>
