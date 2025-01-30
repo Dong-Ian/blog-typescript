@@ -62,6 +62,9 @@
   font-size: 16px;
   max-width: 1000px;
   color: gray;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .more {
