@@ -9,6 +9,7 @@ import {
   ContentsRenderProps,
   DateTimeRenderProps,
 } from "PostList/types/PostList.type";
+import { useResize } from "Post/hooks/useResize";
 
 const CategoryRender: React.FC<CategoryRenderProps> = ({
   category,
@@ -103,15 +104,7 @@ const DateTimeRender: React.FC<DateTimeRenderProps> = ({ reg, viewed }) => {
 
 const PostList: React.FC<PostListProps> = ({ postList }) => {
   const navigate = useNavigate();
-  const [isMobileScreen, setIsMobileScreen] = useState(false);
-
-  const handleResize = () => setIsMobileScreen(window.innerWidth <= 500);
-
-  useEffect(() => {
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const isMobileScreen = useResize(500);
 
   return (
     <>

@@ -1,18 +1,25 @@
 import { useState, useEffect } from "react";
 
 export function useResize(threshold: number = 500): boolean {
+  const mediaQuery =
+    typeof window !== "undefined"
+      ? window.matchMedia(`(max-width: ${threshold}px)`)
+      : null;
   const [isMobileScreen, setIsMobileScreen] = useState<boolean>(
-    window.innerWidth <= threshold
+    mediaQuery ? mediaQuery.matches : false
   );
 
-  const handleResize = () => {
-    setIsMobileScreen(window.innerWidth <= threshold);
-  };
-
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [threshold]);
+    if (!mediaQuery) return;
+
+    const handleMediaChange = (event: MediaQueryListEvent) => {
+      setIsMobileScreen(event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleMediaChange);
+
+    return () => mediaQuery.removeEventListener("change", handleMediaChange);
+  }, [mediaQuery]);
 
   return isMobileScreen;
 }
