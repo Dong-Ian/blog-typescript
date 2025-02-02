@@ -10,11 +10,10 @@ import { useFetchUser } from "Utils/hooks/useFetchUser";
 const Header: React.FC = () => {
   const navigate = useNavigate();
   const { userInfo } = useFetchUser();
-  const { isValidUser, handleCheckUser } = useCheckUser();
+  const { isValidUser } = useCheckUser();
   const [textColor, setTextColor] = useState<string>("");
 
   useEffect(() => {
-    handleCheckUser();
     if (userInfo?.color) {
       const luminance = getLuminance(userInfo.color);
       setTextColor(luminance > 0.5 ? "black" : "white");

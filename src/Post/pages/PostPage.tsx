@@ -26,15 +26,16 @@ const PostPage: React.FC = () => {
   const { post, isLoading } = useGetPost({ postSeq });
   const isMobileScreen = useResize(500);
   const { isChangePinnedState, togglePinnedState } = usePinnedState();
-  const { isValidUser, handleCheckUser } = useCheckUser();
+  const { isValidUser, isCheckUserLoading } = useCheckUser();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    handleCheckUser();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isChangePinnedState]);
 
-  if (!post || !postSeq || !userInfo || isLoading) return <Loading />;
+  if (!post || !postSeq || !userInfo || isLoading || isCheckUserLoading)
+    return <Loading />;
 
   return (
     <>

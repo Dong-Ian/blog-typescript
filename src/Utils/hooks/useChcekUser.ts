@@ -1,16 +1,19 @@
-import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { chcekToken } from "Utils/services/checkToken.service";
 
 export const useCheckUser = () => {
-  const [isValidUser, setIsValidUser] = useState(false);
-  const handleCheckUser = async () => {
-    const result = await chcekToken();
+  const {
+    data,
+    isLoading: isCheckUserLoading,
+    isError,
+  } = useQuery(["checkUser"], chcekToken, {
+    staleTime: 1000 * 60 * 5,
+    cacheTime: 1000 * 60 * 10,
+    refetchOnWindowFocus: false,
+  });
 
-    if (result.result) {
-      setIsValidUser(true);
-    } else {
-      setIsValidUser(false);
-    }
-  };
-  return { isValidUser, handleCheckUser };
+  // 유저가 유효한지 여부 판단
+  const isValidUser = data?.result || false;
+
+  return { isValidUser, isCheckUserLoading, isError };
 };
