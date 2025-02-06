@@ -7,6 +7,7 @@ import Category from "Main/components/Category";
 import PinnedPostList from "Main/components/PinnedPostList";
 import RecentPostList from "Main/components/RecentPostList";
 import Header from "Utils/components/Header";
+import Loading from "Utils/components/Loading";
 import { useRecentPostList } from "PostList/hooks/useRecentPostList";
 import { usePinnedPostList } from "PostList/hooks/usePinnedPostList";
 import { useFetchUser } from "Utils/hooks/useFetchUser";
@@ -14,12 +15,21 @@ import { useFetchUser } from "Utils/hooks/useFetchUser";
 const MainPage: React.FC = () => {
   const navigate = useNavigate();
 
-  const { userInfo } = useFetchUser();
+  const { userInfo, isLoading } = useFetchUser();
 
-  const { recentPostList } = useRecentPostList({ page: 1, size: 5 });
-  const { pinnedPostList } = usePinnedPostList({ page: 1, size: 5 });
+  const { recentPostList, isRecentPostLoading } = useRecentPostList({
+    page: 1,
+    size: 5,
+  });
+  const { pinnedPostList, isPinnedPostLoading } = usePinnedPostList({
+    page: 1,
+    size: 5,
+  });
 
   if (!userInfo || !recentPostList || !pinnedPostList) return null;
+
+  if (isLoading || isRecentPostLoading || isPinnedPostLoading)
+    return <Loading />;
 
   return (
     <>
