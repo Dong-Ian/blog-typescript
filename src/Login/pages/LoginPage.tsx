@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet";
 import styles from "../styles/login.module.css";
 import Email from "Login/components/Email";
@@ -7,16 +8,23 @@ import Loading from "Utils/components/Loading";
 import { useLogin } from "Login/hooks/useLogin";
 import { useFetchUser } from "Utils/hooks/useFetchUser";
 
+interface LoginFormInputs {
+  email: string;
+  password: string;
+}
+
 const LoginPage: React.FC = () => {
   const { handleLogin } = useLogin();
   const { userInfo, isLoading } = useFetchUser();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginFormInputs>();
 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    await handleLogin(email, password);
+  const onSubmit = async (data: LoginFormInputs) => {
+    await handleLogin(data.email, data.password);
   };
 
   if (isLoading || !userInfo) {
@@ -34,9 +42,26 @@ const LoginPage: React.FC = () => {
           <p>Welcome to {userInfo ? userInfo.title : "Archive"}</p>
         </div>
         <div className={styles.outer_box}>
-          <form className={styles.box} method="post" onSubmit={onSubmit}>
-            <Email value={email} onChange={setEmail} />
-            <Password value={password} onChange={setPassword} />
+          <form
+            className={styles.box}
+            method="post"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <Email
+              register={register("email", {
+                required: "이메일을 입력해주세요",
+              })}
+              error={errors.email?.message}
+            />
+
+            <Password
+              register={register("password", {
+                required: "비밀번호를 입력해주세요",
+              })}
+            />
+            {(errors.email || errors.password) && (
+              <p className={styles.error}>이메일/비밀번호를 입력해주세요</p>
+            )}
             <input
               className={styles.loginBtn}
               style={{ backgroundColor: userInfo ? userInfo.color : "#000" }}
