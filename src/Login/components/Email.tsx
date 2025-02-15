@@ -1,24 +1,16 @@
 import styles from "../styles/login.module.css";
-import { TextFieldProps } from "Login/types/Login.type";
+import { UseFormRegisterReturn } from "react-hook-form";
 
-const Email = ({ value, onChange }: TextFieldProps) => {
-  const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const {
-      target: { value },
-    } = event;
-    onChange(value);
-  };
+interface EmailProps {
+  register: UseFormRegisterReturn;
+  error?: string;
+}
 
+const Email = ({ register, error }: EmailProps) => {
   return (
     <div className={styles.input}>
       <p>이메일</p>
-      <input
-        onChange={handleEmail}
-        type="text"
-        placeholder="Email"
-        name="email"
-        value={value}
-      />
+      <input {...register} type="email" placeholder="Email" />
     </div>
   );
 };
