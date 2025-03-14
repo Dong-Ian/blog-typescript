@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import AdminPage from "./AdminPage";
-import Loading from "Utils/components/Loading";
-import { useFetchUser } from "Utils/hooks/useFetchUser";
+import Loading from "utils/components/Loading";
+import { useFetchUser } from "utils/hooks/useFetchUser";
 
 const AdminLandingPage: React.FC = () => {
   const { userInfo, isLoading, refetch } = useFetchUser();

@@ -13,7 +13,7 @@ import PostPage from "./features/Post/pages/PostPage";
 import PostingPage from "./features/Posting/pages/PostingPage";
 import EditPostLandingPage from "./features/EditPost/pages/EditPostLandingPage";
 import AdminLandingPage from "./features/Admin/pages/AdminLandingPage";
-import VerifyUserRoute from "Utils/components/VerifyUserRoute";
+import VerifyUserRoute from "utils/components/VerifyUserRoute";
 
 const App: React.FC = () => {
   return (

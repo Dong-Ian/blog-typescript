@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/component.module.css";
 import getAccount from "features/Main/services/getAccount.service";
-import { getLuminance } from "Utils/services/getLuminance";
+import { getLuminance } from "utils/services/getLuminance";
 import { AdminHeaderInterface } from "features/Main/types/Main.type";
 
 const AdminHeader: React.FC<AdminHeaderInterface> = ({ state }) => {

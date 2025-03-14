@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import { useCheckToken } from "Utils/hooks/useCheckToken";
+import { useCheckToken } from "utils/hooks/useCheckToken";
 
 import Loading from "./Loading";
 interface VerifyUserRouteProps {

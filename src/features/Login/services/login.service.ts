@@ -1,5 +1,5 @@
 import { LoginFunctionProps } from "features/Login/types/Login.type";
-import encrypt from "Utils/services/encrypt.service";
+import encrypt from "utils/services/encrypt.service";
 
 export default async function login({ email, password }: LoginFunctionProps) {
   const encryptedEmail = encrypt({ data: email });

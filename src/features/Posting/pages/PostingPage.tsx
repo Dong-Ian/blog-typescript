@@ -7,12 +7,12 @@ import Contents from "features/Posting/components/Contents";
 import Catetory from "features/Posting/components/Category";
 import Tag from "features/Posting/components/Tag";
 import CategoryList from "features/Posting/components/CategoryList";
-import Header from "Utils/components/Header";
-import BackButton from "Utils/components/BackButton";
-import Loading from "Utils/components/Loading";
-import Button from "Utils/components/Button";
+import Header from "utils/components/Header";
+import BackButton from "utils/components/BackButton";
+import Loading from "utils/components/Loading";
+import Button from "utils/components/Button";
 import posting from "features/Posting/services/posting.service";
-import { useCategoryList } from "Utils/hooks/useCategoryList";
+import { useCategoryList } from "utils/hooks/useCategoryList";
 
 const PostingPage: React.FC = () => {
   const navigate = useNavigate();

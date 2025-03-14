@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { chcekToken } from "Utils/services/checkToken.service";
+import { chcekToken } from "utils/services/checkToken.service";
 
 export const useCheckToken = () => {
   const navigation = useNavigate();

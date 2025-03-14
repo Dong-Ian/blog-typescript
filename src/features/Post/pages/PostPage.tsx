@@ -10,14 +10,14 @@ import DateTimeRender from "features/Post/components/DateTime";
 import AdminButtonRender from "features/Post/components/AdminButtonRender";
 import Contents from "features/Post/components/Contents";
 import Comment from "features/Post/components/Comment";
-import Header from "Utils/components/Header";
-import BackButton from "Utils/components/BackButton";
-import Loading from "Utils/components/Loading";
+import Header from "utils/components/Header";
+import BackButton from "utils/components/BackButton";
+import Loading from "utils/components/Loading";
 import { useGetPost } from "features/Post/hooks/useGetPost";
 import { useResize } from "features/Post/hooks/useResize";
 import { usePinnedState } from "features/Post/hooks/usePinnedState";
-import { useCheckUser } from "Utils/hooks/useChcekUser";
-import { useFetchUser } from "Utils/hooks/useFetchUser";
+import { useCheckUser } from "utils/hooks/useChcekUser";
+import { useFetchUser } from "utils/hooks/useFetchUser";
 
 const PostPage: React.FC = () => {
   const { postSeq } = useParams();

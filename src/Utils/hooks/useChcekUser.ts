@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { chcekToken } from "Utils/services/checkToken.service";
+import { chcekToken } from "utils/services/checkToken.service";
 
 export const useCheckUser = () => {
   const {

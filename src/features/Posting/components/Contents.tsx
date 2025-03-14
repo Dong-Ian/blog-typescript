@@ -3,7 +3,7 @@ import MDEditor from "@uiw/react-md-editor";
 import { TextFieldProps } from "features/Posting/types/Posting.type";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../../../Firebase";
-import Button from "Utils/components/Button";
+import Button from "utils/components/Button";
 
 const Contents: React.FC<TextFieldProps> = ({ value, onChange }) => {
   const imageHandler = () => {

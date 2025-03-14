@@ -1,6 +1,6 @@
 import { useState } from "react";
 import editAccount from "features/Admin/services/editAccount.service";
-import { useFetchUser } from "Utils/hooks/useFetchUser";
+import { useFetchUser } from "utils/hooks/useFetchUser";
 
 export function useEditProfile(profile: any) {
   const [color, setColor] = useState<string>(profile.color);

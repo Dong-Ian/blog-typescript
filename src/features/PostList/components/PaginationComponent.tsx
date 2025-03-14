@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styles from "../styles/pagination.module.css";
 import { PaginationComponentProps } from "features/PostList/types/PostList.type";
-import { useFetchUser } from "Utils/hooks/useFetchUser";
+import { useFetchUser } from "utils/hooks/useFetchUser";
 import Pagination from "react-js-pagination";
 
 const PaginationComponent: React.FC<PaginationComponentProps> = ({

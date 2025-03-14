@@ -4,11 +4,11 @@ import styles from "../styles/postlist.module.css";
 import Account from "features/Main/components/Account";
 import PostList from "features/PostList/components/PostList";
 import PaginationComponent from "features/PostList/components/PaginationComponent";
-import Header from "Utils/components/Header";
-import BackButton from "Utils/components/BackButton";
-import Loading from "Utils/components/Loading";
+import Header from "utils/components/Header";
+import BackButton from "utils/components/BackButton";
+import Loading from "utils/components/Loading";
 import { useRecentPostList } from "features/PostList/hooks/useRecentPostList";
-import { useFetchUser } from "Utils/hooks/useFetchUser";
+import { useFetchUser } from "utils/hooks/useFetchUser";
 
 const PostListPage: React.FC = () => {
   const { userInfo } = useFetchUser();

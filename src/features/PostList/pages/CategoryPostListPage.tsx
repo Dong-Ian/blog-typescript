@@ -5,10 +5,10 @@ import styles from "../styles/postlist.module.css";
 import Account from "features/Main/components/Account";
 import PostList from "features/PostList/components/PostList";
 import PaginationComponent from "features/PostList/components/PaginationComponent";
-import Header from "Utils/components/Header";
-import Loading from "Utils/components/Loading";
-import BackButton from "Utils/components/BackButton";
-import { useFetchUser } from "Utils/hooks/useFetchUser";
+import Header from "utils/components/Header";
+import Loading from "utils/components/Loading";
+import BackButton from "utils/components/BackButton";
+import { useFetchUser } from "utils/hooks/useFetchUser";
 import { useCagtegoryPostList } from "features/PostList/hooks/useCategoryPostList";
 
 const CategoryPostListPage: React.FC = () => {

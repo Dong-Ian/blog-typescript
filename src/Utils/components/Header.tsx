@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/component.module.css";
-import whiteAccountIcon from "Utils/images/person_white.png";
-import blackAccountIcon from "Utils/images/person_black.png";
-import { getLuminance } from "Utils/services/getLuminance";
-import { useCheckUser } from "Utils/hooks/useChcekUser";
-import { useFetchUser } from "Utils/hooks/useFetchUser";
+import whiteAccountIcon from "utils/images/person_white.png";
+import blackAccountIcon from "utils/images/person_black.png";
+import { getLuminance } from "utils/services/getLuminance";
+import { useCheckUser } from "utils/hooks/useChcekUser";
+import { useFetchUser } from "utils/hooks/useFetchUser";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();

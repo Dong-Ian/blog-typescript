@@ -1,12 +1,12 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import styles from "../styles/admin.module.css";
-import BackButton from "Utils/components/BackButton";
+import BackButton from "utils/components/BackButton";
 import EditProfileImage from "features/Admin/components/EditProfileImage";
 import EditElement from "features/Admin/components/EditElement";
 import EditColor from "features/Admin/components/EditColor";
-import AdminHeader from "Utils/components/AdminHeader";
-import Loading from "Utils/components/Loading";
+import AdminHeader from "utils/components/AdminHeader";
+import Loading from "utils/components/Loading";
 import { AdminPageProps } from "features/Admin/types/Admin.type";
 import { useEditProfileImage } from "features/Admin/hooks/useEditProfileImage";
 import { useEditProfile } from "features/Admin/hooks/useEditProfile";

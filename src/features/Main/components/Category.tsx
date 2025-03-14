@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/main.module.css";
 import { CategoryRenderProps } from "features/Main/types/Main.type";
-import { useCategoryList } from "Utils/hooks/useCategoryList";
+import { useCategoryList } from "utils/hooks/useCategoryList";
 
 const CategoryRender: React.FC<CategoryRenderProps> = ({ categoryList }) => {
   const navigate = useNavigate();

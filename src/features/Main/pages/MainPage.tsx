@@ -6,11 +6,11 @@ import Account from "features/Main/components/Account";
 import Category from "features/Main/components/Category";
 import PinnedPostList from "features/Main/components/PinnedPostList";
 import RecentPostList from "features/Main/components/RecentPostList";
-import Header from "Utils/components/Header";
-import Loading from "Utils/components/Loading";
+import Header from "utils/components/Header";
+import Loading from "utils/components/Loading";
 import { useRecentPostList } from "features/PostList/hooks/useRecentPostList";
 import { usePinnedPostList } from "features/PostList/hooks/usePinnedPostList";
-import { useFetchUser } from "Utils/hooks/useFetchUser";
+import { useFetchUser } from "utils/hooks/useFetchUser";
 
 const MainPage: React.FC = () => {
   const navigate = useNavigate();

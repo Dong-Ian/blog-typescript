@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/editpost.module.css";
-import Header from "Utils/components/Header";
-import BackButton from "Utils/components/BackButton";
+import Header from "utils/components/Header";
+import BackButton from "utils/components/BackButton";
 import Title from "features/Posting/components/Title";
 import CategoryList from "features/Posting/components/CategoryList";
 import Catetory from "features/Posting/components/Category";
@@ -9,7 +9,7 @@ import Tag from "features/Posting/components/Tag";
 import Contents from "features/Posting/components/Contents";
 import { EditPostPageProps } from "features/EditPost/types/EditPost.type";
 import { useEditPost } from "features/EditPost/hooks/useEditPost";
-import Button from "Utils/components/Button";
+import Button from "utils/components/Button";
 
 const EditPostPage: React.FC<EditPostPageProps> = ({ post, categoryList }) => {
   const {

@@ -4,9 +4,9 @@ import { Helmet } from "react-helmet";
 import styles from "../styles/login.module.css";
 import Email from "features/Login/components/Email";
 import Password from "features/Login/components/Password";
-import Loading from "Utils/components/Loading";
+import Loading from "utils/components/Loading";
 import { useLogin } from "features/Login/hooks/useLogin";
-import { useFetchUser } from "Utils/hooks/useFetchUser";
+import { useFetchUser } from "utils/hooks/useFetchUser";
 
 interface LoginFormInputs {
   email: string;
