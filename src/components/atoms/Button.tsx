@@ -1,6 +1,8 @@
+import { cn } from "@/lib/utils";
 import React, { ButtonHTMLAttributes } from "react";
-import styles from "./Button.module.css";
 
+const DefaultButtonClass =
+  "box-border px-4 py-2 border rounded-md border-gray-200 transition-all duration-200 text-sm bg-white text-black flex items-center gap-2 h-[40px] w-fit min-w-fit justify-center";
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   active?: boolean;
@@ -14,7 +16,7 @@ const DefaultButton: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      className={`${styles.button} ${className} ${active ? styles.active : ""}`}
+      className={cn(DefaultButtonClass, className)}
       data-active={active}
       {...props}
     >
@@ -23,8 +25,19 @@ const DefaultButton: React.FC<ButtonProps> = ({
   );
 };
 
-interface SolidButtonProps extends ButtonProps {
-  color: "main" | "gray" | "green" | "red";
+const SolidButtonClass = {
+  Main: "text-mos-gray-500 data-[active=true]:bg-mos-main-500 data-[active=true]:text-white data-[active=true]:border-mos-main-500",
+  Gray: "text-mos-gray-500 data-[active=true]:bg-mos-gray-500 data-[active=true]:text-white data-[active=true]:border-mos-gray-500",
+  Green:
+    "text-mos-gray-500 data-[active=true]:bg-mos-green-500 data-[active=true]:text-white data-[active=true]:border-mos-green-500",
+  Blue: "text-mos-gray-500 data-[active=true]:bg-mos-blue-500 data-[active=true]:text-white data-[active=true]:border-mos-blue-500",
+  Red: "text-mos-gray-500 data-[active=true]:bg-red-500 data-[active=true]:text-white data-[active=true]:border-red-500",
+};
+
+export interface SolidButtonProps extends ButtonProps {
+  className?: string;
+  active?: boolean;
+  color: keyof typeof SolidButtonClass;
 }
 
 const SolidButton: React.FC<SolidButtonProps> = ({
@@ -36,7 +49,7 @@ const SolidButton: React.FC<SolidButtonProps> = ({
 }) => {
   return (
     <DefaultButton
-      className={`${styles.solid} ${styles[color]} ${className}`}
+      className={cn(SolidButtonClass[color], className)}
       active={active}
       {...props}
     >
@@ -45,8 +58,19 @@ const SolidButton: React.FC<SolidButtonProps> = ({
   );
 };
 
+const GhostButtonClass = {
+  Main: "border border-mos-gray-100 text-mos-gray-500 data-[active=true]:text-mos-main-500 data-[active=true]:border-mos-main-500 data-[active=true]:hover:bg-white hover:text-mos-main-500 hover:border-mos-main-500 hover:hover:bg-white",
+  Gray: "border border-mos-gray-100 text-mos-gray-500 data-[active=true]:text-black data-[active=true]:border-mos-gray-500 data-[active=true]:hover:bg-white hover:text-black hover:border-mos-gray-500 hover:hover:bg-white",
+  Green:
+    "border border-mos-gray-100 text-mos-gray-500 data-[active=true]:text-mos-green-500 data-[active=true]:border-mos-green-500 data-[active=true]:hover:bg-white hover:text-mos-green-500 hover:border-mos-green-500 hover:bg-white",
+  Blue: "border border-mos-gray-100 text-mos-gray-500 data-[active=true]:text-mos-blue-500 data-[active=true]:border-mos-blue-500 data-[active=true]:hover:bg-white hover:text-mos-blue-500 hover:border-mos-blue-500 hover:bg-white",
+  Red: "border border-mos-gray-100 text-mos-gray-500 data-[active=true]:text-red-500 data-[active=true]:border-red-500 data-[active=true]:hover:bg-white hover:text-red-500 hover:border-red-500 hover:bg-white",
+};
+
 interface GhostButtonProps extends ButtonProps {
-  color: "main" | "gray" | "green" | "red";
+  className?: string;
+  active?: boolean;
+  color: keyof typeof GhostButtonClass;
 }
 
 const GhostButton: React.FC<GhostButtonProps> = ({
@@ -58,7 +82,7 @@ const GhostButton: React.FC<GhostButtonProps> = ({
 }) => {
   return (
     <DefaultButton
-      className={`${styles.ghost} ${styles[color]} ${className}`}
+      className={cn(GhostButtonClass[color], className)}
       active={active}
       {...props}
     >
@@ -67,20 +91,27 @@ const GhostButton: React.FC<GhostButtonProps> = ({
   );
 };
 
+const IconButtonClass = {
+  Gray: "text-mos-gray-700 text-mos-gray-700",
+  Blue: "text-mos-blue-700 border-mos-blue-500",
+  Green: "bg-mos-green-500 text-white border-mos-green-500",
+  Red: "text-red-700 border-red-500",
+};
+
 interface IconButtonProps extends Omit<SolidButtonProps, "color"> {
-  color?: "gray" | "blue" | "green" | "red";
+  color?: keyof typeof IconButtonClass;
 }
 
 const IconButton: React.FC<IconButtonProps> = ({
   className,
   children,
   active = false,
-  color = "gray",
+  color = "Gray",
   ...props
 }) => {
   return (
     <DefaultButton
-      className={`${styles.icon} ${styles[color]} ${className}`}
+      className={cn("size-10 p-3", IconButtonClass[color], className)}
       active={active}
       {...props}
     >
@@ -88,7 +119,6 @@ const IconButton: React.FC<IconButtonProps> = ({
     </DefaultButton>
   );
 };
-
 const Button = {
   Default: DefaultButton,
   Solid: SolidButton,
