@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    },
     /* Language and Environment */
     "target": "es6" /* Use ES6 features for JavaScript output */,
     "lib": [
