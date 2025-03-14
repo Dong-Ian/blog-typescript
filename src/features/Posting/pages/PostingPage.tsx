@@ -71,7 +71,7 @@ const PostingPage: React.FC = () => {
             </div>
             <Title value={postTitle} onChange={setPostTitle} />
             <Catetory value={category} onChange={setCategory} />
-            <div className={styles.categorylist}>
+            <div className={styles.category_list}>
               <CategoryList
                 categoryList={categoryList}
                 setCategory={setCategory}

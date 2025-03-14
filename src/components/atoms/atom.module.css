@@ -1,0 +1,83 @@
+/* src/components/atoms/Button.module.css */
+.button {
+  box-sizing: border-box;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  min-width: fit-content;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Solid Button */
+.solid {
+  color: white;
+}
+.solid.main {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.solid.gray {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+.solid.green {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+.solid.red {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+.solid.active {
+  opacity: 0.8;
+}
+
+/* Ghost Button */
+.ghost {
+  background-color: white;
+  border-width: 1px;
+}
+.ghost.main {
+  color: #007bff;
+  border-color: #007bff;
+}
+.ghost.gray {
+  color: #6c757d;
+  border-color: #6c757d;
+}
+.ghost.green {
+  color: #28a745;
+  border-color: #28a745;
+}
+.ghost.red {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+.ghost:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Icon Button */
+.icon {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+}
+.icon.gray {
+  color: #6c757d;
+}
+.icon.blue {
+  color: #007bff;
+}
+.icon.green {
+  color: #28a745;
+}
+.icon.red {
+  color: #dc3545;
+}
