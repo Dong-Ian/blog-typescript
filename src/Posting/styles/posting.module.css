@@ -12,7 +12,8 @@
   > input {
     border-width: 0 0 1px;
     height: 40px;
-    width: 1000px;
+    max-width: 1000px;
+    width: 90%;
     font-size: 35px;
     font-weight: 700;
     padding: 0 0 10px 10px;
@@ -43,13 +44,13 @@
   }
 }
 
-.categorylist {
+.category_list {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 10px;
   width: 90%;
-  max-width: 600px;
+  max-width: 1000px;
   margin: 0 0 30px 30px;
 
   > div {
@@ -63,6 +64,7 @@
 .tag {
   margin: 0 0 30px 30px;
   display: flex;
+  flex-wrap: wrap;
 
   > input {
     border-width: 0 0 1px;
@@ -78,7 +80,7 @@
 
 .tag_box {
   display: flex;
-  margin: 3px 10px 0 0;
+  margin: 3px 10px 3px 0;
 
   > p {
     font-size: 15px;

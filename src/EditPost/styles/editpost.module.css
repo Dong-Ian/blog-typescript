@@ -48,7 +48,7 @@
   justify-content: flex-start;
   gap: 10px;
   width: 90%;
-  max-width: 600px;
+  max-width: 1000px;
   margin: 0 0 30px 30px;
 
   > div {
@@ -77,6 +77,7 @@
 
 .tag_box {
   display: flex;
+  flex-wrap: wrap;
   margin: 3px 10px 0 0;
   > p {
     font-size: 15px;
