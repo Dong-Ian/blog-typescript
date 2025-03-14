@@ -1,4 +1,4 @@
-import { UserInfoInterface } from "Main/types/Main.type";
+import { UserInfoInterface } from "features/Main/types/Main.type";
 
 export interface EditAccountFunctionProps {
   name: string;

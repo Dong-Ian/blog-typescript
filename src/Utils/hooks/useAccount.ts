@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import getAccount from "Main/services/getAccount.service";
-import { UserInfoInterface } from "Main/types/Main.type";
+import getAccount from "features/Main/services/getAccount.service";
+import { UserInfoInterface } from "features/Main/types/Main.type";
 
 export function useAccount() {
   const [userInfo, setUserInfo] = useState<UserInfoInterface | null>(null);

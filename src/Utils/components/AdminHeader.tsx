@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/component.module.css";
-import getAccount from "Main/services/getAccount.service";
+import getAccount from "features/Main/services/getAccount.service";
 import { getLuminance } from "Utils/services/getLuminance";
-import { AdminHeaderInterface } from "Main/types/Main.type";
+import { AdminHeaderInterface } from "features/Main/types/Main.type";
 
 const AdminHeader: React.FC<AdminHeaderInterface> = ({ state }) => {
   const navigate = useNavigate();

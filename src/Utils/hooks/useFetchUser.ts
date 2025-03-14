@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import getAccount from "Main/services/getAccount.service";
-import { UserInfoInterface } from "Main/types/Main.type";
+import getAccount from "features/Main/services/getAccount.service";
+import { UserInfoInterface } from "features/Main/types/Main.type";
 
 export function useFetchUser() {
   const {
