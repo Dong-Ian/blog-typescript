@@ -1,8 +1,8 @@
 .post_box {
   flex-direction: column;
   position: relative;
-  width: 100%;
-  max-width: 800px;
+  width: 90%;
+  max-width: 1500px;
   margin: 180px auto 0 auto;
 }
 
@@ -12,7 +12,7 @@
   > input {
     border-width: 0 0 1px;
     height: 40px;
-    width: 400px;
+    width: 1000px;
     font-size: 35px;
     font-weight: 700;
     padding: 0 0 10px 10px;
@@ -95,7 +95,7 @@
 
 .textForm {
   margin-left: 30px;
-  margin-bottom: 10d0px;
+  margin-bottom: 100px;
 }
 
 .textBox {

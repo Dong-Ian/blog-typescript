@@ -41,7 +41,12 @@ const Contents: React.FC<TextFieldProps> = ({ value, onChange }) => {
       <div style={{ marginBottom: "10px" }}>
         <Button onClick={imageHandler} text="이미지 업로드" />
       </div>
-      <MDEditor value={value} onChange={handleChange} height={500} />
+      <MDEditor
+        data-color-mode="light"
+        value={value}
+        onChange={handleChange}
+        height={1000}
+      />
     </div>
   );
 };

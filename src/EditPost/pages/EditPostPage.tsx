@@ -9,6 +9,7 @@ import Tag from "Posting/components/Tag";
 import Contents from "Posting/components/Contents";
 import { EditPostPageProps } from "EditPost/types/EditPost.type";
 import { useEditPost } from "EditPost/hooks/useEditPost";
+import Button from "Utils/components/Button";
 
 const EditPostPage: React.FC<EditPostPageProps> = ({ post, categoryList }) => {
   const {
@@ -42,9 +43,8 @@ const EditPostPage: React.FC<EditPostPageProps> = ({ post, categoryList }) => {
         )}
         <Tag tagList={tags} setTagList={setTags} />
         <Contents value={content} onChange={setContent} />
-
         <div className={styles.button}>
-          <button onClick={handleEditPost}>글 수정하기</button>
+          <Button onClick={handleEditPost} text="글 작성하기" />
         </div>
       </div>
     </>
