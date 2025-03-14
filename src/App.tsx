@@ -1,18 +1,18 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import MainPage from "./Main/pages/MainPage";
-import LoginPage from "Login/pages/LoginPage";
+import MainPage from "./features/Main/pages/MainPage";
+import LoginPage from "./features/Login/pages/LoginPage";
 
-import PostListPage from "PostList/pages/PostListPage";
-import PinnedPostListPage from "PostList/pages/PinnedPostListPage";
-import CategoryPostListPage from "PostList/pages/CategoryPostListPage";
-import TagPostListPage from "PostList/pages/TagPostListPage";
+import PostListPage from "./features/PostList/pages/PostListPage";
+import PinnedPostListPage from "./features/PostList/pages/PinnedPostListPage";
+import CategoryPostListPage from "./features/PostList/pages/CategoryPostListPage";
+import TagPostListPage from "./features/PostList/pages/TagPostListPage";
 
-import PostPage from "Post/pages/PostPage";
-import PostingPage from "Posting/pages/PostingPage";
-import EditPostLandingPage from "EditPost/pages/EditPostLandingPage";
-import AdminLandingPage from "Admin/pages/AdminLandingPage";
+import PostPage from "./features/Post/pages/PostPage";
+import PostingPage from "./features/Posting/pages/PostingPage";
+import EditPostLandingPage from "./features/EditPost/pages/EditPostLandingPage";
+import AdminLandingPage from "./features/Admin/pages/AdminLandingPage";
 import VerifyUserRoute from "Utils/components/VerifyUserRoute";
 
 const App: React.FC = () => {
