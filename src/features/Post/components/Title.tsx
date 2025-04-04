@@ -1,6 +1,6 @@
+import { TitleProps } from "features/Post/types/Post.type";
 import React from "react";
 import styles from "../styles/post.module.css";
-import { TitleProps } from "features/Post/types/Post.type";
 
 const Title: React.FC<TitleProps> = ({ title, isMobileScreen }) => {
   return (

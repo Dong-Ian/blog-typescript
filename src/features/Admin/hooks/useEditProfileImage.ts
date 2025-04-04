@@ -1,5 +1,5 @@
-import { useState } from "react";
 import editProfileImage from "features/Admin/services/editProfileImage.service";
+import { useState } from "react";
 
 export function useEditProfileImage(initialImage: string) {
   const [formData, setFormData] = useState<FormData>(new FormData());

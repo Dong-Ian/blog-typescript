@@ -34,10 +34,6 @@
     /* Emit */
     "sourceMap": true /* Generate source map files */,
     "removeComments": true /* Remove comments from the emitted code */,
-
-    /* Paths */
-    "baseUrl": "./src" /* Base directory for non-relative imports */,
-
     /* Output */
     "outDir": "./dist" /* Directory to output the compiled code */
   },

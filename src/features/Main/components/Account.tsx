@@ -1,14 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styles from "../styles/account.module.css";
 import {
-  RenderUserInfoProps,
   RenderAccountProps,
   RenderAccountRowProps,
+  RenderUserInfoProps,
 } from "features/Main/types/Main.type";
-import default_profile_image from "utils/images/nullprofile.webp";
+import React from "react";
+import { Link } from "react-router-dom";
 import github_icon from "utils/images/github-mark.png";
 import instagram_icon from "utils/images/instagram.webp";
+import default_profile_image from "utils/images/nullprofile.webp";
+import styles from "../styles/account.module.css";
 
 const RenderUserInfo: React.FC<RenderUserInfoProps> = ({
   userInfo,
